@@ -56,8 +56,7 @@ Route::get('message','MessageController@test');
 
 Route::get('msg', 'MessageController@index');
 
-Route::resource('msg', 'MessageController',
-                 ['expect' => ['create','store']]);
+
 Route::get('/conversations/{user}','MessageController@show')->name('show');
 Route::get('/conversations/{user}','MessageController@store');
 

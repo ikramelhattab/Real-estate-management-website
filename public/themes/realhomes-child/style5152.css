@@ -1,0 +1,169 @@
+/*
+Theme Name: RealHomes Child Theme
+Theme URI: http://themeforest.net/item/real-homes-wordpress-real-estate-theme/5373914
+Description: Child theme for Real Homes.
+Author: Inspiry Themes
+Author URI: https://www.inspirythemes.com/
+Template: realhomes
+Version: 1.4
+*/
+
+#contact-form #comment, 
+#contact-form input[type=text], 
+#contact-form input[type=email], 
+#contact-form input[type=tel], 
+#respond #comment, 
+#respond input[type=text] {
+    width: 40.4%;
+    height: 24px;
+    margin-bottom: 0;
+}
+
+.property-item h4 article a span, article .property-item h4 a span, article h1 span, article h2 span, article h3 span, article h4 span, article h5 span, article h6 span {
+    color: #d9001a;
+}
+
+.real-btn:focus, .real-btn:active{
+	background-color:#c10009;
+}
+
+@media (min-width: 1200px)
+{
+	.property-item .compare-meta span {
+		margin-right: 8px;
+	}
+}
+
+
+#post-70138 .vc_row.wpb_row.vc_row-fluid.background-bottom-cover.vc_custom_1504612637050.vc_row-has-fill{
+        left: 211.5px !important;
+}
+
+#post-70138 .vc_row.wpb_row.vc_row-fluid.vc_row-no-padding.vc_row-o-equal-height.vc_row-o-content-middle.vc_row-flex{
+        left: 211.5px !important;
+}
+
+#post-70138 .vc_column-inner.vc_custom_1503314069532{
+       padding-right: 60px;
+}
+
+#post-70138 .vc_row.wpb_row.vc_row-fluid.vc_custom_1503171411203.vc_row-has-fill{
+      left: 211.5px !important;
+}
+
+#post-70160 .vc_row.wpb_row.vc_row-fluid.vc_custom_1503173682672.vc_row-has-fill.vc_row-o-content-middle.vc_row-flex{
+     left: 211.5px !important;
+	 padding-left: 227px !important;
+}
+
+#post-70160 .vc_row.wpb_row.vc_row-fluid.vc_custom_1503171411203.vc_row-has-fill{
+     left: 211.5px !important;
+}
+
+#post-70161 .vc_row.wpb_row.vc_row-fluid.vc_custom_1503171411203.vc_row-has-fill{
+	left: 211.5px !important;
+}
+
+#post-70162 .vc_row.wpb_row.vc_row-fluid.vc_custom_1503173394508.vc_row-has-fill{
+ 	left: 211.5px !important;
+}
+
+#post-70162 .vc_row.wpb_row.vc_row-fluid.vc_custom_1476477357588.vc_row-has-fill{
+ 	left: 211.5px !important;
+}
+
+#post-70162 .vc_row.wpb_row.vc_row-fluid.vc_custom_1503173658737.vc_row-has-fill.vc_row-o-content-middle.vc_row-flex{
+ 	left: 211.5px !important;
+}
+
+#post-70162 .vc_row.wpb_row.vc_row-fluid.vc_custom_1503171411203.vc_row-has-fill{
+ 	left: 211.5px !important;
+}
+
+#post-70155 .vc_row.wpb_row.vc_row-fluid.vc_custom_1503237499439.vc_row-has-fill{
+ 	left: 211.5px !important;
+}
+
+#post-70155 .vc_row.wpb_row.vc_row-fluid.vc_custom_1503238089918.vc_row-has-fill.vc_row-o-content-middle.vc_row-flex{
+ 	left: 211.5px !important;
+}
+
+#post-70155 .vc_row.wpb_row.vc_row-fluid.vc_custom_1504612852395.vc_row-has-fill.vc_row-o-equal-height.vc_row-o-content-middle.vc_row-flex{
+ 	left: 211.5px !important;
+}
+
+#post-70155 .vc_row.wpb_row.vc_row-fluid.vc_custom_1504612864467.vc_row-has-fill.vc_row-o-equal-height.vc_row-o-content-middle.vc_row-flex{
+ 	left: 211.5px !important;
+}
+
+#post-70155 .vc_row.wpb_row.vc_row-fluid.vc_row-o-equal-height.vc_row-o-content-middle.vc_row-flex{
+	left: 211.5px !important;
+}
+
+.list-unstyled.list-ar li i {
+ 	margin-left: 10px !important;
+}
+
+.rtl .compare-template .compare-properties-column > p{
+ 	padding-right: 28px !important;
+}
+
+#agent-form-id89906 .inspiry-recaptcha-wrapper.clearfix {
+ 	margin-right: -85px !important;
+}
+
+#beyti-leads-ar .inbound-button-submit.inbound-submit-action{
+ 	display: none !important;
+}
+
+#beyti-leads-ar .inbound-button-submit.inbound-submit-action.first-button {
+ 	display: initial !important;
+} 
+
+#agent-form-id4883 .inspiry-recaptcha-wrapper.clearfix {
+ 	margin-right: -85px !important;
+}
+
+#agent-form-id4936 .inspiry-recaptcha-wrapper.clearfix {
+ 	margin-right: -85px !important;
+}
+
+#agent-form-id4812 .inspiry-recaptcha-wrapper.clearfix {
+ 	margin-right: -85px !important;
+}
+
+#agent-form-id89937 .inspiry-recaptcha-wrapper.clearfix {
+ 	margin-right: -85px !important;
+}
+
+.sidebar.property-sidebar .inspiry-recaptcha-wrapper.clearfix {
+ 	margin-right: -85px !important;
+}
+
+.rtl #overview .property-item .price .status-label {
+    background: #292d2d url("../../uploads/2018/12/rtl-arrow-left.png") no-repeat scroll left 0 !important;
+}
+
+.rtl .SFOI .option-bar {
+	float: right;
+}
+
+.rtl .desktop-version a {
+	direction: ltr;
+    unicode-bidi: bidi-override;
+}
+
+.rtl .phone .desktop-version {
+	direction: ltr;
+	unicode-bidi: bidi-override;
+}
+
+.rtl .mobile .desktop-version {
+	direction: ltr;
+	unicode-bidi: bidi-override;
+}
+
+.rtl .list-unstyled.list-ar .desktop-version {
+	direction: ltr;
+	unicode-bidi: bidi-override;
+}

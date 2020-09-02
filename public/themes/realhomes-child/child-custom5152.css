@@ -1,0 +1,146 @@
+::-moz-selection{background:#0055a5;color:#fff;text-shadow:none}
+::selection{background:#0055a5;color:#fff;text-shadow:none}
+
+.page-head div.page-breadcrumbs{
+	background-color: #0055a5;
+}
+.slider-main-wrapper .slider-socket{
+	background: rgba(0, 85, 165, 0.6);
+}
+
+#overview .property-item .price span {
+    background-color: #0055a5;
+}
+
+#overview .property-item .price .status-label {
+    background: #292d2d url("images/arrow-left-blue.png") no-repeat scroll right 0;
+}
+
+@media (min-width: 1200px)
+{
+	#overview .property-item .price span:not(.status-label){
+		font-weight: bold;
+	}
+}
+
+@media (max-width: 767px){
+	#overview .property-item .price {
+		background: #0055a5;
+	}
+}
+
+@media (max-width: 439px){
+	#overview .property-item .price .status-label {
+		background-image: none;
+	}
+	
+}
+
+.property-grid .property-item span {
+    color: #0055a5;
+}
+
+#footer .widget ul li a:hover, #footer .widget ul li a:focus, #footer.widget ul li a:active, #footer .widget a:hover, #footer .widget a:focus, #footer .widget a:active, #footer-bottom a:hover, #footer-bottom a:focus, #footer-bottom a:active {
+    color: #0055a5 !important;
+}
+
+.list-unstyled {
+    padding-left: 0 !important;
+    list-style: none;
+}
+
+.list-unstyled  li{
+	background: none !important;
+	padding-left: 25px !important;
+}
+
+.list-unstyled  li .fa {
+    margin-left: -25px;
+    margin-right: 10px;
+}
+
+.textwidget .social li {
+    display: inline-block;
+    font-size: 18px;
+    list-style: outside none none;
+    margin: 0 7px 0 0;
+	background: none !important;
+	padding-left: 0px !important;
+}
+
+.mc4wp-response{
+	font-weight: bold;
+    color: green;
+}
+.mc4wp-response .mc4wp-error{
+    color: red;
+}
+
+.mc4wp-response .mc4wp-notice{
+    color: orange;
+}
+
+.SFOI__advanced-expander{
+	background: #d9001a;
+}
+
+.SFOI__advanced-expander:hover,
+.SFOI__advanced-expander:active,
+.SFOI__advanced-expander:focus
+{
+	background: #0055a5;
+}
+
+.brands-carousel .jcarousel-clip-horizontal {
+    height: 100px;
+}
+
+.brands-carousel .jcarousel-clip-horizontal ul li {
+	    line-height: 92px;
+}
+
+@media (min-width: 1200px)
+{
+	.brands-carousel ul.brands-carousel-list li {
+		width: 25%;
+	}
+}
+
+.header-wrapper, #contact-email, #contact-email a, .user-nav a, .social_networks li a, #currency-switcher #selected-currency, #currency-switcher-list li {
+    color: #ffffff !important;
+}
+
+#contact-email svg .path {
+    fill: #ffffff !important;
+}
+
+.user-nav a:after {
+    color: #ffffff !important;
+ }
+ 
+ .fa-whatsapp:before {
+    content: "\f232" !important;
+}
+
+.fa-whatsapp {
+	background: #25d366 !important;
+	color: #ffffff !important;
+}
+
+@media (max-width: 979px){	
+	.fa-whatsapp {
+		background: none !important;
+		color: #e7eff7 !important;
+		
+	}
+}
+
+.social_networks li{
+		margin: 0 !important;
+}
+
+
+.textwidget .fa-whatsapp{
+	padding: 2px;
+}
+

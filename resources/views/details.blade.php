@@ -4,21 +4,16 @@
 @section('content')
 
 
-<!--
-<div class="page-head" style="background-repeat: no-repeat;background-position: center top;background-image: url('themes/realhomes/assets/classic/images/banner.jpg'); background-size: cover;">
-            <div class="container">
-            <div class="wrap clearfix">
-                <h1 class="page-title"><span>Villa for Sale in Kalhat, Koura</span></h1>
-                        <div class="page-breadcrumbs">
-        <nav class="property-breadcrumbs">
+           @if($errors->any())
+           <div class="alert alert-danger">
             <ul>
-            <li><a href="">Home</a><i class="breadcrumbs-separator fa fa-angle-right"></i></li><li><a href="">North</a><i class="breadcrumbs-separator fa fa-angle-right"></i></li><li><a href="">Koura</a><i class="breadcrumbs-separator fa fa-angle-right"></i></li><li><a href="">Kalhat</a></li>            </ul>
-        </nav>
-        </div>
-                    </div>
-        </div>
-    </div>End Page Head
- -->
+      @foreach($errors->all() as $error)
+     <li>{{$error}}</li>
+      @endforeach
+    </ul>
+    </div>
+     @endif
+
 <!-- Content -->
 <div class="container contents detail">
     <div class="row">
@@ -30,41 +25,29 @@
                 <div id="overview">
                                                     <div class="slider-main-wrapper">
                                             <div id="property-detail-flexslider" class="clearfix">
+                                            @foreach($local as $locdet)
+
             <div class="flexslider">
+
+                     @php $images =json_decode($locdet->photo);@endphp
+                                    @if($images)
+                                        @php $images = array_slice($images, 0, 3); @endphp
                 <ul class="slides">
+<li>
 
-                    <li data-thumb="{{ asset('images/uploads/properties/70/cfecfabd7e01d0e5e964ed7fb2b1c868/9370.jpg')}}">
-                    <a href="{{ asset('images/uploads/properties/70/e594ce0d769d094255bdd7993a173a97/9370.jpg') }}" class="swipebox" rel="gallery_real_homes" >
-                    <img src="{{ asset('images/uploads/properties/70/1ca44144b12eb8cea7bb4dee29f36cbf/9370.jpg')}}" alt="Villa for Sale in Kalhat, Koura" /></a></li>
+                <img width="244" height="163" src="{{Voyager::image($images[0])}}" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" sizes="(max-width: 244px) 100vw, 244px" />            </a></li>
+              <li>
+    <img width="244" height="163" src="{{Voyager::image($images[1])}}" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" sizes="(max-width: 244px) 100vw, 244px" />            </a></li>
+              <li>
+   <img width="244" height="163" src="{{Voyager::image($images[2])}}" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" sizes="(max-width: 244px) 100vw, 244px" />            </a>
 
-                        <li data-thumb="{{ asset('images/uploads/properties/70/cfecfabd7e01d0e5e964ed7fb2b1c868/9370.jpg')}}">
-                    <a href="{{ asset('images/uploads/properties/70/e594ce0d769d094255bdd7993a173a97/9370.jpg') }}" class="swipebox" rel="gallery_real_homes" >
-                    <img src="{{ asset('images/uploads/properties/70/1ca44144b12eb8cea7bb4dee29f36cbf/9370.jpg')}}" alt="Villa for Sale in Kalhat, Koura" /></a></li>
 
-                       <li data-thumb="{{ asset('images/uploads/properties/70/cfecfabd7e01d0e5e964ed7fb2b1c868/9370.jpg')}}">
-                    <a href="{{ asset('images/uploads/properties/70/e594ce0d769d094255bdd7993a173a97/9370.jpg') }}" class="swipebox" rel="gallery_real_homes" >
-                    <img src="{{ asset('images/uploads/properties/70/1ca44144b12eb8cea7bb4dee29f36cbf/9370.jpg')}}" alt="Villa for Sale in Kalhat, Koura" /></a></li>
-
-                     <li data-thumb="{{ asset('images/uploads/properties/70/cfecfabd7e01d0e5e964ed7fb2b1c868/9370.jpg')}}">
-                    <a href="{{ asset('images/uploads/properties/70/e594ce0d769d094255bdd7993a173a97/9370.jpg') }}" class="swipebox" rel="gallery_real_homes" >
-                    <img src="{{ asset('images/uploads/properties/70/1ca44144b12eb8cea7bb4dee29f36cbf/9370.jpg')}}" alt="Villa for Sale in Kalhat, Koura" /></a></li>
-
+</li>
                     </ul>
+                                                        @endif
+
             </div>
         </div>
-                <div id="property-featured-image" class="clearfix only-for-print">
-            <img src="{{ asset('images/uploads/properties/62/e594ce0d769d094255bdd7993a173a97/d90fe2c548b32f35df26480124451cc1.jpg')}}" alt="Villa for Sale in Kalhat, Koura" />        </div>
-                                            <div class="slider-socket thumb-on-right">
-
-
-
-
-
-                                            <span class="add-to-fav">
-                    <form action="{{url('/favourites')}}" method="post" class="add-to-favorite-form">
-                <input type="hidden" name="property_id" value="92775" />
-                <input type="hidden" name="action" value="add_to_favorite" />
-            </form>
 
 
 
@@ -72,19 +55,6 @@
 
 
 
-
-            <span class="btn-fav favorite-placeholder highlight__red hide" title="Added to favorites">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 21">
-  <path class="rh_svg" d="M1089.48,1923.98a6.746,6.746,0,0,1,9.54,9.54L1089,1943l-10.02-9.48a6.746,6.746,0,0,1,9.54-9.54A0.641,0.641,0,0,0,1089.48,1923.98Z" transform="translate(-1077 -1922)"/>
-</svg>
-					</span>
-                <a href="{{url('/home')}}" class="btn-fav favorite add-to-favorite" title="Add to favorite">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 21">
-  <path class="rh_svg" d="M1089.48,1923.98a6.746,6.746,0,0,1,9.54,9.54L1089,1943l-10.02-9.48a6.746,6.746,0,0,1,9.54-9.54A0.641,0.641,0,0,0,1089.48,1923.98Z" transform="translate(-1077 -1922)"/>
-</svg>
-            </a>
-
-                </span>
 
 
 
@@ -93,20 +63,19 @@
 
                                             <!-- Print link -->
                                         <!-- <span class="printer-icon"><a href="javascript:window.print()"><i class="fa fa-print"></i></a></span> -->
-                                    </div>
+                                    <!-- </div> -->
                                 </div>
 
 
-@foreach($loc as $locdet)
 <article class="property-item clearfix">
     <div class="wrap clearfix">
-        <address class="title">
-           {{ $locdet->adress }}        </address>
+       <div name="id_locale" value="{{$locdet->id}}">{{ $locdet->name_loc }}</div>             <address class="title">
+  ||        {{ $locdet->adress }}        </address>
         <h5 class="price">
             <span class="status-label">
                         </span>
             <span>
-                {{ $locdet->prix }} <small> </small>            </span>
+                {{ $locdet->prix }} /Month  <small> </small>            </span>
         </h5>
     </div>
 
@@ -142,58 +111,31 @@
 <path class="path" d="M23.958 0.885c-0.175-0.64-0.835-1.016-1.475-0.842l-11 3.001c-0.64 0.173-1.016 0.833-0.842 1.5 c0.175 0.6 0.8 1 1.5 0.842L16 4.299V6.2h-0.001H13c-2.867 0-4.892 1.792-5.664 2.891L5.93 11.2H5.024 c-0.588-0.029-2.517-0.02-3.851 1.221C0.405 13.1 0 14.1 0 15.201V18.2v2H2h2.02C4.126 22.3 5.9 24 8 24 c2.136 0 3.873-1.688 3.979-3.801H16V24h2V3.754l5.116-1.396C23.756 2.2 24.1 1.5 24 0.885z M8 22 c-1.104 0-2-0.896-2-2.001s0.896-2 2-2S10 18.9 10 20S9.105 22 8 22.001z M11.553 18.2C10.891 16.9 9.6 16 8 16 c-1.556 0-2.892 0.901-3.553 2.201H2v-2.999c0-0.599 0.218-1.019 0.537-1.315C3.398 13.1 5 13.2 5 13.2h2L9 10.2 c0 0 1.407-1.999 4-1.999h2.999H16v10H11.553z"/>
 </svg>
 {{ $locdet->Garages }} Garages</span>    </div>
-
     <div class="content clearfix">
         <div style="display: none;"
-    class="kk-star-ratings kksr-valign-top kksr-align-right kksr-disabled"
+    class="kk-star-ratings kksr-valign-top kksr-align-left kksr-disabled"
     data-id="92775"
     data-slug="">
     <div class="kksr-stars">
-    <div class="kksr-stars-inactive">
-            <div class="kksr-star" data-star="1">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="2">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="3">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="4">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="5">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-    </div>
-    <div class="kksr-stars-active" style="width: 62px;">
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-    </div>
+
 </div>
-    <div class="kksr-legend">
-            <strong class="kksr-score">4.5</strong>
-        <span class="kksr-muted">/</span>
-        <strong>5</strong>
-        <span class="kksr-muted">(</span>
-        <strong class="kksr-count">58</strong>
-        <span class="kksr-muted">
-            votes        </span>
-        <span class="kksr-muted">)</span>
-    </div>
+<table class="table table-bordered table-striped">
+<thead>
+                  <tr >
+                            <th >Period </th>
+                            <th>Montant</th>
+                            </tr>
+                          </thead>
+<tr><td>Week</td><td>{{ $locdet->prix_s }}</td></tr>
+<tr><td>Day</td><td>{{ $locdet->prix_j }}</td></tr>
+<tr><td>Hour</td><td>{{ $locdet->prix_h }}</td></tr>
+<thead>
+                  <tr >
+                            <th >Period </th>
+                            <th>Montant</th>
+                            </tr>
+                          </thead>
+</table>
 </div>
             @endforeach
 
@@ -210,7 +152,6 @@
       <label>Date Fin Location
       <input class="form-control" type="date" name="datefin" /></label>
     </div>
-<button><span class="glyphicon glyphicon-heart">fav</span></button>
  @if(Auth::user())
 <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#achat">Demande</button>
 
@@ -336,35 +277,6 @@
 				</div>
 			</div>
 		</div>
- <button onclick="actOnChirp(event);" data-chirp-id="{{ $locales->id }}">Like</button>
-                    <span id="likes-count-{{ $locales->id }}"></span>
+
 @endsection
-@section('js')
-    <script>
-        function markAsSolution(threadId, solutionId,elem) {
-            var csrfToken='{{csrf_token()}}';
-            $.post('{{route('markAsSolution')}}', {solutionId: solutionId, threadId: threadId,_token:csrfToken}, function (data) {
-                $(elem).text('Solution');
-            });
-        }
 
-        function likeIt(commentId,elem){
-            var csrfToken='{{csrf_token()}}';
-            var likesCount=parseInt($('#'+commentId+"-count").text());
-            $.post('{{route('toggleLike')}}', {commentId: commentId,_token:csrfToken}, function (data) {
-                console.log(data);
-               if(data.message==='liked'){
-                   $(elem).addClass('liked');
-                   $('#'+commentId+"-count").text(likesCount+1);
-//                   $(elem).css({color:'red'});
-               }else{
-//                   $(elem).css({color:'black'});
-                   $('#'+commentId+"-count").text(likesCount-1);
-                   $(elem).removeClass('liked');
-               }
-            });
-
-        }
-
-
-    </script>

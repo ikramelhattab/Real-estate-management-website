@@ -37,9 +37,10 @@
 	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.remax-tripoli.com/#organization","name":"RE/MAX Experts","url":"https://www.remax-tripoli.com/","sameAs":["https://www.facebook.com/remaxexpertslebanon","https://www.instagram.com/remaxtripoli/","https://www.linkedin.com/company/remax-experts","https://twitter.com/RemaxTripoli"],"logo":{"@type":"ImageObject","@id":"https://www.remax-tripoli.com/#logo","inLanguage":"en-US","url":"","caption":"RE/MAX Experts"},"image":{"@id":"https://www.remax-tripoli.com/#logo"}},{"@type":"WebSite","@id":"https://www.remax-tripoli.com/#website","url":"https://www.remax-tripoli.com/","name":"RE/MAX Experts","description":"","publisher":{"@id":"https://www.remax-tripoli.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":"https://www.remax-tripoli.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.remax-tripoli.com/#webpage","url":"https://www.remax-tripoli.com/","name":"REAL ESTATE AGENCY, properties for sale or rent TRIPOLI - Lebanon","isPartOf":{"@id":"https://www.remax-tripoli.com/#website"},"about":{"@id":"https://www.remax-tripoli.com/#organization"},"datePublished":"2019-02-10T23:45:40+00:00","dateModified":"2020-02-23T01:00:12+00:00","description":"REAL ESTATE AGENCY, properties for sale or rent TRIPOLI - Lebanon - Beirut . Discover the latest properties on Remax Experts Website and much more...","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.remax-tripoli.com/"]}]}]}</script>
 	<!-- / Yoast SEO plugin. -->
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link href="{{asset('css/select2.min.css')}}" rel="stylesheet" />
+<script src="{{asset('js/select2.min.js')}}"></script>
+<script src="{{asset('ajax/jquery.min.js')}}"></script>
+<script src="{{asset('ajax/jquery.min.js')}}"></script>
 
 <link rel='dns-prefetch' href='http://www.google.com/' />
 <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
@@ -48,7 +49,7 @@
 <link rel="alternate" type="application/rss+xml" title="RE/MAX Experts &raquo; Comments Feed" href="comments/feed/index.html" />
 <link rel="alternate" type="application/rss+xml" title="RE/MAX Experts &raquo; REAL ESTATE AGENCY, properties for sale or rent TRIPOLI &#8211; Lebanon Comments Feed" href="real-estate-properties-sale-rent-lebanon-tripoli-beirut/feed/index.html" />
 		<script type="text/javascript">
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"js\/wp-emoji-release.min.js?ver=5.4.2"}};
+			window._wpemojiSettings = {"baseUrl":"","ext":".png","svgUrl":"","svgExt":".svg","source":{"concatemoji":""}};
 			/*! This file is auto-generated */
 			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
 		</script>
@@ -84,8 +85,8 @@ img.emoji {
 </style>
 <link rel='stylesheet' id='wsl-widget-css'  href="{{ asset('plugins/wordpress-social-login/assets/css/style7661.css?ver=5.4.2') }}" type='text/css' media='all' />
 <link rel='stylesheet' id='wpml-legacy-horizontal-list-0-css'  href="{{ asset('plugins/sitepress-multilingual-cms-master/templates/language-switchers/legacy-list-horizontal/style68b3.css?ver=1') }}" type='text/css' media='all' />
-<link rel='stylesheet' id='inspiry-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Lato%3A400%2C400i%2C700%2C700i%7CRoboto%3A400%2C400i%2C500%2C500i%2C700%2C700i&amp;subset=latin%2Clatin-ext&amp;ver=3.0.2' type='text/css' media='all' />
-<link rel='stylesheet' id='flexslider-css'  href="{{ asset('themes/realhomes/assets/classic/scripts/vendors/flexslider/flexsliderd315.css?ver=2.6.0') }}" type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='inspiry-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Lato%3A400%2C400i%2C700%2C700i%7CRoboto%3A400%2C400i%2C500%2C500i%2C700%2C700i&amp;subset=latin%2Clatin-ext&amp;ver=3.0.2' type='text/css' media='all' />
+ --><link rel='stylesheet' id='flexslider-css'  href="{{ asset('themes/realhomes/assets/classic/scripts/vendors/flexslider/flexsliderd315.css?ver=2.6.0') }}" type='text/css' media='all' />
 <link rel='stylesheet' id='pretty-photo-css-css'  href="{{ asset('themes/realhomes/assets/classic/scripts/vendors/prettyphoto/css/prettyPhoto005e.css?ver=3.1.6') }}"  type='text/css' media='all' />
 <link rel='stylesheet' id='swipebox-css'  href="{{ asset('themes/realhomes/assets/classic/scripts/vendors/swipebox/css/swipebox.minc2d0.css?ver=1.4.4') }}" type='text/css' media='all' />
 <link rel='stylesheet' id='select2-css'  href="{{ asset('themes/realhomes/assets/classic/scripts/vendors/select2/select205da.css?ver=4.0.2' ) }}" type='text/css' media='all' />
@@ -124,19 +125,6 @@ img.emoji {
 		  float: left;
 		  }
 
-.inner-left	  {
-		  padding: 5px 5px 5px 5px;
-		  margin-right: 10px;
-		  border: #999999 1px solid;
-		  min-height: 60px;
-		  }
-
-.inner-right	  {
-		  font-size: 11px;
-		  padding: 5px 5px 5px 5px;
-		  border: #999999 1px solid;
-		  min-height: 60px;
-		  }
 
 .clear-floated	  { clear: both; height: 1px; font-size: 1px; line-height: 1px; padding: 0; margin: 0; }
 
@@ -308,7 +296,7 @@ background-color:#f5f5f5;
 color:#394041;
 }
 
-#footer .widget .textwidget, #footer .widget, #footer-bottom p{
+#footer .widget .textwidget, #footer .widget, #footer-bottom p {
 color:#808080;
 }
 
@@ -428,13 +416,13 @@ background-color:#2c6ba5;
 <link rel="icon" href="{{ asset('images/uploads/2017/08/cropped-balloon-remax-32x32.png') }}" sizes="32x32" />
 <link rel="icon" href="{{ asset('images/uploads/2017/08/cropped-balloon-remax-192x192.png') }}" sizes="192x192" />
 <link rel="apple-touch-icon" href="{{ asset('images/uploads/2017/08/cropped-balloon-remax-180x180.png') }}" />
-<meta name="msapplication-TileImage" content="uploads/2017/08/cropped-balloon-remax-270x270.png" />
+<meta name="msapplication-TileImage" content="{{ asset('images/uploads/2017/08/cropped-balloon-remax-270x270.png') }}" />
 <script type="text/javascript">function setREVStartSize(e){
 				try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
 					if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
 				}catch(d){console.log("Failure at Presize of Slider:"+d)}
 			};</script>
-		<style type="text/css" id="wp-custom-css">²
+		<style type="text/css" id="wp-custom-css">
 			/*
 You can add your own CSS here.
 
@@ -624,15 +612,6 @@ Email us at :
 
         <!-- User Navigation -->
 
-
-
-
-
-
-
-
-
-
 <div class="user-nav clearfix">
 
 @if(Auth::user())
@@ -641,20 +620,14 @@ Email us at :
 
   <!-- Profile Image -->
 
- <a href="{{route('logout')}}" class=" fa fa-btn fa-sign-out btn btn-primary btn-block" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><b>Logout</b></a>
+ <a href="{{route('logout')}}" class="fa fa-btn fa-sign-out btn-block" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><b>Logout</b></a>
 
  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                   {{ csrf_field() }}
                               </form>
-
-
-
-
-
-
  @endif
 
-			<a href="{{ url('/favorite') }}"><i class="fa fa-star"></i>Favorites</a>
+			<!-- <a href="{{ url('/favorite') }}"><i class="fa fa-star"></i>Favorites</a> -->
 			<a class="last" href="{{ route('login') }}"><i class="fa fa-sign-in"></i>Login </a>
            <a class="last" href="{{ route('register') }}"><i class="fa fa-sign-in"></i> Register </a>	</div>
 
@@ -698,8 +671,8 @@ Email us at :
 
 
 
-<li id="menu-item-89462" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89462"><a href="{{ url('/featured ') }}">Featured Properties</a></li>
-<li id="menu-item-47140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-47140"><a href="{{ url('/blogs ') }}">Blogs</a></li>
+<!-- <li id="menu-item-89462" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89462"><a href="{{ url('/featured ') }}">Featured Properties</a></li>
+ --><li id="menu-item-47140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-47140"><a href="{{ url('/blogs ') }}">Blogs</a></li>
 
 
 <li id="menu-item-4649" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4649"><a href="{{ url('/blogs') }}">Locaux</a></li>
@@ -716,62 +689,13 @@ Email us at :
 
 </div><!-- End Header -->
 
-@if(Auth::user())
 
-<div class="float-left-area ">
-<div class="inner-left">
-  <!-- Profile Image -->
-            <div class="card card-primary card-outline">
-              <div class="card-body box-profile">
-                <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
-                       src="{{ asset('img/user4-128x128.jpg')}}"
-                       alt="User profile picture">
-                </div>
-    <ul class="navbar-nav ml-auto">
-
-                <h3 class="profile-username text-center">{{Auth::user()->name}}</h3>
-
-                <ul class="list-group list-group-unbordered mb-3">
-                  <ol class="list-group-item">
-                   <a href="{{url('dashboard')}}">  <b>Locaux</b> <a class="float-right"></a>
-                  </ol>
-                  <ol class="list-group-item">
-                   <a href="{{url('list_dem')}}">  <b>Demandes</b> <a class="float-right"></a>
-                  </ol>
-                  <ol class="list-group-item">
-                    <a href="{{url('reclamation_loc')}}"> <b>Reclamations</b> <a class="float-right"></a>
-                  </ol>
-                   <ol class="list-group-item">
-                   <a href="{{url('dashboard')}}"> <b>Change</b> </a>
-                  </ol>
-                    <ol class="list-group-item">
-                   <a href="{{url('message')}}"> <b>Messages</b> </a>
-                  </ol>
-                    <ol class="list-group-item">
-                   <a href="{{url('fact_loc')}}"> <b>Factures</b> </a>
-                  </ol>
-                    <ol class="list-group-item">
-                   <a href="{{url('tran_loc')}}"> <b>Tranch</b> </a>
-                  </ol>
-                </ul>
- <a href="{{route('logout')}}" class=" fa fa-btn fa-sign-out btn btn-primary btn-block" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><b>Logout</b></a>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-            </ul>
-<!-- Start Footer -->
-</div>
-</div>
-</div>
-@endif
-<div class="float-right-area">
-<div class="inner-right">
+<div class="float-area">
 
 @yield('content')
 </div>
-</div>
+
+
 <footer id="footer-wrapper">
 
    <div id="footer" class="container">
@@ -1019,7 +943,6 @@ var icl_vars = {"current_language":"en","icl_home":"https:\/\/www.remax-tripoli.
 <script type='text/javascript' src="{{ asset('plugins/mailchimp-for-wp/assets/js/forms.mine049.js?ver=4.7.8') }}"></script>
 </body>
 
-<!-- Mirrored from www.remax-tripoli.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Aug 2020 08:58:53 GMT -->
 </html>
 
 

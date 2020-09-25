@@ -19,14 +19,16 @@
 
         <figure>
             <a href="{{ url('details/'.$blog->id) }}">
-                <img width="244" height="163" src="images/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-244x163.jpg" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-244x163.jpg 244w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-300x200.jpg 300w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-150x100.jpg 150w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e.jpg 500w" sizes="(max-width: 244px) 100vw, 244px" />            </a>
-
-            <figcaption class="for-sale">****</figcaption>
+                @php $images =json_decode($blog->photo);@endphp
+                                    @if($images)
+                                        @php $images = array_slice($images, 0, 3); @endphp
+                <img width="244" height="163" src="{{Voyager::image($images[0])}}" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" sizes="(max-width: 244px) 100vw, 244px" />            </a>
+                                    @endif
         </figure>
 
         <div class="detail">
             <h5 class="price">
-                {{ $blog->prix}} <small> -  {{ $blog->slug }}</small>            </h5>
+                {{ $blog->prix}} /Month <small> -  {{ $blog->slug }}</small>            </h5>
             <p>{{ $blog->description}}</p>
             <a class="more-details" href="{{ url('details/'.$blog->id) }}">More Details <i class="fa fa-caret-right"></i></a>
         </div>

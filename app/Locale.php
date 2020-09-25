@@ -16,7 +16,10 @@ class Locale extends Model
         return $this->belongsToMany('App\User')->withTimestamps();
     }
 
-    
+      public function Category()
+    {
+        return $this->belongsTo(Category::class,'idCategorie');
+    }
 }
 
 

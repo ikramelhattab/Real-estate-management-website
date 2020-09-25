@@ -37,8 +37,8 @@
                 @foreach($reclamations as $rec)
                      @if ( $rec->id_user <> (Auth::user()->id ) && ($rec->id == $rec->id_locale) && ($rec->id_user <> ($rec->id ) ))
                   <tr>
-                    <td><a href="#" class="delete-modal dlte-cl" data-toggle="modal" data-target="#local" data-cltid="">{{ $rec ->name_loc }}</a></td>
-                   <td><a href="#" class="delete-modal dlte-cl" data-toggle="modal" data-target="#locataire" data-cltid=""> {{ $rec ->name }} </a></td>
+                    <td><a href="#" class="delete-modal loc-cl" data-toggle="modal" data-target="#local" data-loctid="{{$rec->id}}">{{ $rec ->name_loc }}</a></td>
+                   <td><a href="#" class="delete-modal loct-cl" data-toggle="modal" data-target="#locataire" data-cltid="{{$rec->id}}"> {{ $rec ->name }} </a></td>
                     <td>{{ $rec->subject }}</td>
                     <td>{{ $rec ->content }}</td>
                     <td>{{ $rec ->description }}</td>
@@ -61,6 +61,12 @@
             </div>
 
 
+
+
+
+
+
+
 <div class="modal modal-danger fade" id="local" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -68,7 +74,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
             <h4 class="modal-title text-center" id="myModalLabely"></h4>
 
-   <form id="frmdlt" action="{{action('TestController@destroy', -1)}}" method="post">
+   <form id="frmloc" action="{{action('TestController@destroy', -1)}}" method="post">
 
 
 
@@ -83,13 +89,12 @@
             <div class="col-12 col-sm-12 col-md-12 d-flex align-items-stretch">
               <div class="card bg-light">
                 <div class="card-header text-muted border-bottom-0">
-                  Digital Strategist
-                </div>
+{{$rec->name_loc}}                </div>
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>Nicole Pearson</b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                      <h2 class="lead"><b>{{$rec->name_loc}} </b></h2>
+                      <p class="text-muted text-sm"><b>About: </b> {{$rec->description}} </p>
                       <ul class="ml-4 mb-0 fa-ul text-muted">
                         <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
                         <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
@@ -102,7 +107,7 @@
                 </div>
 
               </div>
-<input type="hidden" name="clt" id="clt_id" value="">
+<input type="hidden" name="loc" id="loc_id" value="">
 
 </div>
 
@@ -132,6 +137,28 @@
 <!-- --------------------------------------------------------------------- -->
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="modal modal-danger fade" id="locataire" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -139,7 +166,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
             <h4 class="modal-title text-center" id="myModalLabely"></h4>
 
-   <form id="frmdlt" action="{{action('TestController@destroy', -1)}}" method="post">
+   <form id="frmloct" action="" method="post">
 
 
 
@@ -173,7 +200,7 @@
                 </div>
 
               </div>
-<input type="hidden" name="clt" id="clt_id" value="">
+<input type="hidden" name="loct" id="loct_id" value="">
 
 </div>
 
@@ -182,10 +209,10 @@
 
 <div class="card-footer">
                   <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
+                    <a href="{{url('msg')}}" class="btn btn-sm bg-teal">
                       <i class="fas fa-comments"></i>
                     </a>
-                    <a href="#" class="btn btn-sm btn-primary">
+                    <a href="{{url('msg')}}" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> View Profile
                     </a>
                   </div>
@@ -203,12 +230,13 @@
 
 
 
-
+@endsection
 
 
 
 <!-- ----------------------------------------------------------------------------
  -->
+
  <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -237,6 +265,8 @@
       "autoWidth": true,
       "responsive": true,
     });
+
+
   });
 </script>
 
@@ -275,21 +305,38 @@
       'info'        : true,
       'autoWidth'   : false
     });
-    jQuery('.dlte-cl').on('click', function(){
-      var url = jQuery('#frmdlt').attr('action').replace('-1', '') + jQuery(this).data('cltid');
-      jQuery('#frmdlt').attr('action', url);
+    jQuery('.loc-cl').on('click', function(){
+      var url = jQuery('#frmloc').attr('action').replace('-1', '') + jQuery(this).data('locid');
+      jQuery('#frmloc').attr('action', url);
       return true;
     });
     jQuery('#local').on('hidden.bs.modal', function () {
       var href = jQuery('#btn-close-del').data('href');
-      jQuery('#frmdlt').attr('action', href);
+      jQuery('#frmloc').attr('action', href);
+    });
+
+    jQuery('.loct-cl').on('click', function(){
+      var url = jQuery('#frmloct').attr('action').replace('-1', '') + jQuery(this).data('lotcid');
+      jQuery('#frmloct').attr('action', url);
+      return true;
     });
     jQuery('#locataire').on('hidden.bs.modal', function () {
       var href = jQuery('#btn-close-del').data('href');
-      jQuery('#frmdlt').attr('action', href);
+      jQuery('#frmloct').attr('action', href);
     });
     });
 
 </script>
 @endpush
-@endsection
+
+
+
+
+
+
+
+
+
+
+
+

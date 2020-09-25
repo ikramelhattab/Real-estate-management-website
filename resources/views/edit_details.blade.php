@@ -3,20 +3,17 @@
 
 @section('content')
 
-<!-- <div class="page-head" style="background-repeat: no-repeat;background-position: center top;background-image: url('themes/realhomes/assets/classic/images/banner.jpg'); background-size: cover;">
-            <div class="container">
-            <div class="wrap clearfix">
-                <h1 class="page-title"><span>Villa for Sale in Kalhat, Koura</span></h1>
-                        <div class="page-breadcrumbs">
-        <nav class="property-breadcrumbs">
+
+           @if($errors->any())
+           <div class="alert alert-danger">
             <ul>
-            <li><a href="">Home</a><i class="breadcrumbs-separator fa fa-angle-right"></i></li><li><a href="">North</a><i class="breadcrumbs-separator fa fa-angle-right"></i></li><li><a href="">Koura</a><i class="breadcrumbs-separator fa fa-angle-right"></i></li><li><a href="">Kalhat</a></li>            </ul>
-        </nav>
-        </div>
-                    </div>
-        </div>
-    </div>End Page Head
- -->
+      @foreach($errors->all() as $error)
+     <li>{{$error}}</li>
+      @endforeach
+    </ul>
+    </div>
+     @endif
+
 <!-- Content -->
 <div class="container contents detail">
     <div class="row">
@@ -52,41 +49,21 @@
         </div>
                 <div id="property-featured-image" class="clearfix only-for-print">
             <img src="{{ asset('images/uploads/properties/62/e594ce0d769d094255bdd7993a173a97/d90fe2c548b32f35df26480124451cc1.jpg')}}" alt="Villa for Sale in Kalhat, Koura" />        </div>
-                                            <div class="slider-socket thumb-on-right">
-                                            <span class="add-to-fav">
-                    <form action="https://www.remax-tripoli.com/wp-admin/admin-ajax.php" method="post" class="add-to-favorite-form">
-                <input type="hidden" name="property_id" value="92775" />
-                <input type="hidden" name="action" value="add_to_favorite" />
-            </form>
-
-            <span class="btn-fav favorite-placeholder highlight__red hide" title="Added to favorites">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 21">
-  <path class="rh_svg" d="M1089.48,1923.98a6.746,6.746,0,0,1,9.54,9.54L1089,1943l-10.02-9.48a6.746,6.746,0,0,1,9.54-9.54A0.641,0.641,0,0,0,1089.48,1923.98Z" transform="translate(-1077 -1922)"/>
-</svg>
-					</span>
-                <a href="#" class="btn-fav favorite add-to-favorite" title="Add to favorite">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 21">
-  <path class="rh_svg" d="M1089.48,1923.98a6.746,6.746,0,0,1,9.54,9.54L1089,1943l-10.02-9.48a6.746,6.746,0,0,1,9.54-9.54A0.641,0.641,0,0,0,1089.48,1923.98Z" transform="translate(-1077 -1922)"/>
-</svg>
-            </a>
-
-                </span>
-                                            <!-- Print link -->
-                                        <!-- <span class="printer-icon"><a href="javascript:window.print()"><i class="fa fa-print"></i></a></span> -->
-                                    </div>
+                                            
                                 </div>
 
 
 @foreach($demandes as $locdet)
 <article class="property-item clearfix">
     <div class="wrap clearfix">
+
         <address class="title">
-            {{ $locdet->adress }}        </address>
+         {{ $locdet->name_loc }}     ||        {{ $locdet->adress }}        </address>
         <h5 class="price">
             <span class="status-label">
                         </span>
             <span>
-              {{ $locdet->prix }}  <small> </small>            </span>
+              {{ $locdet->prix }} /Month <small> </small>            </span>
         </h5>
     </div>
 
@@ -174,7 +151,19 @@
             votes        </span>
         <span class="kksr-muted">)</span>
     </div>
-
+<table class="table table-bordered table-striped">
+<thead>
+<tr> <th>Period </th><th>Montant</th></tr></thead>
+<tr><td>Week</td><td>{{ $locdet->prix_s }}</td></tr>
+<tr><td>Day</td><td>{{ $locdet->prix_j }}</td></tr>
+<tr><td>Hour</td><td>{{ $locdet->prix_h }}</td></tr>
+<thead>
+                  <tr >
+                            <th >Period </th>
+                            <th>Montant</th>
+                            </tr>
+                          </thead>
+</table>
 </div>
             @endforeach
 
@@ -219,95 +208,8 @@
 
 
     <div class="map-wrap clearfix">
-       <!--  <span class="map-label">Property Map</span>  -->               <div id="property_map"></div>
-                <!-- <script>
-                    /* Property Detail Page - Google Map for Property Location */
+       <div id="property_map"></div>
 
-                    function initialize_property_map(){
-
-                        var propertyMarkerInfo = {"title":"Villa for Sale in Kalhat, Koura","price":"$1,250,000 ","lat":"34.2990173","lang":"35.808876000000055","thumb":"images\/uploads\/properties\/62\/e594ce0d769d094255bdd7993a173a97\/d90fe2c548b32f35df26480124451cc1-244x163.jpg","icon":"images\/themes\/realhomes\/assets\/classic\/images\/map\/villa-map-icon.png","retinaIcon":"images\/themes\/realhomes\/assets\/classic\/images\/map\/villa-map-icon@2x.png"}
-                        var url = propertyMarkerInfo.icon;
-                        var size = new google.maps.Size( 42, 57 );
-
-                        // retina
-                        if( window.devicePixelRatio > 1.5 ) {
-                            if ( propertyMarkerInfo.retinaIcon ) {
-                                url = propertyMarkerInfo.retinaIcon;
-                                size = new google.maps.Size( 83, 113 );
-                            }
-                        }
-
-                        var image = {
-                            url: url,
-                            size: size,
-                            scaledSize: new google.maps.Size( 42, 57 ),
-                            origin: new google.maps.Point( 0, 0 ),
-                            anchor: new google.maps.Point( 21, 56 )
-                        };
-
-                        var propertyLocation = new google.maps.LatLng( propertyMarkerInfo.lat, propertyMarkerInfo.lang );
-                        var propertyMapOptions = {
-                            center: propertyLocation,
-                            zoom: 15,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP,
-                            scrollwheel: false
-                        };
-                        var propertyMap = new google.maps.Map(document.getElementById("property_map"), propertyMapOptions);
-                        var propertyMarker = new google.maps.Marker({
-                            position: propertyLocation,
-                            map: propertyMap,
-                            icon: image
-                        });
-
-	                    /* Info Box */
-                        var boxText = document.createElement("div");
-                        boxText.className = 'map-info-window';
-                        var innerHTML = "";
-                        if ( propertyMarkerInfo.thumb ) {
-                            innerHTML += '<img class="prop-thumb" src="' + propertyMarkerInfo.thumb + '" alt="' + propertyMarkerInfo.title + '"/>';
-                        }
-                        innerHTML += '<h5 class="prop-title">' + propertyMarkerInfo.title + '</h5>';
-                        if ( propertyMarkerInfo.price ) {
-                            innerHTML += '<p><span class="price">' + propertyMarkerInfo.price + '</span></p>';
-                        }
-                        innerHTML += '<div class="arrow-down"></div>';
-                        boxText.innerHTML = innerHTML;
-
-                        var myOptions = {
-                            content: boxText,
-                            disableAutoPan: true,
-                            maxWidth: 0,
-                            alignBottom: true,
-                            pixelOffset: new google.maps.Size( -122, -48 ),
-                            zIndex: null,
-                            closeBoxMargin: "0 0 -16px -16px",
-                            closeBoxURL: "{{asset('themes/realhomes/assets/classic/images/map/close.png')}}",
-                            infoBoxClearance: new google.maps.Size( 1, 1 ),
-                            isHidden: false,
-                            pane: "floatPane",
-                            enableEventPropagation: false
-                        };
-
-                        var infoBox = new InfoBox( myOptions );
-
-	                    google.maps.event.addListener( propertyMarker, 'click', function(){
-		                    var scale = Math.pow( 2, propertyMap.getZoom() );
-		                    var offsety = ( (150/scale) || 0 );
-		                    var projection = propertyMap.getProjection();
-		                    var markerPosition = propertyMarker.getPosition();
-		                    var markerScreenPosition = projection.fromLatLngToPoint( markerPosition );
-		                    var pointHalfScreenAbove = new google.maps.Point( markerScreenPosition.x, markerScreenPosition.y - offsety );
-		                    var aboveMarkerLatLng = projection.fromPointToLatLng( pointHalfScreenAbove );
-		                    propertyMap.setCenter( aboveMarkerLatLng );
-		                    infoBox.open( propertyMap, propertyMarker );
-	                    });
-                    }
-
-                    window.onload = initialize_property_map();
-                </script>
-
-
- -->
     </div>
 
                     </div>

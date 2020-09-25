@@ -10,8 +10,8 @@
   <title>AdminLTE 3 | DataTables</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
+<!--   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+ -->  <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -41,10 +41,14 @@
                     <th> Surface </th>
                     <th> Longitude</th>
                     <th>Altitude</th>
-                    <th>Prix</th>
+                    <th>Price/Month</th>
+                    <th>Price/week</th>
+                    <th>Price/day</th>
+                    <th>Price/hour</th>
+
                     <th>Pays</th>
                     <th> Gouvernaurat</th>
-                    <th>  Adress</th>
+                    <th> Adress</th>
                     <th>Bedrooms</th>
                     <th>Bathrooms</th>
                     <th>Garages</th>
@@ -57,7 +61,7 @@
                      @if ( $p->id_user == (Auth::user()->id))
 
                   <tr>
-                    <td>{{ $p ->slug }}</td>
+                    <td >{{ $p ->slug }}</td>
                    <td>  <a href="#" class="delete-modal dlte-cl" data-toggle="modal" data-target="#local" data-cltid="">{{ $p ->name_loc }} </a></td>
                     <td>{{ $p ->description }}</td>
                     <td>{{ $p->photo }}</td>
@@ -65,6 +69,10 @@
                     <td>{{ $p ->longitude }}</td>
                     <td>{{ $p ->altitude }}</td>
                     <td>{{ $p ->prix }}</td>
+                     <td>{{ $p ->prix_s }}</td>
+                    <td>{{ $p ->prix_j }}</td>
+                    <td>{{ $p ->prix_h }}</td>
+
                     <td>{{ $p ->pays }}</td>
                     <td>{{ $p ->gouvernaurat }}</td>
                     <td>{{ $p ->adress }}</td>
@@ -85,39 +93,30 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th> Category</th>
+                     <th> Category</th>
                     <th> Local Name</th>
                     <th>Description</th>
                     <th>Photos</th>
                     <th> Surface </th>
                     <th> Longitude</th>
                     <th>Altitude</th>
-                    <th>Prix</th>
+                    <th>Price/Month</th>
+                    <th>Price/week</th>
+                    <th>Price/day</th>
+                    <th>Price/hour</th>
+
                     <th>Pays</th>
                     <th> Gouvernaurat</th>
-                    <th>  Adress</th>
+                    <th> Adress</th>
                     <th>Bedrooms</th>
                     <th>Bathrooms</th>
                     <th>Garages</th>
-                    <th>Actions</th>
-
+                     <th>Actions</th>
                   </tr>
                   </tfoot>
                 </table>
               </div>
             </div>
-
-
-
-
-<!-- Page specific script -->
-
-
-
-
-
-
-
 
 
 
@@ -160,10 +159,16 @@
 
 </div>
 </div>
-@endsection
-@push('jscripts')
-<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
 
+
+
+
+@endsection
+
+
+
+@push('jscripts')
+<script src = "{{asset('js/jquery/jquery.dataTables.min.js')}}" defer ></script>
 <script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('plugins/datatables/dataTables.bootstrap.js') }}"></script>
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
@@ -199,7 +204,27 @@
     });
 
     });
+</script>
 
+@endpush
+
+<script src = "{{asset('js/jquery/jquery.dataTables.min.js')}}" defer ></script>
+
+
+<script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- DataTables -->
+<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('js/adminlte.min.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('js/demo.js') }}"></script>
+<!-- Page specific script -->
+<script>
   $(function () {
     $("#example1").DataTable({
       "responsive": true,
@@ -207,14 +232,24 @@
     });
     $('#example2').DataTable({
       "paging": true,
-      "lengthChange": false,
+      "lengthChange": true,
       "searching": true,
       "ordering": true,
       "info": true,
-      "autoWidth": false,
+      "autoWidth": true,
       "responsive": true,
+    });
+    jQuery('.dlte-cl').on('click', function(){
+      var url = jQuery('#frmdlt').attr('action').replace('-1', '') + jQuery(this).data('cltid');
+      jQuery('#frmdlt').attr('action', url);
+      return true;
+    });
+    jQuery('#delete').on('hidden.bs.modal', function () {
+      var href = jQuery('#btn-close-del').data('href');
+      jQuery('#frmdlt').attr('action', href);
     });
   });
 </script>
 
-@endpush
+
+

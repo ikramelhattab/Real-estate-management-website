@@ -2,10 +2,23 @@
 @extends('layouts.app_pro')
 
 @section('content')
-<div class="row">
+
+           @if($errors->any())
+           <div class="alert alert-danger">
+            <ul>
+      @foreach($errors->all() as $error)
+     <li>{{$error}}</li>
+      @endforeach
+    </ul>
+    </div>
+     @endif
+
 <div class="container">
+<div class="row">
+
 @include('users_conv',['users'=>$users])
- <div class="card direct-chat direct-chat-primary">
+
+ <div class="card direct-chat direct-chat-secondary">
               <div class="card-header">
                 <h3 class="card-title">{{$user->name}}</h3>
 
@@ -24,6 +37,14 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+@if($message->hasMorePages())
+<div class="text-center">
+<a href="{{ $message->nextPageUrl()}}" class="btn btn-light">
+voir les messages precd
+</a>
+</div>
+@endif
+
  @foreach($message as $msg)
 
                 <!-- Conversations are loaded here -->
@@ -39,36 +60,40 @@
                     <img class="direct-chat-img" src="{{asset('img/user1-128x128.jpg')}}" alt="message user image">
                     <!-- /.direct-chat-img -->
 
-                    <div class="direct-chat-text">
-                   {{ $msg->message}}
+                    <div class="direct-chat-text ">
+                                     {!! nl2br(e($msg->message)) !!}
                     </div>
                     <!-- /.direct-chat-text -->
                   </div>
                   <!-- /.direct-chat-msg -->
  </div>
 @endforeach
+@if($message->hasMorePages())
+<div class="text-center">
+<a href="{{ $message->previousPageUrl()}}" class="btn btn-light">
+voir les messages suiv
+</a>
+</div>
+@endif
+@if($errors->has('content'))
+<div class="invalid-feedback">
+{{implode(',',$error->get('message'))}}
 
-@if($errors->any())
-<div class="alert alert-danger">
-<ul>
-@foreach(@errors->all() as $error)
-<li>{{$error}} </li>
-@endforeach
-</ul>
 </div>
    @endif
-   
+
               <div class="card-footer">
- <form method="POST" action="">
+ <form method="post" action="{{action('MessageController@store', $user->id)}}">
+
          {{csrf_field()}}
                   <div class="input-group">
-                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control {{$errors->has('message') ? 'is-invalid': ''}} ">
+                  </div>
                     <span class="input-group-append">
-                      <button type="button" class="btn btn-primary">Send</button>
+                      <button class="btn btn-primary" type="submit" >Send</button>
                      </form>
 
                     </span>
-                  </div>
                 </form>
               </div>
               <!-- /.card-footer-->
@@ -76,4 +101,7 @@
             <!--/.direct-chat -->
             </div>
    </div>
+      </div>
+   </div>
+
 @endsection

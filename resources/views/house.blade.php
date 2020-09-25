@@ -52,7 +52,7 @@
 </div>
 
  <div class="list-container clearfix">
-<div class="sort-controls">
+<!-- <div class="sort-controls">
     <strong>Sort By:</strong>
     &nbsp;
         <select name="sort-properties" id="sort-properties">
@@ -62,7 +62,7 @@
         <option value="date-asc" >Date Old to New</option>
         <option value="date-desc" selected>Date New to Old</option>
     </select>
-</div>
+</div> -->
 
 <div class="compare-properties clear">
 
@@ -94,7 +94,7 @@
 
         <div class="detail">
             <h5 class="price">
-                {{ $villa->prix }} <small> </small>            </h5>
+                {{ $villa->prix }} /Month <small> </small>            </h5>
             <p>{{ $villa->description }}</p>
             <a class="more-details" href="{{ url('details/'.$villa->id) }}">More Details <i class="fa fa-caret-right"></i></a>
         </div>

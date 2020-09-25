@@ -18,15 +18,107 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 </head>
+ <div class="row">
+    <div class="col-2">
 
-<div class="page-head" style="background-repeat: no-repeat;background-position: center top;background-image: url('themes/realhomes/assets/classic/images/banner.jpg'); background-size: cover; ">
+<!-- Sidebar -->
+     <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{{asset('img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <a href="{{url('location')}}" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                  Mes locaux
+
+              </p>
+            </a>
+
+          <li class="nav-item">
+            <a href="{{url('list_dem')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                    Demandes
+                <span class="right badge badge-danger"></span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('reclamation_loc')}}" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Reclamations
+                <span class="badge badge-info right"></span>
+              </p>
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ url('/fact_loc') }}" class="nav-link">
+              <i class="nav-icon fas fa-tree"></i>
+              <p>
+                Factures
+              </p>
+            </a>
+
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/tran_loc') }}" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Tranches
+
+              </p>
+            </a>
+ <li class="nav-item">
+            <a href="{{url('dashboard')}}" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Change
+
+              </p>
+            </a>
+
+          </li>
+            </ul>
+          </li>
+
+
+
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+
+</div>
+<!-- <div class="page-head" style="background-repeat: no-repeat;background-position: center top;background-image: url('themes/realhomes/assets/classic/images/banner.jpg'); background-size: cover; ">
         <div class="container">
         <div class="wrap clearfix">
             <h1 class="page-title"><span>Requests</span></h1>
                     </div>
     </div>
-    </div><!-- End Page Head -->
+    </div> --><!-- End Page Head -->
 
+        <div class="col-9">
 
   <div class="card">
               <div class="card-header">
@@ -50,7 +142,8 @@
                 </thead>
                                 <tbody>
                                  @foreach($tranches as $t)
-                     @if ( $t->id_user == (Auth::user()->id))
+            @if ( $t->id_user <> (Auth::user()->id ) && ($t->id == $t->id_local && ($t->id_user <> ($t->id ) )))
+
 
                                  <tr>
                                     <td> {{ $t->name_loc }} </td>
@@ -61,18 +154,7 @@
                                     <td> {{ $t->montant}} </td>
 
 
-   <td>
 
-
-
-
-<a href="{{action('TranchController@edit',$t->id)}}" class="btn btn-warning glyphicon glyphicon-edit"> Edit</a>
-
-
-        <button type="button" class="delete-modal btn btn-danger dlte-cl" data-toggle="modal" data-target="#delete" data-cltid="{{$t->id}}">
-
-            <span class="glyphicon glyphicon-trash"></span> Delete </button>
- </td>
    </tr>
 @endif
    @endforeach
@@ -90,6 +172,8 @@
                 </tfoot>
               </table>
 
+</div>
+</div>
 </div>
 </div>
 
@@ -186,7 +270,6 @@
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('js/demo.js') }}"></script>
- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
   <!-- DataTables -->

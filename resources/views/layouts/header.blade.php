@@ -395,7 +395,7 @@ background-color:#2c6ba5;
 <link rel="icon" href="{{ asset('images/uploads/2017/08/cropped-balloon-remax-32x32.png') }}" sizes="32x32" />
 <link rel="icon" href="{{ asset('images/uploads/2017/08/cropped-balloon-remax-192x192.png') }}" sizes="192x192" />
 <link rel="apple-touch-icon" href="{{ asset('images/uploads/2017/08/cropped-balloon-remax-180x180.png') }}" />
-<meta name="msapplication-TileImage" content="https://www.remax-tripoli.com/wp-content/uploads/2017/08/cropped-balloon-remax-270x270.png" />
+<meta name="msapplication-TileImage" content="{{ asset('images/uploads/2017/08/cropped-balloon-remax-270x270.png') }}" />
 <script type="text/javascript">function setREVStartSize(e){
 				try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
 					if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
@@ -644,18 +644,10 @@ Email us at :
 		<li id="menu-item-4635" class="menu-item menu-item-type-taxonomy menu-item-object-property-status menu-item-4635"><a href="property-status/for-rent/index.html">For Rent</a></li>
 	</ul>
 </li>
+
 </ul>
 </li>
-<!--
-<li id="menu-item-47140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-47140"><a href="exclusive-projects-developments-lebanon/index.html">Projects</a>
-<ul class="sub-menu">
-	<li id="menu-item-68931" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68931"><a href="beyti-residential-apartments-sale-tripoli-lebanon/index.html">Beyti – Tripoli</a></li>
-	<li id="menu-item-47143" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47143"><a href="admir-residential-apartments-sale-adma-lebanon/index.html">Admir – Adma Ghazir</a></li>
-	<li id="menu-item-47142" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47142"><a href="batruna-parc-residential-apartments-sale-batroun-lebanon/index.html">Batruna Parc – Batroun</a></li>
-	<li id="menu-item-47141" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47141"><a href="lebanon-medical-city-akkar-project-sale/index.html">Lebanon Medical City Project at Akkar</a></li>
-</ul>
-</li>
--->
+
 
 <li id="menu-item-20228" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-20228"><a href="#">Remax</a>
 <ul class="sub-menu">

@@ -53,7 +53,7 @@
 
                     <div class="list-container clearfix">
 
-<div class="sort-controls">
+<!-- <div class="sort-controls">
     <strong>Sort By:</strong>
     &nbsp;
         <select
@@ -64,7 +64,7 @@
         <option value="date-asc" >Date Old to New</option>
         <option value="date-desc" selected>Date New to Old</option>
     </select>
-</div>
+</div> -->
 
 <div class="compare-properties clear">
 
@@ -89,14 +89,16 @@
 
         <figure>
             <a href="{{ url('details/'.$villa->id) }}">
-                <img width="244" height="163" src="uploads/properties/08/e9dc924f238fa6cc29465942875fe8f0/8968df8afe158b8f7694387d29b4a512-244x163.jpg" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="https://www.remax-tripoli.com/wp-content/uploads/properties/08/e9dc924f238fa6cc29465942875fe8f0/8968df8afe158b8f7694387d29b4a512-244x163.jpg 244w, https://www.remax-tripoli.com/wp-content/uploads/properties/08/e9dc924f238fa6cc29465942875fe8f0/8968df8afe158b8f7694387d29b4a512-300x199.jpg 300w, https://www.remax-tripoli.com/wp-content/uploads/properties/08/e9dc924f238fa6cc29465942875fe8f0/8968df8afe158b8f7694387d29b4a512-1024x680.jpg 1024w, https://www.remax-tripoli.com/wp-content/uploads/properties/08/e9dc924f238fa6cc29465942875fe8f0/8968df8afe158b8f7694387d29b4a512-768x510.jpg 768w, https://www.remax-tripoli.com/wp-content/uploads/properties/08/e9dc924f238fa6cc29465942875fe8f0/8968df8afe158b8f7694387d29b4a512-1536x1020.jpg 1536w, https://www.remax-tripoli.com/wp-content/uploads/properties/08/e9dc924f238fa6cc29465942875fe8f0/8968df8afe158b8f7694387d29b4a512-2048x1360.jpg 2048w, https://www.remax-tripoli.com/wp-content/uploads/properties/08/e9dc924f238fa6cc29465942875fe8f0/8968df8afe158b8f7694387d29b4a512-150x100.jpg 150w" sizes="(max-width: 244px) 100vw, 244px" />            </a>
-
-            <figcaption class="for-sale">***</figcaption>
+                @php $images =json_decode($villa->photo);@endphp
+                                    @if($images)
+                                        @php $images = array_slice($images, 0, 3); @endphp
+                <img width="244" height="163" src="{{Voyager::image($images[0])}}" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" sizes="(max-width: 244px) 100vw, 244px" />            </a>
+                                    @endif
         </figure>
 
         <div class="detail">
             <h5 class="price">
-                {{ $villa->prix }} <small> </small>            </h5>
+                {{ $villa->prix }} /Month <small> </small>            </h5>
             <p>{{ $villa->description }}</p>
             <a class="more-details" href="{{ url('details/'.$villa->id) }}">More Details <i class="fa fa-caret-right"></i></a>
         </div>

@@ -1,11 +1,23 @@
 @extends('layouts.app_pro')
 
 @section('content')
-<div class="card card-primary">
+
+
+           @if($errors->any())
+           <div class="alert alert-danger">
+            <ul>
+      @foreach($errors->all() as $error)
+     <li>{{$error}}</li>
+      @endforeach
+    </ul>
+    </div>
+     @endif
+
+<div class="card card-secondary">
               <div class="card-header">
                 <h3 class="card-title">Create Tranch</h3>
               </div>
-<form  method="POST" action="{{ action('TranchController@store') }}">
+<form method="post" action="{{ action('TranchController@store') }}">
                         @csrf
 
                 <div class="card-body">
@@ -20,14 +32,18 @@
 
                   <div class="form-group">
                     <label >Local Name</label>
-                    @foreach($tranches->name_loc)
-                    <input type="text" class="form-control"  placeholder="" name="name_loc">
-                    @endforeach
+                    <select name="id_local" class="form-control">
+                    @foreach($loc as $loc)
+                     @if ( $loc->id_user == (Auth::user()->id))
+                <option value="{{$loc->id}}">{{$loc->name_loc}}</option>
+                @endif
+                          @endforeach
+                          </select>
                   </div>
-                  <div class="form-group">
+                 <!--  <div class="form-group">
                     <label >Name</label>
                     <input type="text" class="form-control"  placeholder="" name="name">
-                  </div>
+                  </div> -->
                    <div class="form-group">
                     <label >Montant</label>
                     <input type="text" class="form-control"  placeholder="" name="montant">

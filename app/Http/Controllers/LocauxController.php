@@ -6,11 +6,13 @@
  */
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Locale;
 use App\Demande;
+use App\Category;
 use DB;
 use DateTime;
 use Validator;
@@ -33,21 +35,18 @@ class LocauxController extends Controller
 
 
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return Response
-     */
     public function index()
     {
 
     $categorie = DB::table('locales')
-            ->join('categories', 'locales.idCategorie', '=', 'categories.id')
-            ->join('users', 'locales.id_user', '=', 'users.id')
-            ->select('locales.*', 'categories.slug','users.id')->paginate(10);
+            ->join('categories','locales.idCategorie','=','categories.id')
+            ->join('users','locales.id_user','=','users.id')
+            ->select('locales.*','categories.id','categories.slug','users.id','locales.id')
+            ->get();
 
        return view('Locaux_list',[
         'categ' => $categorie,
+
     ]);
 
        }
@@ -56,17 +55,22 @@ class LocauxController extends Controller
 
   public function create(Request $request)
     {
+    $categ = DB::table('categories')->get() ;
  $categorie = DB::table('locales')
             ->join('categories', 'locales.idCategorie', '=', 'categories.id')
             ->join('users', 'locales.id_user', '=', 'users.id')
-            ->select('locales.*', 'categories.slug','users.id')->paginate(10);
+            ->select('locales.*','categories.id', 'categories.slug','users.id')
+
+             ->get();
 
        return view('Locaux_create',[
-        'categ' => $categorie,
+        'c' => $categorie,
+        'categ' => $categ,
+
+
     ]);
 
     }
-
 
 
  public function store(Request $request)
@@ -80,6 +84,10 @@ $request->validate ([
 'longitude' =>'required',
 'altitude' =>'required',
 'prix' =>'required',
+'prix_s' =>'required',
+'prix_j' =>'required',
+'prix_h' =>'required',
+
 'cautionnement' =>'required',
 'pays' =>'required',
 'gouvernaurat' =>'required',
@@ -87,9 +95,7 @@ $request->validate ([
 'Bedrooms' =>'required',
 'Bathrooms' =>'required',
 'Garages' =>'required',
-'idCategorie' =>'required',
-/* 'id_user' =>'required',
- */
+
 ]);
         $name_loc = $request->get('name_loc');
         $description = $request->get('description');
@@ -98,6 +104,10 @@ $request->validate ([
         $longitude = $request->get('longitude');
         $altitude = $request->get('altitude');
         $prix = $request->get('prix');
+        $prix_s = $request->get('prix_s');
+        $prix_j = $request->get('prix_j');
+        $prix_h = $request->get('prix_h');
+
         $cautionnement = $request->get('cautionnement');
         $pays = $request->get('pays');
         $gouvernaurat = $request->get('gouvernaurat');
@@ -105,47 +115,52 @@ $request->validate ([
         $Bedrooms = $request->get('Bedrooms');
         $Bathrooms = $request->get('Bathrooms');
         $Garages = $request->get('Garages');
-       /*  $idCategorie = $request->get('idCategorie'); */
-      /*   $name_user = Auth::user()->id;
-        $id_user = $request->get(' name_user');
- */
+
+        $id_user = Auth::user()->id;
+        $idCategorie = $request->get('idCategorie');
 
 
 
 
-$locales = DB::insert('insert into locales(name_loc,description,photo,surface,longitude,altitude,prix,cautionnement,pays,gouvernaurat,adress,Bedrooms,Bathrooms,Garages)value(?,?,?,?,?,?,?,?,?,?,?,?,?,?)',[$name_loc, $description,$photo,$surface,$longitude,$altitude,$prix,$cautionnement,$pays,$gouvernaurat,$adress,$Bedrooms,$Bathrooms,$Garages]);
-if($locales){
+
+
+$locales = DB::insert('insert into locales(name_loc,description,photo,surface,longitude,altitude,prix,prix_s,prix_j,prix_h,cautionnement,pays,gouvernaurat,adress,Bedrooms,Bathrooms,Garages,id_user,idCategorie)value(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',[$name_loc, $description,$photo,$surface,$longitude,$altitude,$prix,$prix_s,$prix_j,$prix_h,$cautionnement,$pays,$gouvernaurat,$adress,$Bedrooms,$Bathrooms,$Garages,$id_user,$idCategorie]);
+if($locales) {
     $red=redirect('local')->with('reçu',' ajouté');
 }
-else{
+else {
    $red=redirect('local/create')->with('echec',' non ajouté');
 }
 return $red;
-
-
     }
 
 
 
 public function edit($id)
     {
+        $categ = DB::table('categories')
+        ->get();
 
         $locales = DB::table('locales')
             ->join('categories', 'locales.idCategorie', '=', 'categories.id')
-            ->join('users', 'locales.id_user', '=', 'users.id')
-            ->select('locales.*', 'categories.slug','users.id')
-            ->where('locales.id', $id)
-
+            //  ->join('users', 'locales.id_user', '=', 'users.id')
+            ->select('locales.*','categories.slug','locales.id')
+            ->where('locales.id', [$id])
             ->get();
 
-       return view('Locaux_edit',['locales'=>$locales]);
+
+
+       return view('Locaux_edit',[
+           'locales'=>$locales,
+            'categ' => $categ,
+
+
+       ]);
     }
 
 
 public function update(Request $request, $id)
     {
-
-
 $request->validate ([
 'name_loc' =>'required',
 'description' =>'required',
@@ -154,6 +169,9 @@ $request->validate ([
 'longitude' =>'required',
 'altitude' =>'required',
 'prix' =>'required',
+'prix_s' =>'required',
+'prix_j' =>'required',
+'prix_h' =>'required',
 'cautionnement' =>'required',
 'pays' =>'required',
 'gouvernaurat' =>'required',
@@ -161,8 +179,7 @@ $request->validate ([
 'Bedrooms' =>'required',
 'Bathrooms' =>'required',
 'Garages' =>'required',
-'idCategorie' =>'required',
-'id_user' =>'required',
+
 ]);
         $name_loc = $request->get('name_loc');
         $description = $request->get('description');
@@ -171,6 +188,10 @@ $request->validate ([
         $longitude = $request->get('longitude');
         $altitude = $request->get('altitude');
         $prix = $request->get('prix');
+         $prix_s = $request->get('prix_s');
+        $prix_j = $request->get('prix_j');
+        $prix_h = $request->get('prix_h');
+
         $cautionnement = $request->get('cautionnement');
         $pays = $request->get('pays');
         $gouvernaurat = $request->get('gouvernaurat');
@@ -178,23 +199,21 @@ $request->validate ([
         $Bedrooms = $request->get('Bedrooms');
         $Bathrooms = $request->get('Bathrooms');
         $Garages = $request->get('Garages');
+
+
         $idCategorie = $request->get('idCategorie');
-       $id_user = $request->get('id_user');
+        $id_user = Auth::user()->id;
 
-
-$locales = DB::update('update locales set name_loc =?,description =?,photo =?,surface =?,longitude =?,altitude =?,prix =?,cautionnement =?,pays =?,gouvernaurat =?,adress =?,Bedrooms =?,Bathrooms =?,Garages =? where id=?',[$name_loc, $description,$photo,$surface,$longitude,$altitude,$prix,$cautionnement,$pays,$gouvernaurat,$adress,$Bedrooms,$Bathrooms,$Garages,$id] );
+$locales = DB::update('update locales set name_loc =?,description =?,photo =?,surface =?,longitude =?,altitude =?,prix =? ,prix_s =?,prix_j =? ,prix_h =?,cautionnement =?,pays =?,gouvernaurat =?,adress =?,Bedrooms =?,Bathrooms =?,Garages =?,id_user =? where id=?',[$name_loc, $description,$photo,$surface,$longitude,$altitude,$prix,$prix_s,$prix_j,$prix_h,$cautionnement,$pays,$gouvernaurat,$adress,$Bedrooms,$Bathrooms,$Garages,$id_user,$id] );
 
 if($locales){
-    $red=redirect('locale')->with('reçu',' ajouté');
+    $red=redirect('local')->with('reçu',' ajouté');
 }
 else{
-   $red=redirect('local/edit')->with('echec','non ajouté');
+   $red=redirect('local/echec')->with('echec','non ajouté');
 }
 return $red;
-
     }
-
-
      /**
      * Remove the specified resource from storage.
      *
@@ -207,6 +226,8 @@ return $red;
         $red =redirect('local');
           return $red;
     }
+ public function show()
+    {
 
-
+    }
 }

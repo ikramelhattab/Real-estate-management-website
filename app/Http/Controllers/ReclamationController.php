@@ -9,6 +9,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\Reclamation;
 use App\Locale;
+use Illuminate\Support\Facades\Auth;
+
 
 use DB;
 class ReclamationController extends Controller
@@ -19,7 +21,7 @@ class ReclamationController extends Controller
   $reclamations = DB::table('reclamations')
      ->join('locales','reclamations.id_locale','=','locales.id')
     ->join('users','reclamations.id_user', '=','users.id')
-     ->select('reclamations.*','locales.name_loc','locales.id','users.name')
+     ->select('reclamations.*','locales.name_loc','locales.id','users.name','reclamations.id')
      ->paginate(10);
     return view('reclamation_pro',[
     'reclamations' => $reclamations
@@ -35,7 +37,7 @@ public function aff()
     $reclamations = DB::table('reclamations')
      ->join('locales','reclamations.id_locale','=','locales.id')
     ->join('users','reclamations.id_user', '=','users.id')
-     ->select('reclamations.*','locales.name_loc','locales.id','users.name')
+     ->select('reclamations.*','locales.name_loc','locales.id','users.name','reclamations.id')
      ->paginate(10);
     return view('reclamation_pro',[
     'reclamations' => $reclamations
@@ -48,7 +50,7 @@ public function aff_loc()
     $reclamations = DB::table('reclamations')
      ->join('locales',  'reclamations.id_locale', '=', 'locales.id')
     ->join('users', 'reclamations.id_user', '=', 'users.id')
-     ->select('reclamations.*', 'locales.name_loc','users.name' )
+     ->select('reclamations.*', 'locales.name_loc','users.name','reclamations.id' )
      ->paginate(10);
     return view('reclamation_loc',[
     'reclamations' => $reclamations
@@ -57,8 +59,18 @@ public function aff_loc()
 
  public function create(Request $request)
     {
+$locales = DB::table('locales')->get();
 
-    return view('reclamation');
+$reclamations = DB::table('reclamations')
+    ->join('locales',  'reclamations.id_locale', '=', 'locales.id')
+    ->join('users', 'reclamations.id_user', '=', 'users.id')
+    ->select('reclamations.*', 'locales.name_loc','locales.id','users.name' )
+    ->get();
+    return view('reclamation',[
+    'reclamations' => $reclamations,
+    'locales' => $locales,
+
+    ]);
     }
 
  public function store(Request $request)
@@ -68,22 +80,18 @@ $request->validate ([
 'subject' =>'required',
 'content' =>'required',
 'description' =>'required',
-'id_locale' =>'required',
-
-
-
 ]);
 
         $subject = $request->get('subject');
         $content = $request->get('content');
         $description = $request->get('description');
-        $id_locale=$request->get('id_locale');
+        $id_locale = $request->get('id_locale');
+        $id_user = Auth::user()->id;
 
 
 
 
-
-$reclamations = DB::insert('insert into reclamations(subject,content,description,id_locale)value(?,?,?,?)',[$subject,$content,$description,$id_locale]);
+$reclamations = DB::insert('insert into reclamations(subject,content,description,id_locale,id_user)value(?,?,?,?,?)',[$subject,$content,$description,$id_locale,$id_user]);
 if($reclamations){
     $red=redirect('reclamation')->with('reçu',' ajouté');
 }
@@ -91,8 +99,6 @@ else{
    $red=redirect('reclamation')->with('echec',' non ajouté');
 }
 return $red;
-
-
     }
 
 
@@ -100,17 +106,26 @@ return $red;
 public function edit($id)
     {
 
+$locales = DB::table('locales')->get();
 
+$reclamations = DB::table('reclamations')
+     ->join('locales',  'reclamations.id_locale', '=', 'locales.id')
+    ->join('users', 'reclamations.id_user', '=', 'users.id')
+     ->select('reclamations.*', 'locales.name_loc','locales.id','users.name' ,'reclamations.id')
+    ->where('reclamations.id', [$id])
 
-        $reclamations=DB::select('select * from reclamations where id=?',[$id]);
-        return view('reclamation_edit',['reclamations'=>$reclamations]);
+      ->get();
+
+        return view('reclamation_edit',[
+            'reclamations' => $reclamations,
+            'locales' => $locales,
+
+]);
     }
 
 
 public function update(Request $request, $id)
     {
-
-
 $request->validate ([
 'subject' =>'required',
 'content' =>'required',
@@ -120,9 +135,11 @@ $request->validate ([
         $subject = $request->get('subject');
         $content = $request->get('content');
         $description = $request->get('description');
+        $id_locale = $request->get('id_locale');
 
 
-$reclamations= DB::update('update reclamations set subject =?,description =?,description =? where id=?',[$subject,$content, $description,$id] );
+
+$reclamations= DB::update('update reclamations set subject =?,content =?,description =? where id=?',[$subject,$content, $description,$id] );
 
 if($reclamations){
     $red=redirect('rec')->with('reçu',' ajouté');

@@ -32,13 +32,16 @@
 
                 <thead>
                   <tr role="row">
-                            <th >Date </th>
                             <th> Local Name </th>
+                            <th>Compteur Type</th>
+                            <th>Compteur Number</th>
                              <th>Client Name</th>
-                            <th>Facture GAZ</th>
-                            <th>Facture Water</th>
-                            <th>Facture electricity</th>
+                            <th>Total Montant </th>
+                             <th >Date Invoice </th>
+                             <th >Date Limite </th>
+                             <th >Photos </th>
                             <th>Actions</th>
+
 
 
 
@@ -47,16 +50,19 @@
                 </thead>
                                 <tbody>
                                  @foreach($factures as $f)
-                     @if ( $f->id_user <> (Auth::user()->id ) && ($f->id == $f->id_local && ($f->id_user <> ($f->id ) )))
+                     @if ( $f->id_user <> (Auth::user()->id ) )
 
                                  <tr>
-                                    <td> {{ $f->date }} </td>
+<!-- && ($f->id == $f->id_local && ($f->id_user <> ($f->id ) )) -->
                                     <td> {{ $f->name_loc }} </td>
+                                    <td> {{ $f->type }} </td>
+                                    <td> {{ $f->num_compteur }} </td>
                                     <td> {{ $f->name }} </td>
-                                    <td> {{ $f->fact_GAZ }} </td>
+                                    <td> {{ $f->montant_fact }} </td>
+                                    <td> {{ $f->date_fact }} </td>
+                                    <td> {{ $f->date_limite }} </td>
+                                    <td> {{ $f->photo }} </td>
 
-                                    <td> {{ $f->fact_EAU }} </td>
-                                    <td> {{ $f->fact_Elec }} </td>
 
 
    <td>
@@ -76,13 +82,15 @@
    @endforeach
 </tbody>
                 <tfoot>
-                 <tr>        <th >Date </th>
-                            <th> Local Name </th>
+                 <tr>       <th> Local Name </th>
+                            <th>Compteur Type</th>
+                            <th>Compteur Number</th>
                              <th>Client Name</th>
-                            <th>Facture GAZ</th>
-                            <th>Facture Water</th>
-                            <th>Facture electricity</th>
-                              <th>Actions</th>
+                            <th>Total Montant </th>
+                             <th >Date Invoice </th>
+                             <th >Date Limite </th>
+                             <th >Photos </th>
+                            <th>Actions</th>
 
 
 
@@ -139,6 +147,8 @@
 
 </div>
 </div>
+@endsection
+
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -222,4 +232,3 @@
 
 </script>
 @endpush
-@endsection

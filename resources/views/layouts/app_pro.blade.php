@@ -1,17 +1,20 @@
-<html lang="en">
+<!doctype html>
+
+<html>
 <head>
   <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>BonGest</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
+<!--   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+ -->  <!-- Font Awesome -->
+
   <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
+  <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
   <!-- iCheck -->
@@ -28,6 +31,9 @@
   <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 
 </head>
+
+
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -47,7 +53,7 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+   <!--  <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -56,20 +62,20 @@
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="{{ url('/message ') }}">
+        <a class="nav-link" data-toggle="dropdown" href="{{ url('/msg ') }}">
           <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
+          <span class="badge badge-danger navbar-badge"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
 
-          <a href="{{ url('/message ') }}" class="dropdown-item">
+          <a href="{{ url('/msg ') }}" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
               <img src="{{asset('img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
@@ -88,7 +94,7 @@
 
 
           <div class="dropdown-divider"></div>
-          <a href="{{ url('/message ') }}" class="dropdown-item">
+          <a href="{{ url('/msg ') }}" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
               <img src="{{asset('img/user8-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
@@ -123,7 +129,7 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
       </li>
-      <!-- Notifications Dropdown Menu -->
+     <!--  Notifications Dropdown Menu
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
@@ -149,8 +155,8 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
@@ -159,7 +165,7 @@
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
-      </li>
+      </li> -->
     </ul>
   </nav>
 
@@ -170,7 +176,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{asset('img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light"> BonGest</span>
     </a>
 
     <!-- Sidebar -->
@@ -181,12 +187,16 @@
           <img src="{{asset('img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->name}}</a>
+      @if (Auth::user()->id==1)
+        <a href="{{url('http://127.0.0.1:8000/admin/profile')}}" class="d-block">{{Auth::user()->name}}</a>
+      @else
+        <a href="{{url('/profile')}}" class="d-block">{{Auth::user()->name}}</a>
+      @endif
         </div>
       </div>
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+     <!--  <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -195,7 +205,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -230,7 +240,7 @@
 
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('/comp_pro') }}" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Compteurs
@@ -300,7 +310,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">Bon</a>Gest</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.1.0-pre
@@ -314,9 +324,10 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+</body>
 
 <!-- jQuery -->
-<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
+<script src = "{{asset('js/jquery/jquery.dataTables.min.js')}}" defer ></script>
 
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -351,5 +362,4 @@
 <script src="{{asset('js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('js/pages/dashboard.js')}}"></script>
-</body>
 </html>

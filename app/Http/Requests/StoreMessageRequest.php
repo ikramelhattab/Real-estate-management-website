@@ -14,6 +14,8 @@ class StoreMessageRequest extends FormRequest
     public function authorize()
     {
         return true;
+/*                return Auth::check();
+ */
     }
 
     /**
@@ -27,4 +29,6 @@ class StoreMessageRequest extends FormRequest
             'message' => 'required|min:1'
         ];
     }
+
+
 }

@@ -35,7 +35,7 @@
                 <thead>
                   <tr role="row">
                                <th> Local Name </th>
-                             <th>Client Name</th>
+                             <!-- <th>Client Name</th> -->
                             <th>Date Debut</th>
                             <th>Date Fin</th>
                             <th>Montant</th>
@@ -50,13 +50,13 @@
                 </thead>
                                 <tbody>
                                  @foreach($tranches as $t)
+                     @if ( $t->id_user == (Auth::user()->id))
 
-             @if ( $t->id_user <> (Auth::user()->id ) && ($t->id == $t->id_local && ($t->id_user <> ($t->id ) )))
 
 
                                  <tr>
                                      <td> {{ $t->name_loc }} </td>
-                                    <td> {{ $t->name }} </td>
+                                    <!-- <td> {{ $t->name }} </td> -->
                                     <td> {{ $t->date_deb }} </td>
 
                                     <td> {{ $t->date_fin }} </td>
@@ -81,7 +81,7 @@
 </tbody>
                 <tfoot>
                  <tr>         <th> Local Name </th>
-                             <th>Client Name</th>
+                             <!-- <th>Client Name</th> -->
                             <th>Date Debut</th>
                             <th>Date Fin</th>
                             <th>Montant</th>
@@ -142,6 +142,8 @@
 
 </div>
 </div>
+@endsection
+
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -169,6 +171,15 @@
       "info": true,
       "autoWidth": false,
       "responsive": true,
+    });
+     jQuery('.dlte-cl').on('click', function(){
+      var url = jQuery('#frmdlt').attr('action').replace('-1', '') + jQuery(this).data('cltid');
+      jQuery('#frmdlt').attr('action', url);
+      return true;
+    });
+    jQuery('#delete').on('hidden.bs.modal', function () {
+      var href = jQuery('#btn-close-del').data('href');
+      jQuery('#frmdlt').attr('action', href);
     });
   });
 </script>
@@ -225,4 +236,3 @@
 
 </script>
 @endpush
-@endsection

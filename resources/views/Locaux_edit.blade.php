@@ -3,27 +3,23 @@
 @section('content')
 
 
-<div class="container">
-<div class="section-content">
+           @if($errors->any())
+           <div class="alert alert-danger">
+            <ul>
+      @foreach($errors->all() as $error)
+     <li>{{$error}}</li>
+      @endforeach
+    </ul>
+    </div>
+     @endif
+<div class="card card-secondary">
 
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-<div class="container contents single login-register">
-    <div class="row">
-        <div class="span12 main-wrap">
+              <div class="card-header">
+                <h3 class="card-title">Edit Locale</h3>
+                </div>
 
-                            <h3><span>Edit Locale </span></h3>
 
- <div class="main">
-
-                <div class="inner-wrapper">
-                    						<div class="forms-simple">
-
-                        <div class="row-fluid">
-
-                            <div class="span12">
+               <div class="card-body">
  @foreach($locales as $locales)
 
               <form role="form" action="{{ action('LocauxController@update',$locales->id) }}" method="post">
@@ -31,101 +27,104 @@
     @method('PUT')
 
                            <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Categorie
-                             <select name="id_categorie" >
-                           @foreach($categ as $pro)
-                          <option  value="{{$locales->slug}}">{{ $pro->slug }}</option>
-                          @endforeach
-                         </select>
-                              </label></div>
+                           <label class="col-md-12 col-form-label">Categorie
+                       <!--       <select name="idCategories" disabled="true">
+                        <option value="{{$locales->id}}" >{{$locales->slug}}</option>
 
-                        <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left ">Local Name
-                                <input  class="form-control" type="text" name="name_loc" value="{{$locales->name_loc}}">
-</label></div>
+ @foreach($categ as $categ)
 
-
+                          <option value="{{$categ->id}}" >{{$categ->slug}}</option>
+@endforeach
+                         </select> -->
+   <input  class="form-control" type="text" name="idCategories" value="{{$locales->slug}}" disabled="true"></label></div>
 
 
                         <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Description
-                                {!! Form::textarea('description', old('description'), ['class'=>'form-control']) !!}</label></div>
+                       <label class="col-md-12 col-form-label">Local Name
+                        <input  class="form-control" type="text" name="name_loc" value="{{$locales->name_loc}}"></label></div>
 
+
+
+
+                        <div class="form-group row">
+                            <label class="col-md-12 col-form-label">Description
+           <input  class="form-control" type="text" name="description" value="{{$locales->description}}"></label></div>
 
  <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Photo
+                           <label class="col-md-12 col-form-label ">Photo
                                <input  class="form-control" type="file" name="photo" value="{{$locales->photo}}"></label></div>
 
  <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Surface
+                           <label class="col-md-12 col-form-label ">Surface
                                 <input  class="form-control" type="text" name="surface" value="{{$locales->surface}}"></label></div>
 
  <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Longitude
+                           <label class="col-md-12 col-form-label ">Longitude
                                <input  class="form-control" type="text" name="longitude" value="{{$locales->longitude}}"></label></div>
 
  <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Altitude
+                           <label class="col-md-12 col-form-label ">Altitude
                                 <input  class="form-control" type="text" name="altitude" value="{{$locales->altitude}}"></label></div>
 
- <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Price
+                             <div class="form-group row">
+                           <label class="col-md-12 col-form-label ">Price/Month
                                <input  class="form-control" type="text" name="prix" value="{{$locales->prix}}"></label></div>
 
+                               <div class="form-group row">
+                           <label class="col-md-12 col-form-label ">Price/Week
+                               <input  class="form-control" type="text" name="prix_s" value="{{$locales->prix_s}}"></label></div>
+
+                               <div class="form-group row">
+                           <label class="col-md-12 col-form-label ">Price/Day
+                               <input  class="form-control" type="text" name="prix_j" value="{{$locales->prix_j}}"></label></div>
+
+                               <div class="form-group row">
+                           <label class="col-md-12 col-form-label ">Price/Hour
+                               <input  class="form-control" type="text" name="prix_h" value="{{$locales->prix_h}}"></label></div>
+
  <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Cautionnement
+                           <label class="col-md-12 col-form-label ">Cautionnement
                                 <input  class="form-control" type="text" name="cautionnement" value="{{$locales->cautionnement}}"></label></div>
 
  <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Pays
+                           <label class="col-md-12 col-form-label ">Pays
                                <input  class="form-control" type="text" name="pays" value="{{$locales->pays}}"></label></div>
 
  <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Gouvernaurat
+                           <label class="col-md-12 col-form-label ">Gouvernaurat
                                <input  class="form-control" type="text" name="gouvernaurat" value="{{$locales->gouvernaurat}}"></label></div>
 
  <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Adress
+                            <label class="col-md-12 col-form-label ">Adress
                                 <input  class="form-control" type="text" name="adress" value="{{$locales->adress}}"></label></div>
 
  <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Bedrooms
+                           <label class="col-md-12 col-form-label ">Bedrooms
                                <input  class="form-control" type="text" name="Bedrooms" value="{{$locales->Bedrooms}}"></label></div>
 
  <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Bathrooms
+                          <label class="col-md-12 col-form-label ">Bathrooms
                                 <input  class="form-control" type="text" name="Bathrooms" value="{{$locales->Bathrooms}}"></label></div>
 
                                  <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Garages
+                            <label class="col-md-12 col-form-label ">Garages
                               <input  class="form-control" type="text" name="Garages" value="{{$locales->Garages}}"></label></div>
 
 
 
-
-
-
-                        <div class="form-group row mb-0">
+                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-8">
-                               <button type="submit" class="btn btn-primary" type="submit">Update</button>
+
+                               <button class="btn btn-primary" type="submit">Update</button>
                              <a href="{{action('LocauxController@index')}}" class="btn btn-default">Back</a>
                             </div>
                         </div>
                                </form>
                                            @endforeach
 
+           </div>
             </div>
             </div>
-            </div>
-            </div>
-            </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div></div>
-            </div>
-            </div>
+
 @endsection
 

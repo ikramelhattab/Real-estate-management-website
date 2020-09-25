@@ -16,15 +16,176 @@
   <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
-</head>
+  <script>
+/*
+.inner-left	  {
+		  padding: 5px 5px 5px 5px;
+		  margin-right: 10px;
+		  border: #999999 1px solid;
+		  min-height: 60px;
+		  }
 
+.inner-right	  {
+		  font-size: 11px;
+		  padding: 5px 5px 5px 5px;
+		  border: #999999 1px solid;
+		  min-height: 60px;
+		  } */
+</script>
+</head>
+ <div class="row">
+    <div class="col-2">
+
+<!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{{asset('img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <a href="{{url('location')}}" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                  Mes locaux
+
+              </p>
+            </a>
+
+          <li class="nav-item">
+            <a href="{{url('list_dem')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                    Demandes
+                <span class="right badge badge-danger"></span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('reclamation_loc')}}" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Reclamations
+                <span class="badge badge-info right"></span>
+              </p>
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ url('/fact_loc') }}" class="nav-link">
+              <i class="nav-icon fas fa-tree"></i>
+              <p>
+                Factures
+              </p>
+            </a>
+
+          </li>
+          <li class="nav-item">
+           <!--  <a href="{{ url('/tran_loc') }}" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Tranches
+
+              </p>
+            </a> -->
+ <li class="nav-item">
+            <a href="{{url('dashboard')}}" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Change
+
+              </p>
+            </a>
+
+          </li>
+            </ul>
+          </li>
+
+
+
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+
+</div>
+
+<!--
+@if(Auth::user())
+<div class="inner-right">
+
+<div class="float-left-area ">
+<div class="inner-left">
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="{{ asset('img/user4-128x128.jpg')}}"
+                       alt="User profile picture">
+                </div>
+    <ul class="navbar-nav ml-auto">
+
+                <h3 class="profile-username text-center">{{Auth::user()->name}}</h3>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <ol class="list-group-item">
+                   <a href="{{url('dashboard')}}">  <b>Locaux</b> <a class="float-right"></a>
+                  </ol>
+                  <ol class="list-group-item">
+                   <a href="{{url('list_dem')}}">  <b>Demandes</b> <a class="float-right"></a>
+                  </ol>
+                  <ol class="list-group-item">
+                    <a href="{{url('reclamation_loc')}}"> <b>Reclamations</b> <a class="float-right"></a>
+                  </ol>
+                   <ol class="list-group-item">
+                   <a href="{{url('dashboard')}}"> <b>Change</b> </a>
+                  </ol>
+                    <ol class="list-group-item">
+                   <a href="{{url('message')}}"> <b>Messages</b> </a>
+                  </ol>
+                    <ol class="list-group-item">
+                   <a href="{{url('fact_loc')}}"> <b>Factures</b> </a>
+                  </ol>
+                    <ol class="list-group-item">
+                   <a href="{{url('tran_loc')}}"> <b>Tranch</b> </a>
+                  </ol>
+                </ul>
+ <a href="{{route('logout')}}" class=" fa fa-btn fa-sign-out btn btn-primary btn-block" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><b>Logout</b></a>
+              </div>
+            </div>
+            </ul>
+</div>
+</div>
+</div>
+@endif
+
+ -->
+
+<!--
 <div class="page-head" style="background-repeat: no-repeat;background-position: center top;background-image: url('themes/realhomes/assets/classic/images/banner.jpg'); background-size: cover; ">
         <div class="container">
         <div class="wrap clearfix">
             <h1 class="page-title"><span>Requests</span></h1>
                     </div>
     </div>
-    </div><!-- End Page Head -->
+    </div> --><!-- End Page Head -->
+        <div class="col-10">
 
 
   <div class="card">
@@ -37,12 +198,14 @@
 
                 <thead>
                   <tr role="row">
-                            <th >Date </th>
                             <th> Local Name </th>
+                            <th>Compteur Type</th>
+                            <th>Compteur Number</th>
                              <th>Client Name</th>
-                            <th>Facture GAZ</th>
-                            <th>Facture Water</th>
-                            <th>Facture electricity</th>
+                            <th>Total Montant </th>
+                             <th >Date Invoice </th>
+                             <th >Date Limite </th>
+                             <th >Photos </th>
 
 
 
@@ -53,16 +216,17 @@
                      @if ( $f->id_user == (Auth::user()->id))
 
                                  <tr>
-                                    <td> {{ $f->date }} </td>
                                     <td> {{ $f->name_loc }} </td>
+                                    <td> {{ $f->id }} </td>
+                                    <td> {{ $f->num_compteur }} </td>
                                     <td> {{ $f->name }} </td>
-                                    <td> {{ $f->fact_GAZ }} </td>
+                                    <td> {{ $f->montant_fact }} </td>
+                                    <td> {{ $f->date_fact }} </td>
+                                    <td> {{ $f->date_limite }} </td>
+                                    <td> {{ $f->photo }} </td>
 
-                                    <td> {{ $f->fact_EAU }} </td>
-                                    <td> {{ $f->fact_Elec }} </td>
 
-
-   <td>
+  <!--  <td>
 
 
 
@@ -73,18 +237,20 @@
         <button type="button" class="delete-modal btn btn-danger dlte-cl" data-toggle="modal" data-target="#delete" data-cltid="{{$f->id}}">
 
             <span class="glyphicon glyphicon-trash"></span> Delete </button>
- </td>
+ </td> -->
    </tr>
 @endif
    @endforeach
 </tbody>
                 <tfoot>
-                 <tr>        <th >Date </th>
-                            <th> Local Name </th>
+                 <tr>        <th> Local Name </th>
+                            <th>Compteur Type</th>
+                            <th>Compteur Number</th>
                              <th>Client Name</th>
-                            <th>Facture GAZ</th>
-                            <th>Facture Water</th>
-                            <th>Facture electricity</th>
+                            <th>Total Montant </th>
+                             <th >Date Invoice </th>
+                             <th >Date Limite </th>
+                             <th >Photos </th>
 
 
                   </tr>
@@ -99,7 +265,9 @@
 
 
 
-
+</div>
+</div>
+</div>
 
 
 
@@ -188,7 +356,6 @@
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('js/demo.js') }}"></script>
- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
   <!-- DataTables -->

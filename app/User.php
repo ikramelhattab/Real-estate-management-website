@@ -55,7 +55,7 @@ class User extends \TCG\Voyager\Models\User
         return $this->belongsToMany('App\Locale')->withTimestamps();
     }
 
-     public function posts()
+     public function Category()
     {
         return $this->hasMany('App\Locale');
     }

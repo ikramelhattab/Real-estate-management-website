@@ -48,8 +48,12 @@ public function app(){
 
 public function search(Request $request)
     {
-
-    return Locale::where('pays', 'like', '%' . $request->pays . '%')
+$categorie = DB::table('locales')
+            ->join('categories', 'locales.idCategorie', '=', 'categories.id')
+            ->join('users', 'locales.id_user', '=', 'users.id')
+            ->select('locales.*', 'categories.slug','users.name')
+            ->paginate(5);
+    $a =  Locale::where('pays', 'like', '%' . $request->pays . '%')
                    ->where('gouvernaurat', 'like', '%' . $request->gouvernaurat . '%')
 /*                    ->where('slug', 'like', '%' . $request->slug . '%')
  */                   ->where('Bedrooms', 'like', '%' . $request->Bedrooms . '%')
@@ -57,7 +61,11 @@ public function search(Request $request)
                    ->where('surface', 'like', '%' . $request->surface . '%')
                    ->get();
 
+     return  view ( 'test' ,[
+        'a' => $a,
+    'locales' => $categorie,
 
+    ]);
     }
 
 }

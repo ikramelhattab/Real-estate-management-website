@@ -16,7 +16,7 @@
 <!-- Content -->
 <div class="container contents contact-page">
     <div class="row">
-        <div class="span9 main-wrap">
+        <div class="span12 main-wrap">
             <!-- Main Content -->
             <div class="main">
 
@@ -27,40 +27,8 @@
     data-id="131"
     data-slug="">
     <div class="kksr-stars">
-    <div class="kksr-stars-inactive">
-            <div class="kksr-star" data-star="1">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="2">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="3">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="4">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="5">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-    </div>
-    <div class="kksr-stars-active" style="width: 0px;">
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-    </div>
+
+
 </div>
     <div class="kksr-legend">
             <span class="kksr-muted"></span>
@@ -95,7 +63,7 @@
 </script> -->
                         </div>
                                                 <section class="contact-details clearfix">
-                            <h3>REMAX Experts, Tripoli - Lebanon</h3>
+                            <h3>Contact</h3>
                             <ul class="contacts-list">
                                 <li class="phone"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 <path class="path" d="M5.597 1.999C6.4 2 8 2 8.1 5.51C8.017 6.1 7.8 6.3 7.5 6.658C7.12 7.1 6.4 7.9 6.4 9.2 c0 1.5 1 3.1 3.1 5.198c1.143 1.2 3.3 3.1 4.8 3.123c1.222 0 1.856-0.836 2.128-1.192 c0.18-0.236 0.284-0.373 0.862-0.468h0.055c3.91 0 4.6 0.8 4.6 2.476c0 0.358-0.151 1.891-0.893 2.8 c-0.297 0.382-1.161 0.789-2.695 0.789c-3.012 0-7.658-1.598-11.249-5.162C2.085 11.7 2 4.7 2 4.6 C2.021 2.2 4.8 2 5.6 2 M5.598-0.001c-0.385 0-5.578 0.084-5.578 4.624c0 0-0.041 7.8 5.8 13.6 c3.825 3.8 8.9 5.7 12.7 5.747c1.914 0 3.46-0.515 4.273-1.56c1.314-1.688 1.314-4.07 1.314-4.07 c0-4.618-4.734-4.47-6.801-4.476c-2.345 0.324-2.198 1.66-2.843 1.66c-0.187 0-1.32-0.393-3.409-2.523 c-2.106-2.085-2.527-3.234-2.527-3.797c0-1.265 1.396-1.328 1.662-3.602c-0.004-1.028-0.011-5.563-4.482-5.632 C5.621-0.001 5.613-0.001 5.598-0.001L5.598-0.001z"/>
@@ -117,7 +85,7 @@ Email : <a href="mailto:&#105;n&#102;o&#64;&#114;emax-tr&#105;&#112;&#111;l&#105
     <path class="path" clip-rule="evenodd" d="M16 0C9.382 0 4 5.3 4 12.001c0 7 6 14.2 10.4 19.2 C14.392 31.2 15.1 32 16 32c0.002 0 0.1 0 0.1 0c0.867 0 1.57-0.785 1.586-0.805 c4.377-5.033 10.377-12.193 10.377-19.194C28.002 5.3 22.6 0 16 0z M16.117 29.883c-0.021 0.02-0.082 0.064-0.135 0.1 c-0.01-0.027-0.084-0.086-0.129-0.133C12.188 25.6 6 18.5 6 12.001C6 6.5 10.5 2 16 2c5.516 0 10 4.5 10 10 C26.002 18.5 19.8 25.6 16.1 29.883z" fill="#333333" fill-rule="evenodd"/>
   </g>
 </svg>
-Address : Alomrane street,  Monastir</li>                            </ul>
+Address : Alomrane street,  Monastir, Tunisia</li>                            </ul>
 
                         </section>
 
@@ -126,7 +94,7 @@ Address : Alomrane street,  Monastir</li>                            </ul>
 
 
 
-                                <h3 class="form-heading">Need help searching on REMAX Experts? - Send us a message</h3>
+                                <h3 class="form-heading">Need help ? - Send us a message</h3>
 
                                 @if(Session::has('success'))
    <div class="alert alert-success">
@@ -137,20 +105,20 @@ Address : Alomrane street,  Monastir</li>                            </ul>
 {!! Form::open(['route'=>'contact.store']) !!}
 
 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-    {!! Form::label('Name:') !!}
+    {!! Form::label('') !!}
     {!! Form::text('name', old('name'), ['class'=>'form-control', 'placeholder'=>'Name']) !!}
-<span class="text-danger">{{ $errors->first('name') }}</span>
+<span class="text-danger"> {{ $errors->first('name') }}</span>
 </div>
 
 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-    {!! Form::label('Email:') !!}
+    {!! Form::label('') !!}
     {!! Form::text('email', old('email'), ['class'=>'form-control', 'placeholder'=>'Email']) !!}
 <span class="text-danger">{{ $errors->first('email') }}</span>
 </div>
 
 <div class="form-group {{ $errors->has('message') ? 'has-error' : '' }}">
-    {!! Form::label('Message:') !!}
-    {!! Form::textarea('message', old('message'), ['class'=>'form-control', 'placeholder'=>'Message']) !!}
+    {!! Form::label('') !!}
+    {!! Form::textarea('message', old('message'), ['class'=>'form-control ', 'placeholder'=>'Message','cols'=>'150']) !!}
 <span class="text-danger">{{ $errors->first('message') }}</span>
 </div>
 

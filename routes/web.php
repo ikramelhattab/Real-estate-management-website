@@ -23,6 +23,16 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
+Route::middleware ('auth', 'verified')->group (function () {
+    Route::resource ('profile', 'ProfileController', [
+        'only' => ['edit', 'update', 'destroy', 'show'],
+        'parameters' => ['profile' => 'user']
+    ]);
+
+
+});
+
+
 
 
 
@@ -32,14 +42,14 @@ Route::group(['prefix' => 'admin'], function () {
  Route::get('registerRole','Auth\RegisterController@index')->name('auth.index');
 
 
-Route::get('details/{id}', 'DetailsController@test');
+Route::get('details/{id}', 'TestController@test');
 
 // Route::post('demand', 'DetailsController@store');
-Route::post('/thread/mark-as-solution','ThreadController@markAsSolution')->name('markAsSolution');
+/* Route::post('/thread/mark-as-solution','ThreadController@markAsSolution')->name('markAsSolution');
 Route::post('comment/like','LikeController@toggleLike')->name('toggleLike');
+ */
 
-
-Route::get('sidebar', 'SidebarController@index');
+Route::get('location', 'LocationController@index');
 
 
 Route::resource('home', 'HomeController',
@@ -52,13 +62,20 @@ Route::resource('blogs', 'BlogController',
 /* Route::get('detail/{id}','DetailController@detail');
  */
 
-Route::get('message','MessageController@test');
-
-Route::get('msg', 'MessageController@index');
+// Route::get('message','MessageController@test');
 
 
-Route::get('/conversations/{user}','MessageController@show')->name('show');
-Route::get('/conversations/{user}','MessageController@store');
+Route::get('msg', 'MessageController@index')->name('index');
+
+
+Route::get('/conversations/{user}','MessageController@show')
+->middleware('can:talkTo,user')
+->name('show');
+
+
+Route::post('/conversations/{user}','MessageController@store')
+->middleware('can:talkTo,user');
+
 
 Route::get('list_dem','TestController@list_demande');
 
@@ -89,14 +106,6 @@ Route::resource('S1', 'S1Controller',
 Route::resource('S2', 'S2Controller',
                  ['only' => ['index']]);
 
-Route::get('featured', 'FeaturedController@test');
-
- Route::get('favourite', 'FavoriteController@test');
-
-
-Route::resource('favourites', 'FavoriteController', ['only' => 'store']);
-
-Route::delete('favourites/{localId}', ['as' => 'favourites.destroy', 'uses' => 'FavoriteController@destroy']);
 
 
 Route::resource('demand', 'TestController',
@@ -104,13 +113,15 @@ Route::resource('demand', 'TestController',
 
 Route::resource('demand', 'TestController',
                  ['expect' => ['create','store']]);
+Route::get('local/{id}/edit','LocauxController@edit');
+Route::get('comp/{id}/edit','CompteurController@edit');
+Route::get('local/{id}/edit','LocauxController@edit');
 
-
+Route::resource('local', 'LocauxController',
+                ['expect' => ['create','store']]);
 Route::resource('local', 'LocauxController',
                  ['only' => ['index']]);
 
-Route::resource('local', 'LocauxController',
-                 ['expect' => ['create','store']]);
 
 Route::resource('reclamation', 'ReclamationController',
                  ['only' => ['index']]);
@@ -123,6 +134,7 @@ Route::post('searcch','TestController@search');
 Route::get('/search','HomeController@search');
 
 
+
 Route::get('app','HomeController@app');
 
 
@@ -130,10 +142,6 @@ Route::get('contact', 'ContactController@contact');
 Route::post('contact', ['as'=>'contact.store','uses'=>'ContactController@contactPost']);
 
 
-
-
-Route::post('favorite/{post}/add','FavoriteController@add')->name('favorite');
-Route::get('/favorite','FavoriteController@index')->name('index');
 
 Route::get('interface','InterfaceController@index');
 Route::get('dashboard','DashboardController@index');
@@ -143,11 +151,6 @@ Route::get('reclamation_loc','ReclamationController@aff_loc');
 
 
 
-Route::resource('facture', 'FactureController',
-                 ['only' => ['index']]);
-
-Route::resource('facture', 'FactureController',
-                 ['expect' => ['create','store']]);
 
 
 Route::resource('tranch', 'TranchController',
@@ -156,8 +159,53 @@ Route::resource('tranch', 'TranchController',
 Route::resource('tranch', 'TranchController',
                  ['expect' => ['create','store']]);
 
- Route::get('fact_loc','FactureController@facture_loc');
-Route::get('fact_pro','FactureController@facture_pro');
+
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('/facture/getData/{id}', 'FactureController@compteurs');
+	Route::post('/facture/save', 'FactureController@store');
+	Route::post('/facture/edit', 'FactureController@update');
+    Route::get('/facture/pdf/{id}', 'FactureController@pdf');
+    Route::get('fact_loc','FactureController@facture_loc');
+    Route::get('fact_pro','FactureController@facture_pro');
+   /*  Route::resource('facture', 'FactureController',
+                 ['only' => ['index']]); */
+    Route::resource('facture', 'FactureController',
+                 ['expect' => ['create','store']]);
+});
+
+
 Route::get('tran_loc','TranchController@tranch_loc');
 Route::get('tran_pro','TranchController@tranch_pro');
 
+
+
+
+
+
+
+
+
+
+
+ Route::group(['middleware' => 'auth'], function () {
+	Route::get('/compteur/getData/{id}', 'CompteurController@locale');
+	Route::post('/compteur/save', 'CompteurController@postCreate');
+
+Route::resource('comp', 'CompteurController',
+                 ['expect' => ['create']]);
+
+// Route::resource('comp', 'CompteurController',
+//                  ['expect' => ['create','store']]);
+
+Route::get('comp_loc','CompteurController@compteur_loc');
+Route::get('comp_pro','CompteurController@compteur_pro');
+
+
+});
+ Route::resource('comp', 'CompteurController',
+                 ['only' => ['index']]);
+
+
+
+Route::get('profile', ['uses' =>'VoyagerUserController@profile', 'as' => 'profile']);

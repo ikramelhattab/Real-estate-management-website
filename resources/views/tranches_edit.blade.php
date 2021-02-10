@@ -2,9 +2,18 @@
 @section('content')
 
 
-<div class="card card-primary">
+           @if($errors->any())
+           <div class="alert alert-danger">
+            <ul>
+      @foreach($errors->all() as $error)
+     <li>{{$error}}</li>
+      @endforeach
+    </ul>
+    </div>
+     @endif
+<div class="card card-secondary">
               <div class="card-header">
-                <h3 class="card-title">Edit Tranch</h3>
+                <h3 class="card-title">Edit Slice</h3>
               </div>
                @foreach($tranches as $tranches)
 
@@ -12,27 +21,32 @@
      @csrf
     @method('PUT')
 
+
                 <div class="card-body">
                   <div class="form-group">
-                    <label >Date Debeut</label>
-                    <input type="date" class="form-control"  placeholder="date" value="{{$tranches->date_deb}}">
+                    <label >Start Date </label>
+                    <input type="date" class="form-control" name="date_deb" placeholder="date" value="{{$tranches->date_deb}}">
                   </div>
                   <div class="form-group">
-                    <label >Date Fin</label>
-                    <input type="date" class="form-control"  placeholder="" value="{{$tranches->date_fin}}">
+                    <label >End Date </label>
+                    <input type="date" class="form-control" name="date_fin" placeholder="" value="{{$tranches->date_fin}}">
                   </div>
                   <div class="form-group">
                     <label >Local Name</label>
+             <input  class="form-control" type="text" name="id_local" value="{{$tranches->name_loc}}" disabled="true">
 
-                    <input type="text" class="form-control"  placeholder="" value="{{$tranches->name_loc}}">
+                   <!-- <select name="id_local" class="form-control">
+                          <option value="{{$tranches->id}}">{{$tranches->name_loc}}</option>
+
+                         </select> -->
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label >Name</label>
-                    <input type="text" class="form-control"  placeholder="" value="{{$tranches->name}}">
-                  </div>
+                    <input type="text" class="form-control"  placeholder="" value="">
+                  </div> -->
                    <div class="form-group">
-                    <label >Montant</label>
-                    <input type="text" class="form-control"  placeholder="" value="{{$tranches->montant}}">
+                    <label >Amount(TND)</label>
+                    <input type="text" class="form-control"  name="montant" placeholder="amount" value="{{$tranches->montant}}">
                   </div>
 
 
@@ -40,11 +54,12 @@
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary" type="submit">Update</button>
 
-                             <a href="{{action('TranchController@index')}}" class="btn btn-default">Back</a>
+                             <a href="{{url('tran_pro')}}" class="btn btn-default">Back</a>
                 </div>
               </form>
                                                          @endforeach
 
+              </div>
               </div>
 
 

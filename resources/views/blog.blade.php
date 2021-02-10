@@ -2,6 +2,8 @@
 
 @section('content')
 
+<br>
+<br>
 
  <div id="home-properties-section-wrapper">
 
@@ -19,14 +21,16 @@
 
         <figure>
             <a href="{{ url('details/'.$blog->id) }}">
-                <img width="244" height="163" src="images/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-244x163.jpg" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-244x163.jpg 244w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-300x200.jpg 300w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-150x100.jpg 150w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e.jpg 500w" sizes="(max-width: 244px) 100vw, 244px" />            </a>
-
-            <figcaption class="for-sale">****</figcaption>
+                @php $images =json_decode($blog->photo);@endphp
+                                    @if($images)
+                                        @php $images = array_slice($images, 0, 3); @endphp
+                <img width="244" height="163" src="{{Voyager::image($images[0])}}" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" sizes="(max-width: 244px) 100vw, 244px" />            </a>
+                                    @endif
         </figure>
 
         <div class="detail">
             <h5 class="price">
-                {{ $blog->prix}} <small> -  {{ $blog->slug }}</small>            </h5>
+                {{ $blog->prix}} TND/Month <small> -  {{ $blog->slug }}</small>            </h5>
             <p>{{ $blog->description}}</p>
             <a class="more-details" href="{{ url('details/'.$blog->id) }}">More Details <i class="fa fa-caret-right"></i></a>
         </div>
@@ -49,7 +53,10 @@
 <rect class="rect" x="12.4" y="4.4" transform="matrix(0.7069 0.7073 -0.7073 0.7069 7.2858 -7.8754)" width="1.4" height="1"/>
 <rect class="rect" x="13.4" y="7.4" transform="matrix(-0.7064 -0.7078 0.7078 -0.7064 18.5823 23.4137)" width="1.4" height="1"/>
 </svg>
-{{ $blog->Bathrooms}} Bathrooms</span>        </div>
+{{ $blog->Bathrooms}} Bathrooms</span>
+            <i class="fa fa-user"></i>&nbsp; {{ $blog->name }}
+      </div>
+
     </article>
 </div>
 

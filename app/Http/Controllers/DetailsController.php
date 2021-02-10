@@ -12,7 +12,7 @@ use App\Locale;
 use DB;
 class DetailsController extends Controller
 {
-public function add($post)
+/* public function add($post)
     {
         $user = Auth::user();
         $isFavorite = $user->favorite_posts()->where('id_locale',$post)->count();
@@ -27,7 +27,7 @@ public function add($post)
             Toastr::success('Post successfully removed form your favorite list :)','Success');
             return redirect()->back();
         }
-    }
+    } */
 
     public function test(Request $request,$id){
 
@@ -38,16 +38,16 @@ public function add($post)
 }
 
 
-  public function fav(Request $request,$id){
+  /* public function fav(Request $request,$id){
 
     $local= DB::table('locales')
                  ->where('id', $id)
                  ->get();
     return view('details',['loc'=> $local]);
-}
+} */
 
 
-public function toggleLike()
+/* public function toggleLike()
    {
        $commentId=Input::get('commentId');
        $comment=Comment::find($commentId);
@@ -64,7 +64,7 @@ public function toggleLike()
         }
 
 
-   }
+   } */
 
 }
 

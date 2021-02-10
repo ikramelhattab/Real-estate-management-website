@@ -6,7 +6,7 @@
 
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -138,24 +138,11 @@ function showSlides() {
 </script>
 
 </body>
-</html>
+</html> -->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="SFOI clearfix" style="">
+<div class="SFOI clearfix" style="background: url('images/uploads/2017/08/bg-remax-dark.jpg') no-repeat top center; background-size: cover; ">
     <div class="SFOI__content">
          <h2 class="SFOI__title">Find properties</h2>
 
@@ -174,7 +161,7 @@ function showSlides() {
 
         <span class="selectwrap">
 
-        <input type="text" name="pays" id="pays" required placeholder="Any"  class="form-control"/>
+        <input type="text" name="pays" id="pays" required placeholder="Any"  class="form-control" value ="Tunisia" disabled="true"/>
 
         </span>
 	</div>
@@ -202,7 +189,7 @@ function showSlides() {
 
 <div class="option-bar small">
 	<label for="Bedrooms">
-		Min Beds	</label>
+		 Beds	</label>
     <span class="selectwrap">
               <input type="text" name="Bedrooms" id="Bedrooms" placeholder="Any" class="form-control"/>
     </span>
@@ -210,43 +197,43 @@ function showSlides() {
 
 <div class="option-bar small">
 	<label for="Bathrooms">
-		Min Baths	</label>
+		 Baths	</label>
     <span class="selectwrap">
                   <input type="text" name="Bathrooms" id="Bathrooms" required placeholder="Any" class="form-control"/>
   </span>
 </div>
 
-<div class="option-bar small ">
+<!-- <div class="option-bar small ">
 	<label for="prix">
 		Min Price	</label>
     <span class="selectwrap">
                       <input type="text" name="prix" id="prix" required placeholder="Any" class="form-control"/>
     </span>
-</div>
+</div> -->
 
 
 
 <div class="option-bar small ">
 	<label for="prix">
-		Max Price	</label>
+		 Price(TND)	</label>
     <span class="selectwrap">
                           <input type="text" name="prix" id="prix" required placeholder="Any" class="form-control"/>
     </span>
 </div>
 
 
-<div class="option-bar small">
+<!-- <div class="option-bar small">
 	<label for="surface">
 		Min Area		<span>(m²)</span>
 	</label>
 	<input type="text" name="surface" id="surface"  required placeholder="Any" class="form-control"/>
-</div>
+</div> -->
 
 
 
 <div class="option-bar small">
 	<label for="surface">
-		Max Area		<span>(m²)</span>
+		 Area		<span>(m²)</span>
 	</label>
 		<input type="text" name="surface" id="surface" required placeholder="Any" class="form-control"/>
 
@@ -280,184 +267,7 @@ function showSlides() {
 
 
 
-
-
-
-
-    <div class="main-wrapper contents">
-
-
-<!-- Content -->
 <div class="container">
-
-    <div class="row">
-
-        <div class="span12">
-                        <!-- Main Content -->
-            <div class="main ">
-                                            <div class="inner-wrapper">
-                                <article id="post-44" class="clearfix post-44 page type-page status-publish hentry">
-                                    <div style="display: none;"
-    class="kk-star-ratings kksr-valign-top kksr-align-right kksr-disabled"
-    data-id="44"
-    data-slug="">
-    <div class="kksr-stars">
-    <div class="kksr-stars-inactive">
-            <div class="kksr-star" data-star="1">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="2">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="3">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="4">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="5">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-    </div>
-    <div class="kksr-stars-active" style="width: 0px;">
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-    </div>
-</div>
-    <div class="kksr-legend">
-            <span class="kksr-muted"></span>
-    </div>
-</div>
-<div class="vc_row wpb_row vc_row-fluid vc_custom_1537887573703"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="vc_empty_space"   style="height: 16px" ><span class="vc_empty_space_inner"></span></div>
-<h2 style="text-align: center" class="vc_custom_heading" >Featured Properties</h2><div class="vc_empty_space"   style="height: 32px" ><span class="vc_empty_space_inner"></span></div>
-<div class="listing-layout property-grid inspiry-shortcode"><div class="list-container clearfix"><article class="property-item clearfix">
-
-    <figure>
-        <a href="property/apartment-for-sale-in-tripoli-185-sqm/index.html">
-            <img width="246" height="162" src="images/uploads/2019/01/WhatsApp-Image-2019-01-19-at-12.09.07-PM-246x162.jpg" class="attachment-grid-view-image size-grid-view-image wp-post-image" alt="" />        </a>
-
-        <figcaption class="for-rent for-sale">For Rent, For Sale</figcaption><figcaption class="is_featured">Featured</figcaption>
-    </figure>
-
-
-    <h4><a href="property/apartment-for-sale-in-tripoli-185-sqm/index.html">Apartment for rent/sale in Tripoli – 185 sqm</a></h4>
-    <p>4.5 / 5 ( 199 votes ) الشقة المعروضة&hellip; <a class="more-details" href="property/apartment-for-sale-in-tripoli-185-sqm/index.html">More Details <i class="fa fa-caret-right"></i></a></p>
-    <span>$600 Per Month</span></article><article class="property-item clearfix">
-
-    <figure>
-        <a href="property/land-for-sale-in-jdabra-batroun/index.html">
-            <img width="246" height="162" src="images/uploads/2019/01/Land-for-Sale-246x162.jpg" class="attachment-grid-view-image size-grid-view-image wp-post-image" alt="" srcset="https://www.remax-tripoli.com/wp-content/uploads/2019/01/Land-for-Sale-246x162.jpeg 246w, https://www.remax-tripoli.com/wp-content/uploads/2019/01/Land-for-Sale-150x100.jpeg 150w, https://www.remax-tripoli.com/wp-content/uploads/2019/01/Land-for-Sale-638x417.jpeg 638w" sizes="(max-width: 246px) 100vw, 246px" />        </a>
-
-        <figcaption class="for-sale">For Sale</figcaption><figcaption class="is_featured">Featured</figcaption>
-    </figure>
-
-
-    <h4><a href="property/land-for-sale-in-jdabra-batroun/index.html">Land for Sale in Jdabra, Batroun</a></h4>
-    <p>4.4 / 5 ( 35 votes ) The land&hellip; <a class="more-details" href="property/land-for-sale-in-jdabra-batroun/index.html">More Details <i class="fa fa-caret-right"></i></a></p>
-    <span>$275,000 </span></article><article class="property-item clearfix">
-
-    <figure>
-        <a href="property/villa-sale-behind-las-salinas-resort-enfeh/index.html">
-            <img width="246" height="162" src="images/uploads/2018/06/IMG-20180628-WA0008-246x162.jpg" class="attachment-grid-view-image size-grid-view-image wp-post-image" alt="" />        </a>
-
-        <figcaption class="for-sale">For Sale</figcaption><figcaption class="is_featured">Featured</figcaption>
-    </figure>
-
-
-    <h4><a href="property/villa-sale-behind-las-salinas-resort-enfeh/index.html">Villa for sale behind Las Salinas Resort, Enfeh</a></h4>
-    <p>4.5 / 5 ( 18 votes ) The villa&hellip; <a class="more-details" href="property/villa-sale-behind-las-salinas-resort-enfeh/index.html">More Details <i class="fa fa-caret-right"></i></a></p>
-    <span>$339,000 </span></article><article class="property-item clearfix">
-
-    <figure>
-        <a href="property/mountain-seaview-apartment-sale-sir-el-danniyeh/index.html">
-            <img width="246" height="162" src="images/uploads/2018/07/WhatsApp-Image-2018-07-31-at-3.27.17-PM-246x162.jpg" class="attachment-grid-view-image size-grid-view-image wp-post-image" alt="" />        </a>
-
-        <figcaption class="for-sale">For Sale</figcaption><figcaption class="is_featured">Featured</figcaption>
-    </figure>
-
-
-    <h4><a href="property/mountain-seaview-apartment-sale-sir-el-danniyeh/index.html">Apartment for sale in Sir El Danniyeh_ 105m2</a></h4>
-    <p>4.6 / 5 ( 55 votes ) The apartment&hellip; <a class="more-details" href="property/mountain-seaview-apartment-sale-sir-el-danniyeh/index.html">More Details <i class="fa fa-caret-right"></i></a></p>
-    <span>$68,000 </span></article><article class="property-item clearfix">
-
-    <figure>
-        <a href="property/high-end-luxurious-apartment-sale-dam-farez-tripoli/index.html">
-            <img width="246" height="162" src="images/uploads/properties/25/e594ce0d769d094255bdd7993a173a97/63264d546cc3996adf3cb9704b0bf99d-246x162.jpg" class="attachment-grid-view-image size-grid-view-image wp-post-image" alt="" />        </a>
-
-        <figcaption class="for-sale">For Sale</figcaption><figcaption class="is_featured">Featured</figcaption>
-    </figure>
-
-
-    <h4><a href="property/high-end-luxurious-apartment-sale-dam-farez-tripoli/index.html">Apartment for sale in Dam &#038; Farez, Tripoli</a></h4>
-    <p>4.5 / 5 ( 186 votes ) High-end luxurious&hellip; <a class="more-details" href="property/high-end-luxurious-apartment-sale-dam-farez-tripoli/index.html">More Details <i class="fa fa-caret-right"></i></a></p>
-    <span>$385,000 </span></article><article class="property-item clearfix">
-
-    <figure>
-        <a href="property/good-location-apartment-for-sale-in-tripoli/index.html">
-            <img width="246" height="162" src="images/uploads/2018/11/WhatsApp-Image-2018-11-06-at-10.28.12-AM-246x162.jpg" class="attachment-grid-view-image size-grid-view-image wp-post-image" alt="" />        </a>
-
-        <figcaption class="for-sale">For Sale</figcaption><figcaption class="is_featured">Featured</figcaption>
-    </figure>
-
-
-    <h4><a href="property/good-location-apartment-for-sale-in-tripoli/index.html">Apartment for sale in Tripoli – 240 sqm.</a></h4>
-    <p>4.5 / 5 ( 60 votes ) الشقة ذات&hellip; <a class="more-details" href="property/good-location-apartment-for-sale-in-tripoli/index.html">More Details <i class="fa fa-caret-right"></i></a></p>
-    <span>$169,000 </span></article><article class="property-item clearfix">
-
-    <figure>
-        <a href="property/spacious-apartment-for-sale-in-mitein-street-tripoli/index.html">
-            <img width="246" height="162" src="images/uploads/2018/10/WhatsApp-Image-2018-09-29-at-8.21.07-AM1-246x162.jpg" class="attachment-grid-view-image size-grid-view-image wp-post-image" alt="" />        </a>
-
-        <figcaption class="for-sale">For Sale</figcaption><figcaption class="is_featured">Featured</figcaption>
-    </figure>
-
-
-    <h4><a href="property/spacious-apartment-for-sale-in-mitein-street-tripoli/index.html">Apartment for sale in Mitein St., Tripoli</a></h4>
-    <p>4.5 / 5 ( 160 votes ) الشقة ذات&hellip; <a class="more-details" href="property/spacious-apartment-for-sale-in-mitein-street-tripoli/index.html">More Details <i class="fa fa-caret-right"></i></a></p>
-    <span>$269,000 </span></article><article class="property-item clearfix">
-
-    <figure>
-        <a href="property/apartment-sale-monla-st-tripoli/index.html">
-            <img width="246" height="162" src="images/uploads/2018/07/100_3266-246x162.jpg" class="attachment-grid-view-image size-grid-view-image wp-post-image" alt="" />        </a>
-
-        <figcaption class="for-sale">For Sale</figcaption><figcaption class="is_featured">Featured</figcaption>
-    </figure>
-
-
-    <h4><a href="property/apartment-sale-monla-st-tripoli/index.html">Apartment for Sale in Tripoli – 100 sqm.</a></h4>
-    <p>4.4 / 5 ( 51 votes ) The apartment&hellip; <a class="more-details" href="property/apartment-sale-monla-st-tripoli/index.html">More Details <i class="fa fa-caret-right"></i></a></p>
-    <span>$95,000 </span></article></div></div><div class="vc_empty_space"   style="height: 16px" ><span class="vc_empty_space_inner"></span></div>
-<div class="vc_btn3-container vc_btn3-center" >
-	<a class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-square vc_btn3-style-flat vc_btn3-color-juicy-pink" href="featured-properties/index.html" title="">Show More</a></div>
-<div class="vc_empty_space"   style="height: 32px" ><span class="vc_empty_space_inner"></span></div>
-</div></div></div></div>
-                                </article>
-                            </div>
-                                        </div><!-- End Main Content -->
-
-        </div> <!-- End span12 -->
-
-    </div><!-- End row -->
-
-</div><!-- End content -->
-
-
-
-<div class="container">
-
     <div class="row">
 
         <div class="span12">
@@ -483,7 +293,6 @@ function showSlides() {
             <a href="{{ url('details/'.$blog->id) }}">
                 <img width="244" height="163" src="images/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-244x163.jpg" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-244x163.jpg 244w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-300x200.jpg 300w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-150x100.jpg 150w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e.jpg 500w" sizes="(max-width: 244px) 100vw, 244px" />            </a>
 
-            <figcaption class="for-sale">****</figcaption>
         </figure>
 
         <div class="detail">
@@ -526,8 +335,8 @@ function showSlides() {
                                 <img src="{{ asset('themes/realhomes/assets/classic/images/loading-bars.svg') }}" width="32" height="32">
                             </div>
 
-                                               <div class='pagination'><a href='' class='real-btn current' >{{$locales ->links()}}</a></div>
-
+<!--                                                <div class='pagination'><a href='' class='real-btn current' >{{$locales ->links()}}</a></div>
+ -->
                     </div><!-- end of #home-properties-section-wrapper -->
 
 

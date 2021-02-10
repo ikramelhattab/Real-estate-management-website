@@ -14,6 +14,7 @@ use App\Tranch;
 use DB;
 use DateTime;
 use Validator;
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -37,7 +38,7 @@ public function tranch_loc()
 $tranches = DB::table('tranches')
      ->join('locales',  'tranches.id_local', '=', 'locales.id')
      ->join('users', 'tranches.id_user', '=', 'users.id')
-     ->select('tranches.*', 'locales.name_loc','locales.id','users.name' )
+     ->select('tranches.*', 'locales.name_loc','locales.id','users.name','tranches.id' )
      ->paginate(10);
     return view('tranch_loc',['tranches'=> $tranches]);
 
@@ -52,7 +53,7 @@ $tranches = DB::table('tranches')
     $tranches = DB::table('tranches')
      ->join('locales',  'tranches.id_local', '=', 'locales.id')
      ->join('users', 'tranches.id_user', '=', 'users.id')
-     ->select('tranches.*', 'locales.name_loc','locales.id','users.name' )
+     ->select('tranches.*', 'locales.name_loc','locales.id','users.name' ,'tranches.id')
      ->paginate(10);
     return view('tranch_pro',['tranches'=> $tranches]);
 
@@ -77,12 +78,17 @@ $tranches = DB::table('tranches')
 
   public function create(Request $request)
     {
+    $loc = DB::table('locales')->get() ;
+
  $tranches = DB::table('tranches')
      ->join('locales',  'tranches.id_local', '=', 'locales.id')
      ->join('users', 'tranches.id_user', '=', 'users.id')
      ->select('tranches.*', 'locales.name_loc','locales.id','users.name' )
-     ->paginate(10);
-    return view('tranches_create',['tranches'=> $tranches]);
+     ->get();
+    return view('tranches_create',[
+        'tranches'=> $tranches,
+        'loc' => $loc,
+        ]);
 
     }
 
@@ -101,12 +107,14 @@ $request->validate ([
         $date_deb = $request->get('date_deb');
         $date_fin = $request->get('date_fin');
         $montant = $request->get('montant');
+        $id_local = $request->get('id_local');
+        $id_user = Auth::user()->id;
 
 
 
 
 
-$tranches = DB::insert('insert into tranches(date_deb,date_fin,montant)value(?,?,?)',[$date_deb, $date_fin,$montant]);
+$tranches = DB::insert('insert into tranches(date_deb,date_fin,montant,id_user,id_local)value(?,?,?,?,?)',[$date_deb, $date_fin,$montant,$id_user,$id_local]);
 if($tranches){
     $red=redirect('tranch')->with('reçu',' ajouté');
 }
@@ -122,8 +130,22 @@ return $red;
 
 public function edit($id)
     {
-        $tranches=DB::select('select * from tranches where id=?',[$id]);
-        return view('tranches_edit',['tranches'=>$tranches]);
+          $loc = DB::table('locales')
+          ->get() ;
+
+ $tranches = DB::table('tranches')
+     ->join('locales',  'tranches.id_local', '=', 'locales.id')
+     ->join('users', 'tranches.id_user', '=', 'users.id')
+     ->select('tranches.*', 'locales.name_loc','locales.id','users.name','tranches.id' )
+    ->where('tranches.id', [$id])
+
+     ->get();
+
+        // $tranches=DB::select('select * from tranches where id=?',[$id]);
+        return view('tranches_edit',[
+        'tranches'=>$tranches,
+        'loc' => $loc,
+        ]);
     }
 
 
@@ -142,6 +164,8 @@ $request->validate ([
         $date_deb = $request->get('date_deb');
         $date_fin = $request->get('date_fin');
         $montant = $request->get('montant');
+         $id_local = $request->get('id_local');
+
 $tranches = DB::update('update tranches set date_deb =?,date_fin =?,montant =? where id=?',[$date_deb, $date_fin,$montant,$id] );
 
 if($tranches){
@@ -164,7 +188,7 @@ return $red;
     public function destroy($id)
     {
         $tranches = DB::delete('delete from tranches where id=?',[$id]);
-        $red =redirect('tranch');
+        $red =redirect('tran_pro');
           return $red;
 
     }

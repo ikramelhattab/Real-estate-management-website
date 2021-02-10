@@ -2,6 +2,16 @@
 
 @section('content')
 
+           @if($errors->any())
+           <div class="alert alert-danger">
+            <ul>
+      @foreach($errors->all() as $error)
+     <li>{{$error}}</li>
+      @endforeach
+    </ul>
+    </div>
+     @endif
+
 <br>
 <div class="container">
 <div class="section-content">
@@ -29,7 +39,16 @@
  <form role="form" action="{{ action('ReclamationController@update',$rec->id) }}" method="post">
    @csrf
     @method('PUT')
+    <div class="form-group">
+      <label for="title">Local name
+<select name="id_loc" class="form-control">
+                             @foreach($reclamations as $r)
 
+                          <option value="{{$r->id}}">{{$r->name_loc}}</option>
+ @endforeach
+                         </select>
+                         </label>
+    </div>
  <div class="form-group">
       <label for="title">Subject
       <input class="form-control" type="text" name="subject" placeholder="subject" id="title" value="{{$rec->subject}}" /></label>
@@ -37,6 +56,8 @@
 
     <div class="form-group">
       <label>Content
+                     <img src="\images\uploads\2020\04\{{ $rec->content}}"/>
+
                        <input class="form-control" type="file" name="content" placeholder="content" value="{{$rec->content}}" /></label>
     </div>
 

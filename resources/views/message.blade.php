@@ -2,6 +2,15 @@
 
 @section('content')
 
+           @if($errors->any())
+           <div class="alert alert-danger">
+            <ul>
+      @foreach($errors->all() as $error)
+     <li>{{$error}}</li>
+      @endforeach
+    </ul>
+    </div>
+     @endif
    <!-- DIRECT CHAT -->
    <form method="POST" action="{{ action('MessageController@store') }}">
                 @csrf

@@ -64,15 +64,12 @@ class TestController extends Controller
     $demandes = DB::table('demandes')
      ->join('locales',  'demandes.id_locale', '=', 'locales.id')
      ->join('users', 'demandes.id_user', '=', 'users.id')
-     ->select('demandes.*', 'locales.name_loc','locales.id','users.name','locales.photo','demandes.id')
-     ->paginate(10);
+     ->select('demandes.*','locales.name_loc','users.name','users.email','locales.photo','locales.id','locales.id_user')
+     ->get();
     return view('DemandeLocataire',[
         'demandes'=> $demandes,
     ]);
   }
-
-
-
 
 
 public function updateProductStatus(Request $request)
@@ -120,9 +117,8 @@ $local= DB::table('locales')
 $demandes = DB::table('demandes')
      ->join('locales',  'demandes.id_locale', '=', 'locales.id')
      ->join('users', 'demandes.id_user', '=', 'users.id')
-     ->select('demandes.*', 'locales.name_loc','users.name','locales.photo','demandes.id')
+     ->select('demandes.*','locales.name_loc','locales.id','users.name','locales.photo','demandes.id')
      ->where('demandes.id', [$id])
-
       ->get();
 
 

@@ -41,10 +41,13 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+  <img src="@if( !filter_var(Auth::user()->avatar, FILTER_VALIDATE_URL)){{ Voyager::image( Auth::user()->avatar ) }}@else{{ Auth::user()->avatar }}@endif"
+             class="avatar"
+             style="border-radius:50%; width:60px; height:60px; border:5px solid #fff;"
+             alt="{{ Auth::user()->name }} avatar">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->name}}</a>
+          <a href="http://127.0.0.1:8000/admin/profile" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -56,28 +59,31 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+                         <li class="nav-item">
+
             <a href="{{url('location')}}" class="nav-link ">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-home"></i>
               <p>
-                  Mes locaux
+                  My locals
 
               </p>
             </a>
-
+</li>
           <li class="nav-item">
             <a href="{{url('list_dem')}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-receipt"></i>
               <p>
-                    Demandes
+                    Requests
+
                 <span class="right badge badge-danger"></span>
               </p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{url('reclamation_loc')}}" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-exclamation"></i>
               <p>
-                Reclamations
+                Complaints
                 <span class="badge badge-info right"></span>
               </p>
             </a>
@@ -86,39 +92,30 @@
 
           <li class="nav-item">
             <a href="{{ url('/fact_loc') }}" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>
-                Factures
+                 Invoices              </p>
+
               </p>
             </a>
 
           </li>
-          <li class="nav-item">
-           <!--  <a href="{{ url('/tran_loc') }}" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Tranches
 
-              </p>
-            </a> -->
  <li class="nav-item">
             <a href="{{url('dashboard')}}" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-angle-right"></i>
               <p>
-                Change
+                Change User
 
               </p>
             </a>
 
           </li>
             </ul>
-          </li>
 
 
 
-            </ul>
-          </li>
-        </ul>
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -199,13 +196,11 @@
                 <thead>
                   <tr role="row">
                             <th> Local Name </th>
-                            <th>Compteur Type</th>
-                            <th>Compteur Number</th>
-                             <th>Client Name</th>
-                            <th>Total Montant </th>
-                             <th >Date Invoice </th>
-                             <th >Date Limite </th>
-                             <th >Photos </th>
+                            <th>Counter Type</th>
+                            <th>Total Amount(TND) </th>
+                             <th >Invoice Date  </th>
+                             <th > Deadline Date  </th>
+                             <th >Photo </th>
 
 
 
@@ -213,17 +208,16 @@
                 </thead>
                                 <tbody>
                                  @foreach($factures as $f)
-                     @if ( $f->id_user == (Auth::user()->id))
+
+                     @if (( $f->id_user == (Auth::user()->id)) && ( $f->status == 1 ))
 
                                  <tr>
                                     <td> {{ $f->name_loc }} </td>
-                                    <td> {{ $f->id }} </td>
-                                    <td> {{ $f->num_compteur }} </td>
-                                    <td> {{ $f->name }} </td>
+                                    <td> {{ $f->type }} </td>
                                     <td> {{ $f->montant_fact }} </td>
                                     <td> {{ $f->date_fact }} </td>
                                     <td> {{ $f->date_limite }} </td>
-                                    <td> {{ $f->photo }} </td>
+                           <td><img src="\images\uploads\2020\04\{{ $f->photo}}"/></td>
 
 
   <!--  <td>
@@ -239,18 +233,18 @@
             <span class="glyphicon glyphicon-trash"></span> Delete </button>
  </td> -->
    </tr>
+
 @endif
    @endforeach
 </tbody>
                 <tfoot>
                  <tr>        <th> Local Name </th>
-                            <th>Compteur Type</th>
-                            <th>Compteur Number</th>
-                             <th>Client Name</th>
-                            <th>Total Montant </th>
-                             <th >Date Invoice </th>
-                             <th >Date Limite </th>
-                             <th >Photos </th>
+                            <th>Counter Type</th>
+                            <th>Total Amount(TND) </th>
+                             <th >Invoice Date  </th>
+                             <th > Deadline Date  </th>
+                             <th >Photo </th>
+
 
 
                   </tr>

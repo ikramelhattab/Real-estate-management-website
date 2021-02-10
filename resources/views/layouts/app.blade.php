@@ -17,7 +17,7 @@
 
 
 	<!-- This site is optimized with the Yoast SEO plugin v14.2 - https://yoast.com/wordpress/plugins/seo/ -->
-	<title>REAL ESTATE AGENCY, properties for sale or rent TRIPOLI - Lebanon</title>
+	<title>BEYTI</title>
 	<meta name="description" content="REAL ESTATE AGENCY, properties for sale or rent TRIPOLI - Lebanon - Beirut . Discover the latest properties on Remax Experts Website and much more..." />
 	<meta name="robots" content="index, follow" />
 	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -572,13 +572,13 @@ body.rtl .wpml-ls-last-item .wpml-ls-native::before {
 
     <div id="header-top" class="clearfix">
 
-<div class="wpml-ls-statics-shortcode_actions wpml-ls wpml-ls-touch-device wpml-ls-legacy-list-horizontal">
+<!-- <div class="wpml-ls-statics-shortcode_actions wpml-ls wpml-ls-touch-device wpml-ls-legacy-list-horizontal">
 	<ul><li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-list-horizontal">
 				<a href="index.html"><span class="wpml-ls-native">English</span></a>
 			</li><li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-ar wpml-ls-last-item wpml-ls-item-legacy-list-horizontal">
 				<a href="ar/index.html"><span class="wpml-ls-display">عربي</span></a>
 			</li></ul>
-</div>            <h2 id="contact-email">
+</div>   -->          <h2 id="contact-email">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 <path class="path" d="M8.174 15.926l-6.799 5.438c-0.431 0.346-0.501 0.975-0.156 1.406s0.974 0.5 1.4 0.156l7.211-5.769L8.174 15.926z"/>
 <path class="path" d="M15.838 15.936l-1.685 1.214l7.222 5.777c0.433 0.3 1.1 0.3 1.406-0.156c0.345-0.432 0.274-1.061-0.157-1.406 L15.838 15.936z"/>
@@ -616,7 +616,7 @@ Email us at :
 
 @if(Auth::user())
 
-    <a href="#"><i class="fa fa-user"></i>{{Auth::user()->name}}</a>
+    <a href="{{url('location')}}"><i class="fa fa-user"></i>{{Auth::user()->name}}</a>
 
   <!-- Profile Image -->
 
@@ -637,10 +637,10 @@ Email us at :
     <div id="logo">
 
                     <a title="RE/MAX Experts" href="index.html">
-                <img src="{{ asset('images/uploads/2017/08/logo-remax-white.png') }}" alt="RE/MAX Experts">
+                <img src="{{ asset('images/uploads/2017/08/logo.png') }}" sizes="10x10" alt="RE/MAX Experts">
             </a>
             <h4 class="logo-heading only-for-print">
-                <a href="index.html"  title="RE/MAX Experts"> RE/MAX Experts   </a>
+                <a href="index.html"  title="RE/MAX Experts"> BEYTI   </a>
             </h4>
                 </div>
 
@@ -671,16 +671,24 @@ Email us at :
 
 
 
-<!-- <li id="menu-item-89462" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89462"><a href="{{ url('/featured ') }}">Featured Properties</a></li>
- --><li id="menu-item-47140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-47140"><a href="{{ url('/blogs ') }}">Blogs</a></li>
+<!-- <li id="menu-item-89462" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89462"><a href="{{ url('/featured ') }}">Featured Properties</a></li>-->
+<!-- <li id="menu-item-47140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-47140"><a href="{{ url('/blogs ') }}">Blogs</a></li> -->
 
 
-<li id="menu-item-4649" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4649"><a href="{{ url('/blogs') }}">Locaux</a></li>
+<li id="menu-item-4649" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4649"><a href="{{ url('/blogs') }}">Locals</a></li>
+
 
 
 
 <li id="menu-item-4649" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4649"><a href="{{ url('/contact') }}">Contact us</a></li>
-</ul></div>        </nav>
+
+@if(Auth::user())
+
+<li id="menu-item-4649" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-44 current_page_item menu-item-4636"><a href="{{ url('/dashboard') }}"><i class="fa fa-user"></i> Change User</a></li>
+@endif
+</ul></div>
+
+</nav>
         <!-- End Main Menu -->
     </div>
 
@@ -702,17 +710,18 @@ Email us at :
 
         <div class="row">
 
-            <div class="span3">
-                <section id="text-4" class="widget clearfix widget_text"><h3 class="title">About Us</h3>			<div class="textwidget"><p> <img src="{{ asset('images/uploads/2017/08/logo-remax-140-1.png') }}"  alt=""></p>
-<p>RE/MAX Experts sets the standard for the successful marketing and sale of distinctive properties across a broad range of prices and locations.RE/MAX is the global leading real estate agency in the world. Operated offices with over 100,000 agents in 100 countries worldwide.</p>
+            <div class="span4">
+                <section id="text-4" class="widget clearfix widget_text"><h3 class="title">About Us</h3>
+                	<div class="textwidget"><p> <img src="{{ asset('images/uploads/2017/08/logo.png') }}"  sizes="10x10" alt=""></p>
+<p>BEYTI sets the standard for the successful marketing and sale of distinctive properties across a broad range of prices and locations.BEYTI is the global leading real estate agency in the world. Operated offices with over 100,000 agents in 100 countries worldwide.</p>
 </div>
 		</section>            </div>
 
-            <div class="span3">
+            <div class="span4">
                 <section id="text-5" class="widget clearfix widget_text"><h3 class="title">Contact Us</h3>			<div class="textwidget"><ul class="list-unstyled list-ar">
-<li><i class="fa fa-location-arrow"></i> Maarad street, Masri center, 3rd floor &#8211; Tripoli, Lebanon</li>
-<li><i class="fa fa-phone"></i> Call us +961 (0) 6 440 723</li>
-<li><i class="fa fa-whatsapp"></i> <span class="desktop-version">+961 76 145 804</span></li>
+<li><i class="fa fa-location-arrow"></i> Alomrane street,  Monastir, Tunisia</li>
+<li><i class="fa fa-phone"></i> Call us +216 53 366 371</li>
+<li><i class="fa fa-whatsapp"></i> <span class="desktop-version">+48 732 035 004</span></li>
 <li><i class="fa fa-envelope-o"></i> <a href="mailto:ikramelhattab90@gmail.com">ikramelhattab90@gmail.com</a></li>
 </ul>
 <p><a href="{{ url('/contact') }}">Contact us <i class="fa fa-caret-right"></i></a></p>
@@ -721,15 +730,13 @@ Email us at :
 
             <div class="clearfix visible-tablet"></div>
 
-            <div class="span3">
-                <section id="nav_menu-2" class="widget clearfix widget_nav_menu"><h3 class="title">Quick links</h3><div class="menu-quick-links-container"><ul id="menu-quick-links" class="menu"><li id="menu-item-49710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49710"><a href="privacy-policy-remax-experts/index.html">Privacy Policy</a></li>
-<li id="menu-item-49709" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49709"><a href="terms-and-conditions-remax-experts/index.html">Terms and Conditions</a></li>
-<li id="menu-item-49711" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49711"><a href="exclusive-projects-developments-lfavoritesebanon/index.html">Exclusive Projects and Developments – Lebanon</a></li>
+          <!--   <div class="span3">
+                <section id="nav_menu-2" class="widget clearfix widget_nav_menu"><h3 class="title">Quick links</h3><div class="menu-quick-links-container"><ul id="menu-quick-links" class="menu">
 <li id="menu-item-49712" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49712"><a href="{{ url('/favorite') }}">Favorites</a></li>
 <li id="menu-item-49713" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49713"><a href="{{ url('/contact') }}">Contact us</a></li>
 </ul></div></section>            </div>
-
-            <div class="span3">
+ -->
+            <div class="span4">
                 <section id="text-6" class="widget clearfix widget_text"><h3 class="title">Subscribe Newsletter</h3>			<div class="textwidget"><script>(function() {
 	window.mc4wp = window.mc4wp || {
 		listeners: [],
@@ -745,7 +752,7 @@ Email us at :
 		}
 	}
 })();
-</script><!-- Mailchimp for WordPress v4.7.8 - https://wordpress.org/plugins/mailchimp-for-wp/ --><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-49714" method="post" data-id="49714" data-name="Footer Form" ><div class="mc4wp-form-fields"><p> To subscribe to RE/MAX Experts latest news, please provide your email address below and subscribe to our distribution lists.</p>
+</script><!-- Mailchimp for WordPress v4.7.8 - https://wordpress.org/plugins/mailchimp-for-wp/ --><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-49714" method="post" data-id="49714" data-name="Footer Form" ><div class="mc4wp-form-fields"><p> To subscribe to BEYTI latest news, please provide your email address below and subscribe to our distribution lists.</p>
 <div class="table-list">
   <div class="form-group table-cell">
     <div class="input-email input-icon">
@@ -786,9 +793,9 @@ Email us at :
     <div id="footer-bottom" class="container">
         <div class="row">
             <div class="span6">
-                <p class="copyright">© Copyright 2016 RE/MAX Experts - All rights reserved</p>            </div>
+                <p class="copyright">© Copyright 2020 BEYTI - All rights reserved</p>            </div>
             <div class="span6">
-                <p class="designed-by">Swiss Made - A realization by <a href="http://www.thalesit.ch/">Thales IT</a></p>            </div>
+                <p class="designed-by"> <a href="http://www.thalesit.ch/"></a></p>            </div>
         </div>
     </div>
     <!-- End Footer Bottom -->

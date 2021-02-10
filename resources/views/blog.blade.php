@@ -2,6 +2,8 @@
 
 @section('content')
 
+<br>
+<br>
 
  <div id="home-properties-section-wrapper">
 
@@ -28,7 +30,7 @@
 
         <div class="detail">
             <h5 class="price">
-                {{ $blog->prix}} /Month <small> -  {{ $blog->slug }}</small>            </h5>
+                {{ $blog->prix}} TND/Month <small> -  {{ $blog->slug }}</small>            </h5>
             <p>{{ $blog->description}}</p>
             <a class="more-details" href="{{ url('details/'.$blog->id) }}">More Details <i class="fa fa-caret-right"></i></a>
         </div>
@@ -51,7 +53,10 @@
 <rect class="rect" x="12.4" y="4.4" transform="matrix(0.7069 0.7073 -0.7073 0.7069 7.2858 -7.8754)" width="1.4" height="1"/>
 <rect class="rect" x="13.4" y="7.4" transform="matrix(-0.7064 -0.7078 0.7078 -0.7064 18.5823 23.4137)" width="1.4" height="1"/>
 </svg>
-{{ $blog->Bathrooms}} Bathrooms</span>        </div>
+{{ $blog->Bathrooms}} Bathrooms</span>
+            <i class="fa fa-user"></i>&nbsp; {{ $blog->name }}
+      </div>
+
     </article>
 </div>
 

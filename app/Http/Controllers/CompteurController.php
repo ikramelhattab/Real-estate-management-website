@@ -145,7 +145,7 @@ $request->validate ([
 
 $compteurs = DB::insert('insert into compteurs(num_compteur,date,photo,id_local,id_user,id_type)value(?,?,?,?,?,?)',[$num_compteur,$date,$photo,$id_local,$id_user,$id_type]);
 if($compteurs){
-    $red=redirect('comp')->with('reçu',' ajouté');
+    $red=redirect('comp_pro')->with('reçu',' ajouté');
 }
 else{
    $red=redirect('comp/create')->with('echec',' non ajouté');
@@ -169,9 +169,6 @@ public function edit($id)
    ->get();
    $typecomp = DB::table('types_compteurs')
    ->get();
-
-
-
         return view('compteurs_edit',
         [
             'compteurs'=>$compteurs,
@@ -185,12 +182,10 @@ public function edit($id)
 public function update(Request $request, $id)
     {
 
-
-
 $request->validate ([
 'num_compteur' =>'required',
 'date' =>'required',
- 'photo' =>'required',
+'photo' =>'required',
 
 
 ]);
@@ -205,10 +200,10 @@ $request->validate ([
 $compteurs = DB::update('update compteurs set num_compteur =?,date =?,photo =? where id=?',[$num_compteur,$date,$photo,$id] );
 
 if($compteurs){
-    $red=redirect('comp')->with('reçu',' ajouté');
+    $red=redirect('comp_pro')->with('reçu',' ajouté');
 }
 else{
-   $red=redirect('comp/create')->with('echec',' non ajouté');
+   $red=redirect('comp/echec')->with('echec',' non ajouté');
 }
 return $red;
 

@@ -33,64 +33,52 @@
                 <thead>
                   <tr role="row">
                             <th> Local Name </th>
-                            <th>Compteur Type</th>
-                            <th>Compteur Number</th>
-                             <th>Client Name</th>
-                            <th>Total Montant </th>
-                             <th >Date Invoice </th>
-                             <th >Date Limite </th>
-                             <th >Photos </th>
+                             <th>Counter Type</th>
+                            <th>Total Amount(TND) </th>
+                             <th >Invoice Date  </th>
+                             <th > Deadline Date  </th>
+                             <th >Photo </th>
+
                             <th>Actions</th>
-
-
-
 
 
                         </tr>
                 </thead>
                                 <tbody>
                                  @foreach($factures as $f)
-                     @if ( $f->id_user <> (Auth::user()->id ) )
+                     @if ( $f->id_user == (Auth::user()->id))
 
                                  <tr>
-<!-- && ($f->id == $f->id_local && ($f->id_user <> ($f->id ) )) -->
+
                                     <td> {{ $f->name_loc }} </td>
                                     <td> {{ $f->type }} </td>
-                                    <td> {{ $f->num_compteur }} </td>
-                                    <td> {{ $f->name }} </td>
                                     <td> {{ $f->montant_fact }} </td>
                                     <td> {{ $f->date_fact }} </td>
                                     <td> {{ $f->date_limite }} </td>
-                                    <td> {{ $f->photo }} </td>
+                           <td><img src="\images\uploads\2020\04\{{ $f->photo}}"/></td>
 
 
 
    <td>
 
-
-
-
 <a href="{{action('FactureController@edit',$f->id)}}" class="btn btn-warning glyphicon glyphicon-edit"> Edit</a>
-
-
-        <button type="button" class="delete-modal btn btn-danger dlte-cl" data-toggle="modal" data-target="#delete" data-cltid="{{$f->id}}">
-
-            <span class="glyphicon glyphicon-trash"></span> Delete </button>
+<button type="button" class="delete-modal btn btn-danger dlte-cl" data-toggle="modal" data-target="#delete" data-cltid="{{$f->id}}">
+ <span class="glyphicon glyphicon-trash"></span> Delete </button>
  </td>
+
    </tr>
-@endif
+   @endif
    @endforeach
 </tbody>
                 <tfoot>
                  <tr>       <th> Local Name </th>
-                            <th>Compteur Type</th>
-                            <th>Compteur Number</th>
-                             <th>Client Name</th>
-                            <th>Total Montant </th>
-                             <th >Date Invoice </th>
-                             <th >Date Limite </th>
-                             <th >Photos </th>
-                            <th>Actions</th>
+                             <th>Counter Type</th>
+                            <th>Total Amount(TND) </th>
+                             <th >Invoice Date  </th>
+                             <th > Deadline Date  </th>
+                             <th >Photo </th>
+
+                             <th>Actions</th>
 
 
 
@@ -101,13 +89,6 @@
 
 </div>
 </div>
-
-
-
-
-
-
-
 
 
 <div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
@@ -177,6 +158,15 @@
       "autoWidth": false,
       "responsive": true,
     });
+    jQuery('.dlte-cl').on('click', function(){
+      var url = jQuery('#frmdlt').attr('action').replace('-1', '') + jQuery(this).data('cltid');
+      jQuery('#frmdlt').attr('action', url);
+      return true;
+    });
+    jQuery('#delete').on('hidden.bs.modal', function () {
+      var href = jQuery('#btn-close-del').data('href');
+      jQuery('#frmdlt').attr('action', href);
+    });
   });
 </script>
 
@@ -215,16 +205,12 @@
       'info'        : true,
       'autoWidth'   : false
     });
-    jQuery('.dlte-cl').on('click', function(){
+  jQuery('.dlte-cl').on('click', function(){
       var url = jQuery('#frmdlt').attr('action').replace('-1', '') + jQuery(this).data('cltid');
       jQuery('#frmdlt').attr('action', url);
       return true;
     });
-    jQuery('#local').on('hidden.bs.modal', function () {
-      var href = jQuery('#btn-close-del').data('href');
-      jQuery('#frmdlt').attr('action', href);
-    });
-    jQuery('#locataire').on('hidden.bs.modal', function () {
+    jQuery('#delete').on('hidden.bs.modal', function () {
       var href = jQuery('#btn-close-del').data('href');
       jQuery('#frmdlt').attr('action', href);
     });

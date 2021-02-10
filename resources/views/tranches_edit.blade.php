@@ -13,7 +13,7 @@
      @endif
 <div class="card card-secondary">
               <div class="card-header">
-                <h3 class="card-title">Edit Tranch</h3>
+                <h3 class="card-title">Edit Slice</h3>
               </div>
                @foreach($tranches as $tranches)
 
@@ -24,11 +24,11 @@
 
                 <div class="card-body">
                   <div class="form-group">
-                    <label >Date Debut</label>
+                    <label >Start Date </label>
                     <input type="date" class="form-control" name="date_deb" placeholder="date" value="{{$tranches->date_deb}}">
                   </div>
                   <div class="form-group">
-                    <label >Date Fin</label>
+                    <label >End Date </label>
                     <input type="date" class="form-control" name="date_fin" placeholder="" value="{{$tranches->date_fin}}">
                   </div>
                   <div class="form-group">
@@ -45,8 +45,8 @@
                     <input type="text" class="form-control"  placeholder="" value="">
                   </div> -->
                    <div class="form-group">
-                    <label >Montant</label>
-                    <input type="text" class="form-control"  name="montant" placeholder="" value="{{$tranches->montant}}">
+                    <label >Amount(TND)</label>
+                    <input type="text" class="form-control"  name="montant" placeholder="amount" value="{{$tranches->montant}}">
                   </div>
 
 
@@ -54,11 +54,12 @@
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary" type="submit">Update</button>
 
-                             <a href="{{action('TranchController@index')}}" class="btn btn-default">Back</a>
+                             <a href="{{url('tran_pro')}}" class="btn btn-default">Back</a>
                 </div>
               </form>
                                                          @endforeach
 
+              </div>
               </div>
 
 

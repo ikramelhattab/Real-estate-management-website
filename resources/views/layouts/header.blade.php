@@ -391,7 +391,7 @@ background-color:#2c6ba5;
 		<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
-<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://www.remax-tripoli.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.4.5.1 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<meta name="generator" content="Powered by Slider Revolution 5.4.5.1 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
 <link rel="icon" href="{{ asset('images/uploads/2017/08/cropped-balloon-remax-32x32.png') }}" sizes="32x32" />
 <link rel="icon" href="{{ asset('images/uploads/2017/08/cropped-balloon-remax-192x192.png') }}" sizes="192x192" />
 <link rel="apple-touch-icon" href="{{ asset('images/uploads/2017/08/cropped-balloon-remax-180x180.png') }}" />

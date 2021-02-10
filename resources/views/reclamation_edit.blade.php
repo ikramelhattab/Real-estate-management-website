@@ -41,7 +41,7 @@
     @method('PUT')
     <div class="form-group">
       <label for="title">Local name
-<select name="id_locale" class="form-control">
+<select name="id_loc" class="form-control">
                              @foreach($reclamations as $r)
 
                           <option value="{{$r->id}}">{{$r->name_loc}}</option>
@@ -56,6 +56,8 @@
 
     <div class="form-group">
       <label>Content
+                     <img src="\images\uploads\2020\04\{{ $rec->content}}"/>
+
                        <input class="form-control" type="file" name="content" placeholder="content" value="{{$rec->content}}" /></label>
     </div>
 

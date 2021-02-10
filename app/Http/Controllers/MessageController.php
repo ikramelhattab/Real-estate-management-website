@@ -13,11 +13,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\User;
-
 use App\Message;
 use App\Locale;
-
-
 use DB;
 class MessageController extends Controller
 {
@@ -36,17 +33,28 @@ $this->auth = $auth;
     {
 
     return view('index',[
-        'users'=> $this->r->getConversations($this->auth->user()->id)
+        'users'=> $this->r->getConversations($this->auth->user()->id),
+        'unread' => $this->r->unreadCount($this->auth->user()->id)
         ]);
     }
 
 
 public function show (User $user){
 
+$me = $this->auth->user();
+    $message = $this->r->getMessagesFor($me->id,$user->id)->paginate(2);
+    $unread = $this->r->unreadCount($me->id);
+    if(isset($unread[$user->id])){
+        $this->r->readAllFrom($user->id,$me->id);
+       unset($unread[$user->id]) ;
+
+    }
     return view('show',[
-        'users'=> $this->r->getConversations($this->auth->user()->id),
+        'users'=> $this->r->getConversations($me->id),
         'user' => $user,
-        'message' => $this->r->getMessagesFor($this->auth->user()->id,$user->id)->paginate(2)
+        'message' => $message,
+        'unread' =>  $unread
+
         ]);
 }
 
@@ -59,7 +67,7 @@ $this->r->createMessage(
     $this->auth->user()->id,
     $user->id
 );
-return redirect(route('show', ['id'=> $user->id]));
+return redirect(route('show', [$user->id]));
     }
 
 

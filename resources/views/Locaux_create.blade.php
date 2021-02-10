@@ -16,7 +16,7 @@
 
 
                            <div class="card-header">
-                <h3 class="card-title">Create Locale</h3>
+                <h3 class="card-title">Create Local</h3>
                 </div>
 
                 <div class="card-body">
@@ -24,7 +24,7 @@
 <form role="form" method="post" action="{{ action('LocauxController@store') }}" >
                         @csrf
                            <div class="form-group row">
-                            <label class="col-md-12 col-form-label" >Categorie
+                            <label class="col-md-12 col-form-label" >Category
                              <select name="idCategorie" >
                           @foreach($categ as $cat)
                           <option  value="{{$cat->id}}">{{$cat->slug}}</option>
@@ -46,11 +46,16 @@
 
 
                             <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Photo
-                               <input  class="form-control" type="file" name="photo"></label></div>
+                            <label class="col-md-12 col-form-label text-md-left">Photos
+                               <!-- <input type="file" name="photo"></label></div> -->
+                     <div class="row">
+                <img style="width:50px" src="\images\uploads\2020\04\" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset=""  />            </a></li>
+                <img style="width:50px" src="\images\uploads\2020\04\photo[]" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" />            </a></li>
+                <img style="width:50px" src="\images\uploads\2020\04\" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" />            </a></li>
+                             <input required="" type="file" name="photo" multiple="multiple" accept="images/*"></label></div>
 
                             <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Surface
+                            <label class="col-md-12 col-form-label text-md-left">Area (m²)
                                 <input  class="form-control" type="text" name="surface"></label></div>
 
                              <div class="form-group row">
@@ -62,19 +67,19 @@
                                 <input  class="form-control" type="text" name="altitude"></label></div>
 
                             <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Price/Month
+                            <label class="col-md-12 col-form-label text-md-left">Price TND/Month
                                <input  class="form-control" type="text" name="prix"></label></div>
 
                                 <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Price/Week
+                            <label class="col-md-12 col-form-label text-md-left">Price TND/Week
                                <input  class="form-control" type="text" name="prix_s"></label></div>
 
                                 <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Price/Day
+                            <label class="col-md-12 col-form-label text-md-left">Price TND/Day
                                <input  class="form-control" type="text" name="prix_j"></label></div>
 
                                 <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Price/Hour
+                            <label class="col-md-12 col-form-label text-md-left">Price TND/Hour
                                <input  class="form-control" type="text" name="prix_h"></label></div>
 
                             <div class="form-group row">
@@ -82,11 +87,11 @@
                                 <input  class="form-control" type="text" name="cautionnement"></label></div>
 
                              <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Pays
-                               <input  class="form-control" type="text" name="pays"></label></div>
+                            <label class="col-md-12 col-form-label text-md-left">Country
+                               <input  class="form-control" type="text" name="pays" value="Tunisia" disabled="true"></label></div>
 
                              <div class="form-group row">
-                            <label class="col-md-12 col-form-label text-md-left">Gouvernaurat
+                            <label class="col-md-12 col-form-label text-md-left">Governorate
                                <input  class="form-control" type="text" name="gouvernaurat"></label></div>
 
                            <div class="form-group row">
@@ -111,10 +116,9 @@
                                    Submit
                                 </button>
 
-                                <button type="" class="">
-                                <a href="{{action('LocauxController@index')}}" >Back</a>
+                                <a href="{{action('LocauxController@index')}}" class="btn btn-default" >Back</a>
 
-                                </button>
+
                             </div>
                         </div>
                     </form>

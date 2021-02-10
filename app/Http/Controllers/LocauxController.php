@@ -89,7 +89,6 @@ $request->validate ([
 'prix_h' =>'required',
 
 'cautionnement' =>'required',
-'pays' =>'required',
 'gouvernaurat' =>'required',
 'adress' =>'required',
 'Bedrooms' =>'required',
@@ -99,7 +98,7 @@ $request->validate ([
 ]);
         $name_loc = $request->get('name_loc');
         $description = $request->get('description');
-        $photo = $request->get('photo');
+        $photo = '"C:\xampp3\htdocs\proj\public\images\uploads\2020\04\"'.$request->get('photo');
         $surface = $request->get('surface');
         $longitude = $request->get('longitude');
         $altitude = $request->get('altitude');
@@ -109,7 +108,7 @@ $request->validate ([
         $prix_h = $request->get('prix_h');
 
         $cautionnement = $request->get('cautionnement');
-        $pays = $request->get('pays');
+        $pays = "Tunisia";
         $gouvernaurat = $request->get('gouvernaurat');
         $adress = $request->get('adress');
         $Bedrooms = $request->get('Bedrooms');
@@ -123,6 +122,7 @@ $request->validate ([
 
 
 
+        //$path_img=""+$photo
 
 $locales = DB::insert('insert into locales(name_loc,description,photo,surface,longitude,altitude,prix,prix_s,prix_j,prix_h,cautionnement,pays,gouvernaurat,adress,Bedrooms,Bathrooms,Garages,id_user,idCategorie)value(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',[$name_loc, $description,$photo,$surface,$longitude,$altitude,$prix,$prix_s,$prix_j,$prix_h,$cautionnement,$pays,$gouvernaurat,$adress,$Bedrooms,$Bathrooms,$Garages,$id_user,$idCategorie]);
 if($locales) {

@@ -18,7 +18,8 @@ class S1Controller extends Controller
 public function index(){
         $categorie = DB::table('locales')
             ->join('categories', 'locales.idCategorie', '=', 'categories.id')
-            ->select('locales.*', 'categories.slug')->paginate(10);
+             ->join('users', 'locales.id_user', '=', 'users.id')
+            ->select('locales.*', 'categories.slug','users.name')->paginate(10);
        return view('s1',[
         'categ' => $categorie,
     ]);;

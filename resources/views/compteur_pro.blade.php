@@ -34,34 +34,28 @@
 
                 <thead>
                   <tr role="row">
-                                 <th>Date </th>
-                               <th>compteur Number </th>
-                             <th>compteur Type</th>
-                            <th>Locale Name</th>
-                           <th>Photo</th>
-
-                           <th>Action</th>
-
-
-
-
-
-                        </tr>
+                            <th>Date </th>
+                            <th>Counter Number </th>
+                            <th>Counter Type</th>
+                            <th>Local Name</th>
+                            <th>Photo</th>
+                            <th>Action</th>
+                   </tr>
                 </thead>
                                 <tbody>
-                                 @foreach($compteurs as $c)
+
+                      @foreach($compteurs as $c)
 
                      @if ( $c->id_user == (Auth::user()->id))
 
 
-                                 <tr>
+                    <tr>
                                   <td> {{ $c->date }} </td>
-                                     <td> {{ $c->num_compteur }} </td>
-                                    <td> {{ $c->name_loc}} </td>
+                                  <td> {{ $c->num_compteur }} </td>
+                                <td> {{ $c->name_loc}} </td>
 
                                     <td> {{ $c->type}} </td>
-                                    <td> {{ $c->photo}} </td>
-
+                           <td><img src="\images\uploads\2020\04\{{ $c->photo}}"/></td>
 
    <td>
 
@@ -80,12 +74,12 @@
    @endforeach
 </tbody>
                 <tfoot>
-                 <tr>        <th>Date </th>
-                            <th>compteur Number </th>
-                            <th>compteur Type</th>
-                            <th>Locale Name</th>
+                 <tr>       <th>Date </th>
+                            <th>Counter Number </th>
+                            <th>Counter Type</th>
+                            <th>Local Name</th>
                             <th>Photo</th>
-                           <th>Action</th>
+                            <th>Action</th>
 
 
 

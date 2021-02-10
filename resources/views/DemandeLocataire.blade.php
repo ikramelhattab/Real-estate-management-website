@@ -29,37 +29,27 @@
 
                 <thead>
                   <tr role="row">
-                            <th >Date </th>
-                            <th> Name </th>
-                            <th> Name Client </th>
-
-                            <th>Date Debut</th>
-                            <th> Date Fin</th>
-                             <th> Status </th>
-
+                           <th>Date  </th>
+                            <th> Local Name </th>
+                           <th> Customer Name  </th>
+                             <th> E-mail </th>
+                            <th> Start Date </th>
+                            <th> End Date</th>
+                            <th> Status </th>
                            <th> Actions </th>
-
-
-
                         </tr>
                           </thead>
-
                                 <tbody>
-
                                  @foreach($demandes as $d)
-
+                               @if (($d->id_locale == $d->id ) && ($d->id_user == Auth::user()->id))
                                  <tr>
                                     <td> {{ $d ->dateDemande }} </td>
                                     <td> {{ $d ->name_loc }} </td>
-
                                     <td> {{ $d ->name }} </td>
+                                    <td> {{ $d ->email }} </td>
                                     <td> {{ $d ->dateDeb }} </td>
                                     <td> {{ $d ->datefin }} </td>
-
-
    <td>
-
-
 @if($d ->status == 1)
 <a href="javascript:void(0)" class="updateProductStatus" id="product={{$d->id}}" id_locale="{{$d->id}}"> Accepted</a>
 @else
@@ -74,17 +64,18 @@
             <span class="glyphicon glyphicon-trash"></span> Delete </button>
  </td>
    </tr>
+   @endif
    @endforeach
 
 </tbody>
                 <tfoot>
                  <tr>      <th>Date  </th>
-                            <th> Name </th>
-                           <th> Name Client </th>
-                            <th>Date Debut</th>
-                            <th> Date Fin</th>
+                            <th> Loacal Name </th>
+                           <th> Customer Name  </th>
+                             <th> E-mail </th>
+                            <th> Start Date </th>
+                            <th> End Date</th>
                             <th> Status </th>
-
                            <th> Actions </th>
 
 

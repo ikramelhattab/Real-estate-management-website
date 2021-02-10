@@ -7,8 +7,8 @@
         <div class="row">
 
             <div class="span3">
-                <section id="text-4" class="widget clearfix widget_text"><h3 class="title">About Us</h3>			<div class="textwidget"><p> <img src="images/uploads/2017/08/logo-remax-140-1.png" alt=""></p>
-<p>RE/MAX Experts sets the standard for the successful marketing and sale of distinctive properties across a broad range of prices and locations.RE/MAX is the global leading real estate agency in the world. Operated offices with over 100,000 agents in 100 countries worldwide.</p>
+                <section id="text-4" class="widget clearfix widget_text"><h3 class="title">About Us</h3>			<div class="textwidget"><p> <img src="{{asset('images/uploads/2017/08/logo-remax-140-1.png')}}" alt=""></p>
+<p>BEYTI sets the standard for the successful marketing and sale of distinctive properties across a broad range of prices and locations.RE/MAX is the global leading real estate agency in the world. Operated offices with over 100,000 agents in 100 countries worldwide.</p>
 </div>
 		</section>            </div>
 
@@ -17,9 +17,9 @@
 <li><i class="fa fa-location-arrow"></i> Maarad street, Masri center, 3rd floor &#8211; Tripoli, Lebanon</li>
 <li><i class="fa fa-phone"></i> Call us +961 (0) 6 440 723</li>
 <li><i class="fa fa-whatsapp"></i> <span class="desktop-version">+961 76 145 804</span></li>
-<li><i class="fa fa-envelope-o"></i> <a href="mailto:info@remax-tripoli.com">info@remax-tripoli.com</a></li>
+<li><i class="fa fa-envelope-o"></i> <a href="mailto:info@beyti.com">info@beyti.com</a></li>
 </ul>
-<p><a href="contact-remax-tripoli-com-customer-care/index.html">Contact us <i class="fa fa-caret-right"></i></a></p>
+<p><a href="contact-beyti-com-customer-care/index.html">Contact us <i class="fa fa-caret-right"></i></a></p>
 </div>
 		</section>            </div>
 
@@ -64,19 +64,19 @@
 <p>Don’t forget to follow us on:</p>
 <ul class="social">
   <li>
-    <a target="_blank" href="https://www.facebook.com/remaxexpertslebanon" class="btn-facebook" rel="noopener noreferrer"><i class="fa fa-facebook-square"></i></a>
+    <a target="_blank" href="https://www.facebook.com/beyti" class="btn-facebook" rel="noopener noreferrer"><i class="fa fa-facebook-square"></i></a>
   </li>
   <li>
-    <a target="_blank" href="https://twitter.com/RemaxTripoli" class="btn-twitter" rel="noopener noreferrer"><i class="fa fa-twitter-square"></i></a>
+    <a target="_blank" href="https://twitter.com/beyti" class="btn-twitter" rel="noopener noreferrer"><i class="fa fa-twitter-square"></i></a>
   </li>
   <li>
-    <a target="_blank" href="https://plus.google.com/+Remax-tripoli" class="btn-google-plus" rel="noopener noreferrer"><i class="fa fa-google-plus-square"></i></a>
+    <a target="_blank" href="https://plus.google.com/beyti" class="btn-google-plus" rel="noopener noreferrer"><i class="fa fa-google-plus-square"></i></a>
   </li>
   <li>
-    <a target="_blank" href="https://www.linkedin.com/company/remax-experts" class="btn-linkedin" rel="noopener noreferrer"><i class="fa fa-linkedin-square"></i></a>
+    <a target="_blank" href="https://www.linkedin.com/company/beyti" class="btn-linkedin" rel="noopener noreferrer"><i class="fa fa-linkedin-square"></i></a>
   </li>
   <li>
-    <a target="_blank" href="https://www.instagram.com/remaxtripoli/" class="btn-instagram" rel="noopener noreferrer"><i class="fa fa-instagram"></i></a>
+    <a target="_blank" href="https://www.instagram.com/beyti/" class="btn-instagram" rel="noopener noreferrer"><i class="fa fa-instagram"></i></a>
   </li>
 </ul></div><label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" value="1596317823" /><input type="hidden" name="_mc4wp_form_id" value="49714" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" /><div class="mc4wp-response"></div></form><!-- / Mailchimp for WordPress Plugin -->
 </div>
@@ -90,7 +90,7 @@
     <div id="footer-bottom" class="container">
         <div class="row">
             <div class="span6">
-                <p class="copyright">© Copyright 2016 RE/MAX Experts - All rights reserved</p>            </div>
+                <p class="copyright">© Copyright 2020 BEYTI - All rights reserved</p>            </div>
             <div class="span6">
                 <p class="designed-by">Swiss Made - A realization by <a href="http://www.thalesit.ch/">Thales IT</a></p>            </div>
         </div>
@@ -248,5 +248,4 @@ var icl_vars = {"current_language":"en","icl_home":"https:\/\/www.remax-tripoli.
 <script type='text/javascript' src="{{ asset('plugins/mailchimp-for-wp/assets/js/forms.mine049.js?ver=4.7.8') }}"></script>
 </body>
 
-<!-- Mirrored from www.remax-tripoli.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Aug 2020 08:58:53 GMT -->
 </html>

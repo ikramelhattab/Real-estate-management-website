@@ -34,7 +34,7 @@
     <div class="row">
         <div class="span12 main-wrap">
 
- <h3><span>Create Reclamation </span></h3>
+ <h3><span>Create Complaint </span></h3>
         <div class="main">
 
                 <div class="inner-wrapper">
@@ -51,30 +51,31 @@
     @csrf
 
     <div class="form-group">
-      <label>Local Name
-<select name="id_locale" class="form-control" >
+      <label>Local Name </label>
+<select name="id_loc" class="form-control" >
                          @foreach($locales as $loc)
+                     @if (( $loc->id_user == (Auth::user()->id)) && (($loc->status) == 1  ))
 
                           <option  value="{{$loc->id}}">{{$loc->name_loc}}</option>
-
+                       @endif
                           @endforeach
                          </select>    </div>
 
- <div>
-      <label for="title">Subject
-      <input class="form-control" type="text" name="subject" placeholder="subject" /></label>
+ <div class="form-group">
+      <label for="title">Subject </label>
+      <input class="form-control" type="text" name="subject" placeholder="subject" />
     </div>
 
     <div class="form-group">
-      <label>Content
-     <input class="form-control" type="file" name="content" placeholder="" /></label>
+      <label>Content </label>
+     <input class="form-control" type="file" name="content" placeholder="" />
     </div>
 
 
 
  <div class="form-group">
-      <label>Description
-{!! Form::textarea('description', old('description'), ['class'=>'form-control', 'placeholder'=>'description']) !!}  </label>  </div>
+      <label>Description </label>
+{!! Form::textarea('description', old('description'), ['class'=>'form-control', 'placeholder'=>'description']) !!}  </div>
 
 <br>
 

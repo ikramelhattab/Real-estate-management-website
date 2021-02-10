@@ -1,7 +1,4 @@
 @extends('layouts.app_pro')
-
-
-
 @section('content')
 
 <head>
@@ -38,16 +35,17 @@
                     <th> Local Name</th>
                     <th>Description</th>
                     <th>Photos</th>
-                    <th> Surface </th>
+                    <th> Area </th>
                     <th> Longitude</th>
                     <th>Altitude</th>
-                    <th>Price/Month</th>
-                    <th>Price/week</th>
-                    <th>Price/day</th>
-                    <th>Price/hour</th>
+                    <th>Price TND/Month</th>
+                    <th>Price TND/week</th>
+                    <th>Price TND/day</th>
+                    <th>Price TND/hour</th>
+                   <th>Cautionnement</th>
 
-                    <th>Pays</th>
-                    <th> Gouvernaurat</th>
+                    <th>Country</th>
+                    <th> Governorate</th>
                     <th> Adress</th>
                     <th>Bedrooms</th>
                     <th>Bathrooms</th>
@@ -64,7 +62,21 @@
                     <td >{{ $p ->slug }}</td>
                    <td>  <a href="#" class="delete-modal dlte-cl" data-toggle="modal" data-target="#local" data-cltid="">{{ $p ->name_loc }} </a></td>
                     <td>{{ $p ->description }}</td>
-                    <td>{{ $p->photo }}</td>
+                    <td> @php $images =json_decode($p->photo);@endphp
+                                    @if($images)
+                                        @php $images = array_slice($images, 0, 5); @endphp
+                     <div class="row">
+                <img style="width:50px"  src="\images\uploads\2020\04\{{ $p->photo[0]}}" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset=""  />            </a></li>
+                <img style="width:50px"  src="\images\uploads\2020\04\{{ $p->photo[1]}}" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" />            </a></li>
+               <img style="width:50px" src="\images\uploads\2020\04\{{ $p->photo[2]}}" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" />            </a></li>
+               <img style="width:50px" src="\images\uploads\2020\04\{{ $p->photo[3]}}" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" />            </a></li>
+               <img style="width:50px" src="\images\uploads\2020\04\{{ $p->photo[4]}}" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="" />            </a></li>
+
+
+
+</div>
+                                        @endif
+                                        </td>
                     <td>{{ $p ->surface }}</td>
                     <td>{{ $p ->longitude }}</td>
                     <td>{{ $p ->altitude }}</td>
@@ -72,6 +84,8 @@
                      <td>{{ $p ->prix_s }}</td>
                     <td>{{ $p ->prix_j }}</td>
                     <td>{{ $p ->prix_h }}</td>
+                    <td>{{ $p ->cautionnement }}</td>
+
 
                     <td>{{ $p ->pays }}</td>
                     <td>{{ $p ->gouvernaurat }}</td>
@@ -97,16 +111,16 @@
                     <th> Local Name</th>
                     <th>Description</th>
                     <th>Photos</th>
-                    <th> Surface </th>
+                    <th> Area </th>
                     <th> Longitude</th>
                     <th>Altitude</th>
-                    <th>Price/Month</th>
-                    <th>Price/week</th>
-                    <th>Price/day</th>
-                    <th>Price/hour</th>
-
-                    <th>Pays</th>
-                    <th> Gouvernaurat</th>
+                    <th>Price TND/Month</th>
+                    <th>Price TND/week</th>
+                    <th>Price TND/day</th>
+                    <th>Price TND/hour</th>
+                   <th>Cautionnement</th>
+                    <th>Country</th>
+                    <th> Governorate</th>
                     <th> Adress</th>
                     <th>Bedrooms</th>
                     <th>Bathrooms</th>

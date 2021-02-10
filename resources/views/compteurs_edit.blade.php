@@ -13,7 +13,7 @@
 
 <div class="card card-secondary">
               <div class="card-header">
-                <h3 class="card-title">Edit Compteur</h3>
+                <h3 class="card-title">Edit Counter</h3>
               </div>
                @foreach($compteurs as $compteurs)
 
@@ -39,13 +39,13 @@
 
 
                  <div class="form-group">
-                    <label >Compteur Number</label>
+                    <label >Counter Number</label>
                     <input type="text" class="form-control"  placeholder="num_compteur" name="num_compteur" value="{{$compteurs->num_compteur}}">
                   </div>
 
 
                    <div class="form-group">
-                    <label >Compteur Type</label>
+                    <label >Counter Type</label>
   <input  class="form-control" type="text" name="id_type" value="{{$compteurs->type}}" disabled="true">
 
                     <!--  <select name="id_type" class="form-control">
@@ -55,8 +55,9 @@
 
 
                   <div class="form-group">
-                    <label >Pictures
+                    <label >Picture
                     </label>
+                     <img src="\images\uploads\2020\04\{{ $compteurs->photo}}"/>
                     <input type="file" class="form-control"  placeholder="" name="photo" value="{{$compteurs->photo}}">
                   </div>
 
@@ -66,7 +67,7 @@
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary" type="submit">Update</button>
 
-                             <a href="{{action('CompteurController@index')}}" class="btn btn-default">Back</a>
+                             <a href="{{url('comp_pro')}}" class="btn btn-default">Back</a>
                 </div>
               </form>
                                                          @endforeach

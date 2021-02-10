@@ -6,39 +6,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BonGest</title>
+  <title>Beyti</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> -->
-  <!-- Font Awesome -->
+
+
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 </head>
 
-<!-- <div class="page-head" style="background-repeat: no-repeat;background-position: center top;background-image: url('themes/realhomes/assets/classic/images/banner.jpg'); background-size: cover; ">
-        <div class="container">
-        <div class="wrap clearfix">
-            <h1 class="page-title"><span>Requests</span></h1>
-                    </div>
-    </div>
-    </div> --><!-- End Page Head -->
+
 
 <div class="row">
-    <div class="col-2">
 
 <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar col-2">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+        <img src="@if( !filter_var(Auth::user()->avatar, FILTER_VALIDATE_URL)){{ Voyager::image( Auth::user()->avatar ) }}@else{{ Auth::user()->avatar }}@endif"
+             class="avatar"
+             style="border-radius:50%; width:60px; height:60px; border:5px solid #fff;"
+             alt="{{ Auth::user()->name }} avatar">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->name}}</a>
+          <a href="http://127.0.0.1:8000/admin/profile" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -46,32 +40,35 @@
 
 
       <!-- Sidebar Menu -->
-      <nav class="mt-2">
+     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+                         <li class="nav-item">
+
             <a href="{{url('location')}}" class="nav-link ">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-home"></i>
               <p>
-                  Mes locaux
+                  My locals
 
               </p>
             </a>
-
+</li>
           <li class="nav-item">
             <a href="{{url('list_dem')}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-receipt"></i>
               <p>
-                    Demandes
+                    Requests
+
                 <span class="right badge badge-danger"></span>
               </p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{url('reclamation_loc')}}" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-exclamation"></i>
               <p>
-                Reclamations
+                Complaints
                 <span class="badge badge-info right"></span>
               </p>
             </a>
@@ -80,48 +77,38 @@
 
           <li class="nav-item">
             <a href="{{ url('/fact_loc') }}" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>
-                Factures
+                 Invoices              </p>
+
               </p>
             </a>
 
           </li>
-          <li class="nav-item">
-           <!--  <a href="{{ url('/tran_loc') }}" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Tranches
 
-              </p>
-            </a> -->
  <li class="nav-item">
             <a href="{{url('dashboard')}}" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-angle-right"></i>
               <p>
-                Change
+                Change User
 
               </p>
             </a>
 
           </li>
             </ul>
-          </li>
 
 
 
-            </ul>
-          </li>
-        </ul>
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
 
-</div>
-    <div class="col-9">
 
-         <div class="card">
+
+         <div class="card col-9">
 
               <div class="card-body">
 
@@ -130,9 +117,9 @@
                 <thead>
                   <tr role="row">
                             <th >Date </th>
-                            <th> Name Local </th>
-                            <th>Date Debut</th>
-                            <th> Date Fin</th>
+                            <th> Local Name </th>
+                             <th> Start Date </th>
+                            <th> End Date</th>
                            <th> Actions </th>
 
 
@@ -141,8 +128,7 @@
                 </thead>
                                 <tbody>
                                  @foreach($demandes as $d)
-                     @if ( $d->id_user == (Auth::user()->id))
-
+                               @if ( $d->id_user == (Auth::user()->id))
                                  <tr>
                                     <td> {{ $d ->dateDemande }} </td>
 
@@ -169,10 +155,10 @@
    @endforeach
 </tbody>
                 <tfoot>
-                 <tr>      <th>Date  </th>
-                            <th> Name Local</th>
-                            <th>Date Debut</th>
-                            <th> Date Fin</th>
+                 <tr>      <th >Date </th>
+                            <th> Local Name </th>
+                             <th> Start Date </th>
+                            <th> End Date</th>
                            <th> Actions </th>
 
 
@@ -185,7 +171,6 @@
             </div>
 
 </div>
-</div>
 
 
 <div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
@@ -193,9 +178,9 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
-            <h4 class="modal-title text-center" id="myModalLabely">Confirm Customer Deletion</h4>
+            <h4 class="modal-title text-center" id="myModalLabely">Confirm demand Deletion</h4>
 
-   <form id="frmdlt" action="{{action('LocauxController@destroy', -1)}}" method="post">
+   <form id="frmdlt" action="{{action('TestController@destroy', -1)}}" method="post">
 
 
 
@@ -213,7 +198,7 @@
 
 <div class="modal-footer">
 
-<button id="btn-close-del" type="button" data-href="{{action('LocauxController@destroy', -1)}}" class="btn btn-success" data-dismiss="modal" >Cancel</button>
+<button id="btn-close-del" type="button" data-href="{{action('TestController@destroy', -1)}}" class="btn btn-success" data-dismiss="modal" >Cancel</button>
 
 <button type="submit" class="btn btn-warning">Delete</button>
 
@@ -228,11 +213,54 @@
 
 
 
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-<script src = "{{ asset('js/jquery.dataTables.min.js') }}" defer ></script>
 
+@push('jscripts')
+<script src = "{{asset('js/jquery/jquery.dataTables.min.js')}}" defer ></script>
+<script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('plugins/datatables/dataTables.bootstrap.js') }}"></script>
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- DataTables -->
+<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('js/adminlte.min.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('js/demo.js') }}"></script>
+<script>
+   jQuery(document).ready(function () {
+    jQuery('#list_clients').dataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    });
+    jQuery('.dlte-cl').on('click', function(){
+      var url = jQuery('#frmdlt').attr('action').replace('-1', '') + jQuery(this).data('cltid');
+      jQuery('#frmdlt').attr('action', url);
+      return true;
+    });
+    jQuery('#delete').on('hidden.bs.modal', function () {
+      var href = jQuery('#btn-close-del').data('href');
+      jQuery('#frmdlt').attr('action', href);
+    });
+
+    });
+</script>
+
+@endpush
+
+<script src = "{{asset('js/jquery/jquery.dataTables.min.js')}}" defer ></script>
+
+
+<script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- DataTables -->
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
@@ -255,7 +283,7 @@
       "searching": true,
       "ordering": true,
       "info": true,
-      "autoWidth": false,
+      "autoWidth": true,
       "responsive": true,
     });
     jQuery('.dlte-cl').on('click', function(){
@@ -270,49 +298,6 @@
   });
 </script>
 
-@push('jscripts')
-<script src="{{ asset('js/app.js') }}"></script>
 
-<script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}"></script>
-<script src="{{ asset('plugins/datatables/dataTables.bootstrap.js') }}"></script>
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- DataTables -->
-<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('js/adminlte.min.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('js/demo.js') }}"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
-<script>
-   jQuery(document).ready(function () {
-    jQuery('#list_clients').dataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : true,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    });
 
-    });
-</script>
-@endpush
 @endsection
-
-
-
-
-
-
-

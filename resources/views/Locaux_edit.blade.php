@@ -15,7 +15,7 @@
 <div class="card card-secondary">
 
               <div class="card-header">
-                <h3 class="card-title">Edit Locale</h3>
+                <h3 class="card-title">Edit Local</h3>
                 </div>
 
 
@@ -27,7 +27,7 @@
     @method('PUT')
 
                            <div class="form-group row">
-                           <label class="col-md-12 col-form-label">Categorie
+                           <label class="col-md-12 col-form-label">Category
                        <!--       <select name="idCategories" disabled="true">
                         <option value="{{$locales->id}}" >{{$locales->slug}}</option>
 
@@ -51,11 +51,12 @@
            <input  class="form-control" type="text" name="description" value="{{$locales->description}}"></label></div>
 
  <div class="form-group row">
-                           <label class="col-md-12 col-form-label ">Photo
-                               <input  class="form-control" type="file" name="photo" value="{{$locales->photo}}"></label></div>
+                           <label class="col-md-12 col-form-label ">Photos
+                                                <img src="\images\uploads\2020\04\{{ $locales->photo}}"/>
+                               <input  class="form-control" type="file" name="photo" multiple="multiple" value="{{$locales->photo}}"></label></div>
 
  <div class="form-group row">
-                           <label class="col-md-12 col-form-label ">Surface
+                           <label class="col-md-12 col-form-label ">Area (m²)
                                 <input  class="form-control" type="text" name="surface" value="{{$locales->surface}}"></label></div>
 
  <div class="form-group row">
@@ -67,19 +68,19 @@
                                 <input  class="form-control" type="text" name="altitude" value="{{$locales->altitude}}"></label></div>
 
                              <div class="form-group row">
-                           <label class="col-md-12 col-form-label ">Price/Month
+                           <label class="col-md-12 col-form-label ">Price TND/Month
                                <input  class="form-control" type="text" name="prix" value="{{$locales->prix}}"></label></div>
 
                                <div class="form-group row">
-                           <label class="col-md-12 col-form-label ">Price/Week
+                           <label class="col-md-12 col-form-label ">Price TND/Week
                                <input  class="form-control" type="text" name="prix_s" value="{{$locales->prix_s}}"></label></div>
 
                                <div class="form-group row">
-                           <label class="col-md-12 col-form-label ">Price/Day
+                           <label class="col-md-12 col-form-label ">Price TND/Day
                                <input  class="form-control" type="text" name="prix_j" value="{{$locales->prix_j}}"></label></div>
 
                                <div class="form-group row">
-                           <label class="col-md-12 col-form-label ">Price/Hour
+                           <label class="col-md-12 col-form-label ">Price TND/Hour
                                <input  class="form-control" type="text" name="prix_h" value="{{$locales->prix_h}}"></label></div>
 
  <div class="form-group row">
@@ -87,11 +88,11 @@
                                 <input  class="form-control" type="text" name="cautionnement" value="{{$locales->cautionnement}}"></label></div>
 
  <div class="form-group row">
-                           <label class="col-md-12 col-form-label ">Pays
+                           <label class="col-md-12 col-form-label ">Country
                                <input  class="form-control" type="text" name="pays" value="{{$locales->pays}}"></label></div>
 
  <div class="form-group row">
-                           <label class="col-md-12 col-form-label ">Gouvernaurat
+                           <label class="col-md-12 col-form-label ">Governorate
                                <input  class="form-control" type="text" name="gouvernaurat" value="{{$locales->gouvernaurat}}"></label></div>
 
  <div class="form-group row">

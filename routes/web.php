@@ -23,6 +23,16 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
+Route::middleware ('auth', 'verified')->group (function () {
+    Route::resource ('profile', 'ProfileController', [
+        'only' => ['edit', 'update', 'destroy', 'show'],
+        'parameters' => ['profile' => 'user']
+    ]);
+
+
+});
+
+
 
 
 
@@ -64,11 +74,7 @@ Route::get('/conversations/{user}','MessageController@show')
 
 
 Route::post('/conversations/{user}','MessageController@store')
-->middleware('can:talkTo ,user');
-
-
-
-
+->middleware('can:talkTo,user');
 
 
 Route::get('list_dem','TestController@list_demande');
@@ -128,6 +134,7 @@ Route::post('searcch','TestController@search');
 Route::get('/search','HomeController@search');
 
 
+
 Route::get('app','HomeController@app');
 
 
@@ -161,8 +168,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/facture/pdf/{id}', 'FactureController@pdf');
     Route::get('fact_loc','FactureController@facture_loc');
     Route::get('fact_pro','FactureController@facture_pro');
-    Route::resource('facture', 'FactureController',
-                 ['only' => ['index']]);
+   /*  Route::resource('facture', 'FactureController',
+                 ['only' => ['index']]); */
     Route::resource('facture', 'FactureController',
                  ['expect' => ['create','store']]);
 });
@@ -177,11 +184,7 @@ Route::get('tran_pro','TranchController@tranch_pro');
 
 
 
-/* Route::prefix('admin')->middleware('admin')->group(function () {
 
-    Route::name('statistics')->get('statistiques/{year}', 'VoyagerStatistiquesController');
-
- */
 
 
 

@@ -42,11 +42,10 @@ class LocationController extends Controller
     {
 
      $demandes = DB::table('demandes')
-            ->join('tranches','demandes.id_tran','=','tranches.id')
+             ->join('tranches','demandes.id_locale','=','tranches.id_local')
             ->join('locales','demandes.id_locale','=','locales.id')
             ->join('users','demandes.id_user','=','users.id')
-            ->select('demandes.*','tranches.montant','locales.name_loc')
-            // ->where('locations.id', [$id])
+            ->select('demandes.*','locales.name_loc','demandes.id_locale','demandes.id_user','tranches.montant')
             ->get();
 
        return view('location',[

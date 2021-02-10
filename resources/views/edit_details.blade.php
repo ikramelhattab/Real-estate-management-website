@@ -3,6 +3,10 @@
 
 @section('content')
 
+<br>
+<br>
+<br>
+
 
            @if($errors->any())
            <div class="alert alert-danger">
@@ -17,7 +21,7 @@
 <!-- Content -->
 <div class="container contents detail">
     <div class="row">
-        <div class="span9 main-wrap">
+        <div class="span8 main-wrap">
 
             <!-- Main Content -->
             <div class="main">
@@ -25,65 +29,49 @@
                 <div id="overview">
             <div class="slider-main-wrapper">
          <div id="property-detail-flexslider" class="clearfix">
+         @foreach($demandes as $locdet)
+
              <div class="flexslider">
+                   @php $images =json_decode($locdet->photo);@endphp
+                                    @if($images)
+                                        @php $images = array_slice($images, 0, 5); @endphp
                 <ul class="slides">
-
-                    <li data-thumb="{{ asset('images/uploads/properties/70/cfecfabd7e01d0e5e964ed7fb2b1c868/9370.jpg')}}">
-                    <a href="{{ asset('images/uploads/properties/70/e594ce0d769d094255bdd7993a173a97/9370.jpg') }}" class="swipebox" rel="gallery_real_homes" >
-                    <img src="{{ asset('images/uploads/properties/70/1ca44144b12eb8cea7bb4dee29f36cbf/9370.jpg')}}" alt="Villa for Sale in Kalhat, Koura" /></a></li>
-
-                        <li data-thumb="{{ asset('images/uploads/properties/70/cfecfabd7e01d0e5e964ed7fb2b1c868/9370.jpg')}}">
-                    <a href="{{ asset('images/uploads/properties/70/e594ce0d769d094255bdd7993a173a97/9370.jpg') }}" class="swipebox" rel="gallery_real_homes" >
-                    <img src="{{ asset('images/uploads/properties/70/1ca44144b12eb8cea7bb4dee29f36cbf/9370.jpg')}}" alt="Villa for Sale in Kalhat, Koura" /></a></li>
-
-                       <li data-thumb="{{ asset('images/uploads/properties/70/cfecfabd7e01d0e5e964ed7fb2b1c868/9370.jpg')}}">
-                    <a href="{{ asset('images/uploads/properties/70/e594ce0d769d094255bdd7993a173a97/9370.jpg') }}" class="swipebox" rel="gallery_real_homes" >
-                    <img src="{{ asset('images/uploads/properties/70/1ca44144b12eb8cea7bb4dee29f36cbf/9370.jpg')}}" alt="Villa for Sale in Kalhat, Koura" /></a></li>
-
-                     <li data-thumb="{{ asset('images/uploads/properties/70/cfecfabd7e01d0e5e964ed7fb2b1c868/9370.jpg')}}">
-                    <a href="{{ asset('images/uploads/properties/70/e594ce0d769d094255bdd7993a173a97/9370.jpg') }}" class="swipebox" rel="gallery_real_homes" >
-                    <img src="{{ asset('images/uploads/properties/70/1ca44144b12eb8cea7bb4dee29f36cbf/9370.jpg')}}" alt="Villa for Sale in Kalhat, Koura" /></a></li>
-
+        
+                <li data-thumb="{{Voyager::image($images[0])}}"><a href="{{Voyager::image($images[0])}}" class="swipebox" rel="gallery_real_homes" ><img src="{{Voyager::image($images[0])}}" alt="100_0277" /></a></li>
+                 <li data-thumb="{{Voyager::image($images[1])}}"><a href="{{Voyager::image($images[1])}}" class="swipebox" rel="gallery_real_homes" ><img src="{{Voyager::image($images[1])}}" alt="100_0277" /></a></li>
+                <li data-thumb="{{Voyager::image($images[2])}}"><a href="{{Voyager::image($images[2])}}" class="swipebox" rel="gallery_real_homes" ><img src="{{Voyager::image($images[2])}}" alt="100_0277" /></a></li>
+                <li data-thumb="{{Voyager::image($images[3])}}"><a href="{{Voyager::image($images[3])}}" class="swipebox" rel="gallery_real_homes" ><img src="{{Voyager::image($images[3])}}" alt="100_0277" /></a></li>
+                <li data-thumb="{{Voyager::image($images[4])}}"><a href="{{Voyager::image($images[4])}}" class="swipebox" rel="gallery_real_homes" ><img src="{{Voyager::image($images[4])}}" alt="100_0277" /></a></li>
                     </ul>
+                                                        @endif
             </div>
         </div>
                 <div id="property-featured-image" class="clearfix only-for-print">
             <img src="{{ asset('images/uploads/properties/62/e594ce0d769d094255bdd7993a173a97/d90fe2c548b32f35df26480124451cc1.jpg')}}" alt="Villa for Sale in Kalhat, Koura" />        </div>
-                                            
+
                                 </div>
 
 
-@foreach($demandes as $locdet)
 <article class="property-item clearfix">
     <div class="wrap clearfix">
 
         <address class="title">
-         {{ $locdet->name_loc }}     ||        {{ $locdet->adress }}        </address>
+         {{ $locdet->name_loc }}     ||       {{ $locdet->adress }}  , {{ $locdet->gouvernaurat }}       </address>
         <h5 class="price">
             <span class="status-label">
                         </span>
             <span>
-              {{ $locdet->prix }} /Month <small> </small>            </span>
+              {{ $locdet->prix }} TND/Month <small> </small>            </span>
         </h5>
     </div>
 
     <div class="property-meta clearfix">
-        <span title="Property ID"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="17px" height="17px" viewBox="0 0 512 512" enable-background="new 0 0 24 24"  xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <g>
-    <g>
-      <path d="m464.1,67.7h-416.2c-19.8,0-36.4,15.6-36.4,36.4v303.8c0,19.8 15.6,36.4 36.4,36.4h416.1c19.8,0 36.4-16.6 36.4-37.4v-302.8c0.1-19.7-15.5-36.4-36.3-36.4zm16.6,339.1c0,9.4-7.3,16.6-16.6,16.6h-416.2c-9.4,0-16.6-7.3-16.6-16.6v-302.7c0-9.4 7.3-16.6 16.6-16.6h416.1c9.4,0 16.6,7.3 16.6,16.6v302.7z"/>
-      <path d="M178,134.3H69.8v108.2H178V134.3z M158.2,222.7H90.6v-67.6h67.6V222.7z"/>
-      <rect width="215.3" x="80.2" y="294.5" height="20.8"/>
-      <rect width="215.3" x="80.2" y="360" height="20.8"/>
-    </g>
-  </g>
-</svg>
-10009-97</span><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+   <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 <path class="path" d="M14 7.001H2.999C1.342 7 0 8.3 0 10v11c0 1.7 1.3 3 3 3H14c1.656 0 3-1.342 3-3V10 C17 8.3 15.7 7 14 7.001z M14.998 21c0 0.551-0.447 1-0.998 1.002H2.999C2.448 22 2 21.6 2 21V10 c0.001-0.551 0.449-0.999 1-0.999H14c0.551 0 1 0.4 1 0.999V21z"/>
 <path class="path" d="M14.266 0.293c-0.395-0.391-1.034-0.391-1.429 0c-0.395 0.39-0.395 1 0 1.415L13.132 2H3.869l0.295-0.292 c0.395-0.391 0.395-1.025 0-1.415c-0.394-0.391-1.034-0.391-1.428 0L0 3l2.736 2.707c0.394 0.4 1 0.4 1.4 0 c0.395-0.391 0.395-1.023 0-1.414L3.869 4.001h9.263l-0.295 0.292c-0.395 0.392-0.395 1 0 1.414s1.034 0.4 1.4 0L17 3 L14.266 0.293z"/>
 <path class="path" d="M18.293 9.734c-0.391 0.395-0.391 1 0 1.429s1.023 0.4 1.4 0L20 10.868v9.263l-0.292-0.295 c-0.392-0.395-1.024-0.395-1.415 0s-0.391 1 0 1.428L21 24l2.707-2.736c0.391-0.394 0.391-1.033 0-1.428s-1.023-0.395-1.414 0 l-0.292 0.295v-9.263l0.292 0.295c0.392 0.4 1 0.4 1.4 0s0.391-1.034 0-1.429L21 7L18.293 9.734z"/>
 </svg>
-{{ $locdet->surface }}  m</span><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+{{ $locdet->surface }}  m²</span><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 <circle class="circle" cx="5" cy="8.3" r="2.2"/>
 <path class="path" d="M0 22.999C0 23.6 0.4 24 1 24S2 23.6 2 22.999V18H2h20h0.001v4.999c0 0.6 0.4 1 1 1 C23.552 24 24 23.6 24 22.999V10C24 9.4 23.6 9 23 9C22.447 9 22 9.4 22 10v1H22h-0.999V10.5 C20.999 8 20 6 17.5 6H11C9.769 6.1 8.2 6.3 8 8v3H2H2V9C2 8.4 1.6 8 1 8S0 8.4 0 9V22.999z M10.021 8.2 C10.19 8.1 10.6 8 11 8h5.5c1.382 0 2.496-0.214 2.5 2.501v0.499h-9L10.021 8.174z M22 16H2v-2.999h20V16z"/>
 </svg>
@@ -105,64 +93,15 @@
     class="kk-star-ratings kksr-valign-top kksr-align-right kksr-disabled"
     data-id="92775"
     data-slug="">
-    <div class="kksr-stars">
-    <div class="kksr-stars-inactive">
-            <div class="kksr-star" data-star="1">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="2">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="3">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="4">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star" data-star="5">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-    </div>
-    <div class="kksr-stars-active" style="width: 62px;">
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-            <div class="kksr-star">
-            <div class="kksr-icon" style="width: 12px; height: 12px;"></div>
-        </div>
-    </div>
-</div>
-    <div class="kksr-legend">
-            <strong class="kksr-score">4.5</strong>
-        <span class="kksr-muted">/</span>
-        <strong>5</strong>
-        <span class="kksr-muted">(</span>
-        <strong class="kksr-count">58</strong>
-        <span class="kksr-muted">
-            votes        </span>
-        <span class="kksr-muted">)</span>
-    </div>
+
+
 <table class="table table-bordered table-striped">
 <thead>
-<tr> <th>Period </th><th>Montant</th></tr></thead>
+<tr> <th>Period </th><th>Amount(TND)</th></tr></thead>
 <tr><td>Week</td><td>{{ $locdet->prix_s }}</td></tr>
 <tr><td>Day</td><td>{{ $locdet->prix_j }}</td></tr>
 <tr><td>Hour</td><td>{{ $locdet->prix_h }}</td></tr>
-<thead>
-                  <tr >
-                            <th >Period </th>
-                            <th>Montant</th>
-                            </tr>
-                          </thead>
+
 </table>
 </div>
             @endforeach
@@ -174,12 +113,12 @@
     @method('PUT')
 
     <div class="form-group">
-      <label>Date Start Location</label>
+      <label>Start Date </label>
       <input class="form-control" type="date" name="dateDeb" placeholder="dateDeb" value="{{$d->dateDeb}}" />
     </div>
 
      <div class="form-group">
-                  <label> Date Fin Location</label>
+                  <label> End Date  </label>
                   <input type="date" class="form-control" name="datefin" placeholder="datefin" value="{{$d->datefin}}">
                 </div>
 

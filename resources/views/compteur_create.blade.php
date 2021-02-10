@@ -15,7 +15,7 @@
 
 <div class="card card-secondary">
               <div class="card-header">
-                <h3 class="card-title">Create new Compteur</h3>
+                <h3 class="card-title">Create new Counter</h3>
               </div>
                   <div class="card-body">
 
@@ -48,7 +48,7 @@
 
 
  <div class="form-group row">
-<label class="col-md-12 col-form-label ">Type Compteur
+<label class="col-md-12 col-form-label "> Counter Type
 <select name="id_type" class="form-control">
                           @foreach($typecomp as $c)
                           <option  value="{{$c->id}}">{{$c->type}}</option>
@@ -61,7 +61,7 @@
 
 
 <div class="form-group row">
-<label class="col-md-12 col-form-label ">Number of Compteur
+<label class="col-md-12 col-form-label "> Counter Number
 <input type="text" placeholder="num_compteur" name="num_compteur" class="form-control">
   </label>       </div>
 
@@ -86,7 +86,7 @@
                     <input data-repeater-create class="btn btn-primary" value="+" type="button" /> -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                 <a href="{{action('CompteurController@index')}}" class="btn btn-default">Back</a>
+                 <a href="{{url('comp_pro')}}" class="btn btn-default">Back</a>
 
                 </div>
                 </div>

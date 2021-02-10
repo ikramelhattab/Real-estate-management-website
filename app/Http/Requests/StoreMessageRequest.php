@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -13,9 +14,7 @@ class StoreMessageRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
-/*                return Auth::check();
- */
+               return Auth::check();
     }
 
     /**

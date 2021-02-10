@@ -36,11 +36,10 @@
                   <tr role="row">
                                <th> Local Name </th>
                              <!-- <th>Client Name</th> -->
-                            <th>Date Debut</th>
-                            <th>Date Fin</th>
-                            <th>Montant</th>
-
-                           <th>Action</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Amount(TND)</th>
+                          <th>Action</th>
 
 
 
@@ -82,9 +81,9 @@
                 <tfoot>
                  <tr>         <th> Local Name </th>
                              <!-- <th>Client Name</th> -->
-                            <th>Date Debut</th>
-                            <th>Date Fin</th>
-                            <th>Montant</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Amount(TND)</th>
                           <th>Action</th>
 
 

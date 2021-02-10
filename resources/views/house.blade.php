@@ -94,7 +94,7 @@
 
         <div class="detail">
             <h5 class="price">
-                {{ $villa->prix }} /Month <small> </small>            </h5>
+                {{ $villa->prix }} TND/Month <small> </small>            </h5>
             <p>{{ $villa->description }}</p>
             <a class="more-details" href="{{ url('details/'.$villa->id) }}">More Details <i class="fa fa-caret-right"></i></a>
         </div>
@@ -126,7 +126,7 @@
             <span class="compare_target dim"></span>
         </div>
         <a class="add-to-compare" data-property-id="94293" href="../../wp-admin/admin-ajax.html">
-            <i class="fa fa-plus-circle"></i>&nbsp;Add to Compare        </a>
+            <i class="fa fa-user"></i>&nbsp; {{ $villa->name }}        </a>
         </span>
         </div>
 

@@ -6,7 +6,7 @@
 
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -138,24 +138,11 @@ function showSlides() {
 </script>
 
 </body>
-</html>
+</html> -->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="SFOI clearfix" style="">
+<div class="SFOI clearfix" style="background: url('images/uploads/2017/08/bg-remax-dark.jpg') no-repeat top center; background-size: cover; ">
     <div class="SFOI__content">
          <h2 class="SFOI__title">Find properties</h2>
 
@@ -174,7 +161,7 @@ function showSlides() {
 
         <span class="selectwrap">
 
-        <input type="text" name="pays" id="pays" required placeholder="Any"  class="form-control"/>
+        <input type="text" name="pays" id="pays" required placeholder="Any"  class="form-control" value ="Tunisia" disabled="true"/>
 
         </span>
 	</div>
@@ -202,7 +189,7 @@ function showSlides() {
 
 <div class="option-bar small">
 	<label for="Bedrooms">
-		Min Beds	</label>
+		 Beds	</label>
     <span class="selectwrap">
               <input type="text" name="Bedrooms" id="Bedrooms" placeholder="Any" class="form-control"/>
     </span>
@@ -210,43 +197,43 @@ function showSlides() {
 
 <div class="option-bar small">
 	<label for="Bathrooms">
-		Min Baths	</label>
+		 Baths	</label>
     <span class="selectwrap">
                   <input type="text" name="Bathrooms" id="Bathrooms" required placeholder="Any" class="form-control"/>
   </span>
 </div>
 
-<div class="option-bar small ">
+<!-- <div class="option-bar small ">
 	<label for="prix">
 		Min Price	</label>
     <span class="selectwrap">
                       <input type="text" name="prix" id="prix" required placeholder="Any" class="form-control"/>
     </span>
-</div>
+</div> -->
 
 
 
 <div class="option-bar small ">
 	<label for="prix">
-		Max Price	</label>
+		 Price(TND)	</label>
     <span class="selectwrap">
                           <input type="text" name="prix" id="prix" required placeholder="Any" class="form-control"/>
     </span>
 </div>
 
 
-<div class="option-bar small">
+<!-- <div class="option-bar small">
 	<label for="surface">
 		Min Area		<span>(m²)</span>
 	</label>
 	<input type="text" name="surface" id="surface"  required placeholder="Any" class="form-control"/>
-</div>
+</div> -->
 
 
 
 <div class="option-bar small">
 	<label for="surface">
-		Max Area		<span>(m²)</span>
+		 Area		<span>(m²)</span>
 	</label>
 		<input type="text" name="surface" id="surface" required placeholder="Any" class="form-control"/>
 
@@ -280,19 +267,7 @@ function showSlides() {
 
 
 
-
-
-
-
-
-
-                                  
-
-      
-
-
 <div class="container">
-
     <div class="row">
 
         <div class="span12">
@@ -318,7 +293,6 @@ function showSlides() {
             <a href="{{ url('details/'.$blog->id) }}">
                 <img width="244" height="163" src="images/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-244x163.jpg" class="attachment-property-thumb-image size-property-thumb-image wp-post-image" alt="" srcset="https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-244x163.jpg 244w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-300x200.jpg 300w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e-150x100.jpg 150w, https://www.remax-tripoli.com/wp-content/uploads/properties/77/e594ce0d769d094255bdd7993a173a97/5b16370cc2fc09b9df54ee122a67f25e.jpg 500w" sizes="(max-width: 244px) 100vw, 244px" />            </a>
 
-            <figcaption class="for-sale">****</figcaption>
         </figure>
 
         <div class="detail">

@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | DataTables</title>
+  <title>Beyti</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -27,7 +27,8 @@
                   <thead>
                   <tr>
                     <th> Local Name</th>
-                    <th> Client Name</th>
+                    <th>Customer Name</th>
+                     <th> E-mail </th>
                     <th>Subject</th>
                     <th>File</th>
                     <th>Description</th>
@@ -35,13 +36,15 @@
                   </thead>
                   <tbody>
                 @foreach($reclamations as $rec)
-                     @if ( $rec->id_user <> (Auth::user()->id ) && ($rec->id == $rec->id_locale) && ($rec->id_user <> ($rec->id ) ))
+                  @if (($rec->id_user == Auth::user()->id) && ($rec->id_loc == $rec->id ) )
                   <tr>
-                    <td><a href="#" class="delete-modal loc-cl" data-toggle="modal" data-target="#local" data-loctid="{{$rec->id}}">{{ $rec ->name_loc }}</a></td>
-                   <td><a href="#" class="delete-modal loct-cl" data-toggle="modal" data-target="#locataire" data-cltid="{{$rec->id}}"> {{ $rec ->name }} </a></td>
+                    <td>{{ $rec->name_loc }}</td>
+                   <td> {{ $rec->name }} </td>
+                    <td> {{ $rec->email }} </td>
                     <td>{{ $rec->subject }}</td>
-                    <td>{{ $rec ->content }}</td>
-                    <td>{{ $rec ->description }}</td>
+
+                    <td><img src="\images\uploads\2020\04\{{ $rec->content}}"/></td>
+                    <td>{{ $rec->description }}</td>
                   </tr>
                   @endif
                 @endforeach
@@ -50,7 +53,8 @@
                   <tfoot>
                   <tr>
                     <th> Local Name</th>
-                    <th>Client Name </th>
+                    <th>Customer Name</th>
+                      <th> E-mail </th>
                     <th>Subject</th>
                     <th>File</th>
                     <th>Description</th>
@@ -89,12 +93,12 @@
             <div class="col-12 col-sm-12 col-md-12 d-flex align-items-stretch">
               <div class="card bg-light">
                 <div class="card-header text-muted border-bottom-0">
-{{$rec->name_loc}}                </div>
+               </div>
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-7">
-                      <h2 class="lead"><b>{{$rec->name_loc}} </b></h2>
-                      <p class="text-muted text-sm"><b>About: </b> {{$rec->description}} </p>
+                      <h2 class="lead"><b></b></h2>
+                      <p class="text-muted text-sm"><b>About: </b>  </p>
                       <ul class="ml-4 mb-0 fa-ul text-muted">
                         <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
                         <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>

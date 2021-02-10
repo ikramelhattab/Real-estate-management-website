@@ -28,10 +28,12 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-        </div>
+  <img src="@if( !filter_var(Auth::user()->avatar, FILTER_VALIDATE_URL)){{ Voyager::image( Auth::user()->avatar ) }}@else{{ Auth::user()->avatar }}@endif"
+             class="avatar"
+             style="border-radius:50%; width:60px; height:60px; border:5px solid #fff;"
+             alt="{{ Auth::user()->name }} avatar">        </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->name}}</a>
+          <a href="http://127.0.0.1:8000/admin/profile" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -43,28 +45,31 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+                         <li class="nav-item">
+
             <a href="{{url('location')}}" class="nav-link ">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-home"></i>
               <p>
-                  Mes locaux
+                  My locals
 
               </p>
             </a>
-
+</li>
           <li class="nav-item">
             <a href="{{url('list_dem')}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-receipt"></i>
               <p>
-                    Demandes
+                    Requests
+
                 <span class="right badge badge-danger"></span>
               </p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{url('reclamation_loc')}}" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-exclamation"></i>
               <p>
-                Reclamations
+                Complaints
                 <span class="badge badge-info right"></span>
               </p>
             </a>
@@ -73,39 +78,30 @@
 
           <li class="nav-item">
             <a href="{{ url('/fact_loc') }}" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>
-                Factures
+                 Invoices              </p>
+
               </p>
             </a>
 
           </li>
-          <li class="nav-item">
-           <!--  <a href="{{ url('/tran_loc') }}" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Tranches
 
-              </p>
-            </a> -->
  <li class="nav-item">
             <a href="{{url('dashboard')}}" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-angle-right"></i>
               <p>
-                Change
+                Change User
 
               </p>
             </a>
 
           </li>
             </ul>
-          </li>
 
 
 
-            </ul>
-          </li>
-        </ul>
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -129,9 +125,10 @@
                 <thead>
                   <tr role="row">
                             <th> Local Name </th>
-                            <th>Date Debut</th>
-                            <th>Date Fin</th>
-                             <th>Montant</th>
+                             <th> Start Date </th>
+                            <th> End Date</th>
+                             <th>Amount(TND)</th>
+
 
 
                         </tr>
@@ -139,15 +136,15 @@
                                 <tbody>
 
                               @foreach($loc as $l)
-                     @if (( $l->id_user == (Auth::user()->id)) && (($l->status) == 1  ))
+                     @if (( Auth::user()->id == $l->id_user) && ($l->status == 1 ) )
 
 
                                  <tr>
 
-                                    <td name="id_locale">{{$l->name_loc}} </td>
+                                    <td>{{$l->name_loc}} </td>
                                     <td> {{$l->dateDeb}} </td>
                                     <td> {{$l->datefin}} </td>
-                                    <td name="id_tran"> {{$l->montant}} /month </td>
+                                     <td name="id_local">{{$l->montant}} </td>
 
    </tr>
                                        @endif
@@ -156,10 +153,11 @@
 
 </tbody>
                 <tfoot>
-                 <tr>        <th> Local Name </th>
-                            <th>Date Debut</th>
-                            <th>Date Fin</th>
-                             <th>Montant</th>
+                 <tr>         <th> Local Name </th>
+                             <th> Start Date </th>
+                            <th> End Date</th>
+                             <th>Amount(TND)</th>
+
                   </tr>
 
                 </tfoot>
